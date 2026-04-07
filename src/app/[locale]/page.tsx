@@ -1,49 +1,47 @@
-import Link from "next/link";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { Link } from "@/i18n/routing";
 import TruthDemo from "./TruthDemo";
+import LanguageSwitcher from "./LanguageSwitcher";
 
-const samples = [
-  {
-    q: "I'm 34 and I feel like I've wasted my life.",
-    a: "You haven't wasted it — you're just finally awake enough to be scared. That fear is the most useful thing you've felt in years. Don't numb it. Pick one thing that matters and start tomorrow, ugly and unprepared.",
-  },
-  {
-    q: "My ex texted me 'hey'. Should I respond?",
-    a: "Here's the deal: one word after a breakup isn't an apology, a plan, or a future. It's boredom. If you respond, do it knowing you're the entertainment.",
-  },
-  {
-    q: "Everyone says my idea is amazing.",
-    a: "Everyone says that because it costs them nothing. Ask them to pre-order it. Watch the 'amazing' evaporate. Real validation has a dollar sign.",
-  },
-];
+export default async function Home({
+  params,
+}: {
+  params: { locale: string };
+}) {
+  setRequestLocale(params.locale);
+  const t = await getTranslations("home");
+  const tNav = await getTranslations("nav");
 
-export default function Home() {
+  const sampleKeys = ["wasted", "ex", "amazing"] as const;
+
   return (
     <main className="relative min-h-screen overflow-hidden">
       <nav className="absolute top-0 right-0 left-0 z-10 flex items-center justify-end gap-6 px-6 py-6 text-sm">
+        <LanguageSwitcher currentLocale={params.locale} />
         <Link href="/pricing" className="text-white/60 hover:text-gold transition">
-          Pricing
+          {tNav("pricing")}
         </Link>
         <Link href="/login" className="text-white/60 hover:text-gold transition">
-          Log in
+          {tNav("login")}
         </Link>
       </nav>
       <div className="mx-auto max-w-5xl px-6 py-20 md:py-28">
         <div className="animate-fade-in-up text-center">
           <p className="mb-4 text-xs uppercase tracking-[0.3em] text-gold/80">
-            Est. Truthfully
+            {t("tagline")}
           </p>
           <h1 className="font-serif text-6xl md:text-8xl font-bold tracking-tight gold-text">
-            MR. CAMDEN
+            {t("title")}
           </h1>
           <p className="mt-6 text-xl md:text-2xl text-white/80 italic font-serif">
-            The AI that won&rsquo;t kiss your behind.
+            {t("subtitle")}
           </p>
           <div className="mt-10">
             <Link
               href="/signup"
               className="inline-block rounded-sm border border-gold bg-gold-gradient px-8 py-4 font-semibold text-bg shadow-lg shadow-gold/20 transition hover:brightness-110"
             >
-              Try 3 Free Messages
+              {t("cta")}
             </Link>
           </div>
         </div>
@@ -51,29 +49,29 @@ export default function Home() {
         <TruthDemo />
 
         <div className="mt-24 grid gap-6 md:grid-cols-3">
-          {samples.map((s, i) => (
+          {sampleKeys.map((key, i) => (
             <div
-              key={i}
+              key={key}
               className="animate-fade-in-up rounded-sm border border-gold/20 bg-white/[0.02] p-6 backdrop-blur-sm"
               style={{ animationDelay: `${0.2 + i * 0.15}s` }}
             >
-              <p className="mb-3 text-sm text-white/50">You asked:</p>
+              <p className="mb-3 text-sm text-white/50">{t("youAsked")}</p>
               <p className="mb-5 font-serif text-lg text-white">
-                &ldquo;{s.q}&rdquo;
+                &ldquo;{t(`samples.${key}.q`)}&rdquo;
               </p>
               <div className="border-t border-gold/20 pt-4">
                 <p className="mb-2 text-xs uppercase tracking-widest text-gold">
-                  Mr. Camden
+                  {t("credit")}
                 </p>
-                <p className="text-white/80 leading-relaxed">{s.a}</p>
+                <p className="text-white/80 leading-relaxed">
+                  {t(`samples.${key}.a`)}
+                </p>
               </div>
             </div>
           ))}
         </div>
 
-        <p className="mt-20 text-center text-xs text-white/40">
-          No hedging. No hype. No &ldquo;great question!&rdquo;
-        </p>
+        <p className="mt-20 text-center text-xs text-white/40">{t("footer")}</p>
       </div>
     </main>
   );

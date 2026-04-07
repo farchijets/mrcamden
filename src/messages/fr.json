@@ -1,0 +1,114 @@
+{
+  "nav": {
+    "pricing": "Tarifs",
+    "login": "Connexion"
+  },
+  "home": {
+    "tagline": "Fondé sur la Vérité",
+    "title": "MR. CAMDEN",
+    "subtitle": "L'IA qui ne va pas te cirer les pompes.",
+    "cta": "Essaie 3 Messages Gratuits",
+    "youAsked": "Tu as demandé :",
+    "credit": "Mr. Camden",
+    "footer": "Sans détours. Sans flagornerie. Sans « excellente question ! »",
+    "samples": {
+      "wasted": {
+        "q": "J'ai 34 ans et j'ai l'impression d'avoir gâché ma vie.",
+        "a": "Tu ne l'as pas gâchée — tu es enfin assez lucide pour avoir peur. Cette peur est la chose la plus utile que tu aies ressentie depuis des années. Ne l'anesthésie pas. Choisis une chose qui compte et commence demain, mal préparé et tant pis."
+      },
+      "ex": {
+        "q": "Mon ex m'a écrit « salut ». Je réponds ?",
+        "a": "Voilà ce que j'en pense : un mot après une rupture, ce n'est ni des excuses, ni un plan, ni un avenir. C'est de l'ennui. Si tu réponds, fais-le en sachant que tu es le divertissement."
+      },
+      "amazing": {
+        "q": "Tout le monde dit que mon idée est géniale.",
+        "a": "Tout le monde le dit parce que ça ne leur coûte rien. Demande-leur de la précommander. Tu verras le « génial » s'évaporer. La vraie validation a un signe euro devant."
+      }
+    }
+  },
+  "demo": {
+    "label": "Essaie le Cadran de Vérité",
+    "question": "Devrais-je quitter mon job pour lancer ma boîte ?",
+    "dialLabel": "Cadran de Vérité",
+    "gentle": "Doux",
+    "real": "Franc",
+    "brutal": "Brutal",
+    "credit": "Mr. Camden",
+    "footer": "Bouge le cadran. Même question, différents niveaux de pitié.",
+    "answers": {
+      "1": {
+        "label": "Doux",
+        "text": "Rien que de poser la question, ça demande du cran. Avant de sauter, donne-toi une vraie piste d'envol — six à douze mois d'épargne, un plan grossier, et au moins une personne qui a dit oui avec son porte-monnaie. Ce n'est pas la peur qui parle, c'est le respect pour le rêve."
+      },
+      "3": {
+        "label": "Honnête",
+        "text": "Vouloir fort n'est pas un plan. La plupart de ceux qui démissionnent trop tôt se retrouvent à sec avant que l'idée ne prenne son envol. Épargne, rédige le plan, décroche un client qui paie avant de passer cette porte."
+      },
+      "5": {
+        "label": "Franc",
+        "text": "Écoute — la version romantique de cette histoire est un mensonge. Il te faut des économies, un plan, et au moins une personne prête à te payer avant d'avoir une entreprise. Sans ça, tu as un hobby avec un préavis."
+      },
+      "7": {
+        "label": "Direct",
+        "text": "Tu ne me poses pas une question, tu me demandes la permission. Je ne te la donne pas. Trouve d'abord un client payant. En attendant, ton boulot finance ton fantasme."
+      },
+      "10": {
+        "label": "Brutal",
+        "text": "Soyons clairs : la plupart de ceux qui « plaquent tout pour leur rêve » reviennent à quatre pattes dix-huit mois plus tard — plus pauvres, plus discrets, en prétendant que c'était une expérience formatrice. Tu n'as pas d'entreprise. Tu as une sensation. Les sensations ne paient pas le loyer. Construis-la le soir et le week-end. Si elle survit à ça, on reparlera de démission."
+      }
+    }
+  },
+  "chat": {
+    "credits": "Crédits",
+    "empty": "Demande. Accroche-toi.",
+    "placeholder": "Dis-moi ce qui te trotte dans la tête...",
+    "outOfCreditsPlaceholder": "Plus de crédits",
+    "send": "Envoyer",
+    "outOfCreditsTitle": "Plus de crédits.",
+    "outOfCreditsBody": "La vérité n'est pas gratuite. Recharge.",
+    "seePricing": "Voir les tarifs",
+    "truthDial": "Cadran de Vérité",
+    "gentle": "Doux",
+    "real": "Franc",
+    "blunt": "Direct",
+    "brutal": "Brutal",
+    "credit": "Mr. Camden"
+  },
+  "auth": {
+    "signupTitle": "Obtiens 3 messages gratuits",
+    "signupSubtitle": "Prépare-toi à ne pas être flatté.",
+    "loginTitle": "Re-bonjour",
+    "loginSubtitle": "Pas de tapis rouge ici.",
+    "emailPlaceholder": "E-mail",
+    "passwordPlaceholder": "Mot de passe",
+    "passwordSignupPlaceholder": "Mot de passe (6+ caractères)",
+    "create": "Créer un compte",
+    "creating": "Création...",
+    "signIn": "Se connecter",
+    "signingIn": "Connexion...",
+    "haveAccount": "Déjà un compte ?",
+    "noAccount": "Pas de compte ?",
+    "signInLink": "Se connecter",
+    "signUpLink": "S'inscrire",
+    "checkEmailTitle": "Vérifie tes e-mails",
+    "checkEmailBody": "Nous avons envoyé un lien de confirmation à {email}. Clique dessus pour activer ton compte et récupérer tes 3 messages gratuits."
+  },
+  "pricing": {
+    "brand": "MR. CAMDEN",
+    "title": "La vérité, à la douzaine.",
+    "subtitle": "Un crédit par message.",
+    "credits": "{n} crédits",
+    "popular": "Le plus choisi",
+    "buy": "Acheter",
+    "redirecting": "Redirection...",
+    "errorGeneric": "Quelque chose a cassé.",
+    "tiers": {
+      "small": { "blurb": "Un avant-goût du réel." },
+      "medium": { "blurb": "Pour les vraiment curieux." },
+      "large": { "blurb": "Pour les vraiment lucides." }
+    }
+  },
+  "language": {
+    "label": "Langue"
+  }
+}

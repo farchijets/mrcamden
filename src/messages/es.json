@@ -1,0 +1,114 @@
+{
+  "nav": {
+    "pricing": "Precios",
+    "login": "Entrar"
+  },
+  "home": {
+    "tagline": "Fundado con la Verdad",
+    "title": "MR. CAMDEN",
+    "subtitle": "La IA que no te va a dorar la píldora.",
+    "cta": "Prueba 3 Mensajes Gratis",
+    "youAsked": "Preguntaste:",
+    "credit": "Mr. Camden",
+    "footer": "Sin rodeos. Sin postureo. Sin \"¡qué buena pregunta!\"",
+    "samples": {
+      "wasted": {
+        "q": "Tengo 34 y siento que he desperdiciado mi vida.",
+        "a": "No la has desperdiciado — por fin estás lo bastante despierto para asustarte. Ese miedo es lo más útil que has sentido en años. No lo silencies. Elige algo que importe y empieza mañana, feo y sin estar listo."
+      },
+      "ex": {
+        "q": "Mi ex me escribió 'hola'. ¿Le respondo?",
+        "a": "Te lo digo claro: una palabra después de una ruptura no es una disculpa, ni un plan, ni un futuro. Es aburrimiento. Si respondes, hazlo sabiendo que eres el entretenimiento."
+      },
+      "amazing": {
+        "q": "Todos dicen que mi idea es genial.",
+        "a": "Todos lo dicen porque no les cuesta nada. Pídeles que la reserven pagando por adelantado. Verás cómo se evapora lo de 'genial'. La validación de verdad lleva un signo de euro."
+      }
+    }
+  },
+  "demo": {
+    "label": "Prueba el Dial de la Verdad",
+    "question": "¿Debería dejar mi trabajo para montar mi negocio?",
+    "dialLabel": "Dial de la Verdad",
+    "gentle": "Suave",
+    "real": "Real",
+    "brutal": "Brutal",
+    "credit": "Mr. Camden",
+    "footer": "Mueve el dial. Misma pregunta, distintos niveles de piedad.",
+    "answers": {
+      "1": {
+        "label": "Suave",
+        "text": "Hace falta valor solo para preguntarlo. Antes de saltar, date una pista de verdad: seis a doce meses de ahorro, un plan aunque sea tosco, y al menos una persona que haya dicho que sí con la cartera. Eso no es miedo, es respeto por el sueño."
+      },
+      "3": {
+        "label": "Honesto",
+        "text": "Quererlo mucho no es un plan. La mayoría de los que dejan el trabajo antes de tiempo se quedan sin dinero antes de que la idea arranque. Ahorra, escribe el plan, y consigue un cliente que pague antes de cruzar esa puerta."
+      },
+      "5": {
+        "label": "Real",
+        "text": "Mira — la versión romántica de esta historia es mentira. Necesitas ahorros, un plan y al menos una persona dispuesta a pagarte antes de tener un negocio. Hasta entonces, tienes un hobby con periodo de preaviso."
+      },
+      "7": {
+        "label": "Directo",
+        "text": "No me estás haciendo una pregunta, me estás pidiendo permiso. No te lo voy a dar. Consigue primero un cliente que pague. Hasta entonces, tu trabajo está financiando tu fantasía."
+      },
+      "10": {
+        "label": "Brutal",
+        "text": "Te lo digo sin anestesia: la mayoría de los que 'dejan todo para perseguir el sueño' vuelven arrastrándose a los 18 meses — más pobres, más callados, y fingiendo que fue una experiencia de aprendizaje. No tienes un negocio. Tienes una sensación. Las sensaciones no pagan el alquiler. Móntalo por las noches y los fines de semana. Si sobrevive a eso, hablamos de dejarlo."
+      }
+    }
+  },
+  "chat": {
+    "credits": "Créditos",
+    "empty": "Pregunta. Y prepárate.",
+    "placeholder": "Cuéntame qué te ronda la cabeza...",
+    "outOfCreditsPlaceholder": "Sin créditos",
+    "send": "Enviar",
+    "outOfCreditsTitle": "Sin créditos.",
+    "outOfCreditsBody": "La verdad no es gratis. Consigue más.",
+    "seePricing": "Ver Precios",
+    "truthDial": "Dial de la Verdad",
+    "gentle": "Suave",
+    "real": "Real",
+    "blunt": "Directo",
+    "brutal": "Brutal",
+    "credit": "Mr. Camden"
+  },
+  "auth": {
+    "signupTitle": "Consigue 3 mensajes gratis",
+    "signupSubtitle": "Prepárate para no ser halagado.",
+    "loginTitle": "Bienvenido de nuevo",
+    "loginSubtitle": "Aquí nadie te lleva de la mano.",
+    "emailPlaceholder": "Correo",
+    "passwordPlaceholder": "Contraseña",
+    "passwordSignupPlaceholder": "Contraseña (6+ caracteres)",
+    "create": "Crear Cuenta",
+    "creating": "Creando...",
+    "signIn": "Entrar",
+    "signingIn": "Entrando...",
+    "haveAccount": "¿Ya tienes cuenta?",
+    "noAccount": "¿No tienes cuenta?",
+    "signInLink": "Entrar",
+    "signUpLink": "Regístrate",
+    "checkEmailTitle": "Revisa tu correo",
+    "checkEmailBody": "Enviamos un enlace de confirmación a {email}. Haz clic para activar tu cuenta y reclamar tus 3 mensajes gratis."
+  },
+  "pricing": {
+    "brand": "MR. CAMDEN",
+    "title": "La verdad, por docena.",
+    "subtitle": "Un crédito por mensaje.",
+    "credits": "{n} créditos",
+    "popular": "El más popular",
+    "buy": "Comprar",
+    "redirecting": "Redirigiendo...",
+    "errorGeneric": "Algo se rompió.",
+    "tiers": {
+      "small": { "blurb": "Un sorbo de realidad." },
+      "medium": { "blurb": "Para los genuinamente curiosos." },
+      "large": { "blurb": "Para los verdaderamente conscientes." }
+    }
+  },
+  "language": {
+    "label": "Idioma"
+  }
+}

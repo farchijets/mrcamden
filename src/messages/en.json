@@ -1,0 +1,114 @@
+{
+  "nav": {
+    "pricing": "Pricing",
+    "login": "Log in"
+  },
+  "home": {
+    "tagline": "Est. Truthfully",
+    "title": "MR. CAMDEN",
+    "subtitle": "The AI that won't kiss your behind.",
+    "cta": "Try 3 Free Messages",
+    "youAsked": "You asked:",
+    "credit": "Mr. Camden",
+    "footer": "No hedging. No hype. No \"great question!\"",
+    "samples": {
+      "wasted": {
+        "q": "I'm 34 and I feel like I've wasted my life.",
+        "a": "You haven't wasted it — you're just finally awake enough to be scared. That fear is the most useful thing you've felt in years. Don't numb it. Pick one thing that matters and start tomorrow, ugly and unprepared."
+      },
+      "ex": {
+        "q": "My ex texted me 'hey'. Should I respond?",
+        "a": "Here's the deal: one word after a breakup isn't an apology, a plan, or a future. It's boredom. If you respond, do it knowing you're the entertainment."
+      },
+      "amazing": {
+        "q": "Everyone says my idea is amazing.",
+        "a": "Everyone says that because it costs them nothing. Ask them to pre-order it. Watch the 'amazing' evaporate. Real validation has a dollar sign."
+      }
+    }
+  },
+  "demo": {
+    "label": "Try the Truth Dial",
+    "question": "Should I quit my job to start my business?",
+    "dialLabel": "Truth Dial",
+    "gentle": "Gentle",
+    "real": "Real",
+    "brutal": "Brutal",
+    "credit": "Mr. Camden",
+    "footer": "Drag the dial. Same question, different levels of mercy.",
+    "answers": {
+      "1": {
+        "label": "Gentle",
+        "text": "It takes guts to even ask. Before you leap, give yourself a real runway — six to twelve months of savings, a rough plan, and at least one person who's said yes with their wallet. That isn't fear talking, that's respect for the dream."
+      },
+      "3": {
+        "label": "Honest",
+        "text": "Wanting it badly isn't a plan. Most people who quit early run out of money before the idea finds its legs. Build savings, write the plan, and land one paying customer before you walk out that door."
+      },
+      "5": {
+        "label": "Real",
+        "text": "Look — the romantic version of this story is a lie. You need savings, a plan, and at least one person willing to pay you before you have a business. Until then, you have a hobby with a notice period."
+      },
+      "7": {
+        "label": "Blunt",
+        "text": "You're not asking me a question, you're asking for permission. I'm not giving it. Get a paying customer first. Until then, your job is funding your fantasy."
+      },
+      "10": {
+        "label": "Brutal",
+        "text": "Here's the deal: most people who 'quit to chase the dream' come crawling back in 18 months — poorer, quieter, and pretending it was a learning experience. You don't have a business. You have a feeling. Feelings don't pay rent. Build it nights and weekends. If it survives that, then we'll talk about quitting."
+      }
+    }
+  },
+  "chat": {
+    "credits": "Credits",
+    "empty": "Ask. Brace yourself.",
+    "placeholder": "Tell me what's on your mind...",
+    "outOfCreditsPlaceholder": "Out of credits",
+    "send": "Send",
+    "outOfCreditsTitle": "Out of credits.",
+    "outOfCreditsBody": "The truth isn't free. Grab more.",
+    "seePricing": "See Pricing",
+    "truthDial": "Truth Dial",
+    "gentle": "Gentle",
+    "real": "Real",
+    "blunt": "Blunt",
+    "brutal": "Brutal",
+    "credit": "Mr. Camden"
+  },
+  "auth": {
+    "signupTitle": "Get 3 free messages",
+    "signupSubtitle": "Prepare to be unflattered.",
+    "loginTitle": "Welcome back",
+    "loginSubtitle": "No hand-holding here.",
+    "emailPlaceholder": "Email",
+    "passwordPlaceholder": "Password",
+    "passwordSignupPlaceholder": "Password (6+ chars)",
+    "create": "Create Account",
+    "creating": "Creating...",
+    "signIn": "Sign In",
+    "signingIn": "Signing in...",
+    "haveAccount": "Already have an account?",
+    "noAccount": "No account?",
+    "signInLink": "Sign in",
+    "signUpLink": "Sign up",
+    "checkEmailTitle": "Check your email",
+    "checkEmailBody": "We sent a confirmation link to {email}. Click it to activate your account and claim your 3 free messages."
+  },
+  "pricing": {
+    "brand": "MR. CAMDEN",
+    "title": "Truth, by the dozen.",
+    "subtitle": "One credit per message.",
+    "credits": "{n} credits",
+    "popular": "Most Popular",
+    "buy": "Buy",
+    "redirecting": "Redirecting...",
+    "errorGeneric": "Something broke.",
+    "tiers": {
+      "small": { "blurb": "A taste of reality." },
+      "medium": { "blurb": "For the genuinely curious." },
+      "large": { "blurb": "For the truly self-aware." }
+    }
+  },
+  "language": {
+    "label": "Language"
+  }
+}

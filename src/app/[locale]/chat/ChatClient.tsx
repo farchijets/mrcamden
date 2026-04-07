@@ -1,14 +1,19 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/routing";
+import LanguageSwitcher from "../LanguageSwitcher";
 
 type Msg = { role: "user" | "assistant"; content: string };
 
 export default function ChatClient({
   initialCredits,
+  locale,
 }: {
   initialCredits: number;
+  locale: string;
 }) {
+  const t = useTranslations("chat");
   const [messages, setMessages] = useState<Msg[]>([]);
   const [input, setInput] = useState("");
   const [credits, setCredits] = useState(initialCredits);
@@ -17,7 +22,13 @@ export default function ChatClient({
   const [truth, setTruth] = useState(5);
 
   const truthLabel =
-    truth <= 3 ? "Gentle" : truth <= 6 ? "Real" : truth <= 8 ? "Blunt" : "Brutal";
+    truth <= 3
+      ? t("gentle")
+      : truth <= 6
+        ? t("real")
+        : truth <= 8
+          ? t("blunt")
+          : t("brutal");
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -41,7 +52,7 @@ export default function ChatClient({
       const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages: newMessages, truth }),
+        body: JSON.stringify({ messages: newMessages, truth, locale }),
       });
 
       if (res.status === 402) {
@@ -66,15 +77,15 @@ export default function ChatClient({
   return (
     <main className="flex flex-col h-screen">
       <header className="border-b border-gold/20 px-6 py-4 flex items-center justify-between">
-        <Link
-          href="/"
-          className="font-serif text-2xl gold-text tracking-wide"
-        >
+        <Link href="/" className="font-serif text-2xl gold-text tracking-wide">
           MR. CAMDEN
         </Link>
-        <div className="text-sm">
-          <span className="text-white/50">Credits: </span>
-          <span className="text-gold font-semibold">{credits}</span>
+        <div className="flex items-center gap-4">
+          <LanguageSwitcher currentLocale={locale} />
+          <div className="text-sm">
+            <span className="text-white/50">{t("credits")}: </span>
+            <span className="text-gold font-semibold">{credits}</span>
+          </div>
         </div>
       </header>
 
@@ -82,7 +93,7 @@ export default function ChatClient({
         <div className="max-w-3xl mx-auto space-y-4">
           {messages.length === 0 && (
             <div className="text-center text-white/40 mt-12">
-              <p className="font-serif text-xl">Ask. Brace yourself.</p>
+              <p className="font-serif text-xl">{t("empty")}</p>
             </div>
           )}
           {messages.map((m, i) => (
@@ -99,12 +110,10 @@ export default function ChatClient({
               >
                 {m.role === "assistant" && (
                   <p className="text-xs uppercase tracking-widest text-gold mb-1">
-                    Mr. Camden
+                    {t("credit")}
                   </p>
                 )}
-                <p className="whitespace-pre-wrap text-white/90">
-                  {m.content}
-                </p>
+                <p className="whitespace-pre-wrap text-white/90">{m.content}</p>
               </div>
             </div>
           ))}
@@ -128,29 +137,26 @@ export default function ChatClient({
           {outOfCredits && (
             <div className="mt-8 rounded-sm border border-gold/40 bg-gold/5 p-6 text-center">
               <p className="font-serif text-2xl gold-text mb-2">
-                Out of credits.
+                {t("outOfCreditsTitle")}
               </p>
-              <p className="text-white/70 mb-4">
-                The truth isn&rsquo;t free. Grab more.
-              </p>
+              <p className="text-white/70 mb-4">{t("outOfCreditsBody")}</p>
               <Link
                 href="/pricing"
                 className="inline-block bg-gold-gradient text-bg font-semibold px-6 py-3 rounded-sm"
               >
-                See Pricing
+                {t("seePricing")}
               </Link>
             </div>
           )}
         </div>
       </div>
 
-      <form
-        onSubmit={send}
-        className="border-t border-gold/20 px-4 py-4 bg-bg"
-      >
+      <form onSubmit={send} className="border-t border-gold/20 px-4 py-4 bg-bg">
         <div className="max-w-3xl mx-auto mb-3">
           <div className="flex items-center justify-between mb-1 text-xs">
-            <span className="uppercase tracking-widest text-gold/80">Truth Dial</span>
+            <span className="uppercase tracking-widest text-gold/80">
+              {t("truthDial")}
+            </span>
             <span className="text-gold font-semibold">
               {truth}/10 — {truthLabel}
             </span>
@@ -165,9 +171,9 @@ export default function ChatClient({
             className="truth-slider w-full"
           />
           <div className="flex justify-between text-[10px] text-white/40 uppercase tracking-widest mt-1">
-            <span>Gentle</span>
-            <span>Real</span>
-            <span>Brutal</span>
+            <span>{t("gentle")}</span>
+            <span>{t("real")}</span>
+            <span>{t("brutal")}</span>
           </div>
         </div>
         <div className="max-w-3xl mx-auto flex gap-3">
@@ -176,7 +182,7 @@ export default function ChatClient({
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder={
-              outOfCredits ? "Out of credits" : "Tell me what's on your mind..."
+              outOfCredits ? t("outOfCreditsPlaceholder") : t("placeholder")
             }
             disabled={outOfCredits || loading}
             className="flex-1 bg-black/50 border border-white/10 rounded-sm px-4 py-3 text-white focus:border-gold outline-none disabled:opacity-50"
@@ -186,7 +192,7 @@ export default function ChatClient({
             disabled={outOfCredits || loading || !input.trim()}
             className="bg-gold-gradient text-bg font-semibold px-6 rounded-sm disabled:opacity-30"
           >
-            Send
+            {t("send")}
           </button>
         </div>
       </form>

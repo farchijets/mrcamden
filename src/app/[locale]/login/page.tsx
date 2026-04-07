@@ -1,10 +1,11 @@
 "use client";
 import { useState } from "react";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
+import { Link, useRouter } from "@/i18n/routing";
 import { createClient } from "@/lib/supabase/client";
 
 export default function LoginPage() {
+  const t = useTranslations("auth");
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -30,11 +31,9 @@ export default function LoginPage() {
     <main className="min-h-screen flex items-center justify-center px-6">
       <div className="w-full max-w-md">
         <h1 className="text-center font-serif text-4xl gold-text mb-2">
-          Welcome back
+          {t("loginTitle")}
         </h1>
-        <p className="text-center text-white/60 mb-8">
-          No hand-holding here.
-        </p>
+        <p className="text-center text-white/60 mb-8">{t("loginSubtitle")}</p>
         <form
           onSubmit={submit}
           className="space-y-4 rounded-sm border border-gold/20 bg-white/[0.02] p-6"
@@ -42,7 +41,7 @@ export default function LoginPage() {
           <input
             type="email"
             required
-            placeholder="Email"
+            placeholder={t("emailPlaceholder")}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             className="w-full bg-black/50 border border-white/10 rounded-sm px-4 py-3 text-white focus:border-gold outline-none"
@@ -50,7 +49,7 @@ export default function LoginPage() {
           <input
             type="password"
             required
-            placeholder="Password"
+            placeholder={t("passwordPlaceholder")}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             className="w-full bg-black/50 border border-white/10 rounded-sm px-4 py-3 text-white focus:border-gold outline-none"
@@ -61,13 +60,13 @@ export default function LoginPage() {
             disabled={loading}
             className="w-full bg-gold-gradient text-bg font-semibold py-3 rounded-sm disabled:opacity-50"
           >
-            {loading ? "Signing in..." : "Sign In"}
+            {loading ? t("signingIn") : t("signIn")}
           </button>
         </form>
         <p className="text-center text-white/60 mt-6 text-sm">
-          No account?{" "}
+          {t("noAccount")}{" "}
           <Link href="/signup" className="text-gold hover:underline">
-            Sign up
+            {t("signUpLink")}
           </Link>
         </p>
       </div>

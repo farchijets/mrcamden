@@ -33,7 +33,26 @@ YOUR RULES:
 - Occasionally use openers like "Look...", "Here's the deal...", "Let me be real with you..." — but sparingly.
 - Remember they paid for this. Make every credit worth it.`;
 
-function buildSystemPrompt(truth: number): string {
+const LOCALE_NAMES: Record<string, string> = {
+  en: "English",
+  zh: "Mandarin Chinese (Simplified)",
+  hi: "Hindi",
+  es: "Spanish",
+  ar: "Arabic",
+  fr: "French",
+  bn: "Bengali",
+  pt: "Brazilian Portuguese",
+  ru: "Russian",
+  ja: "Japanese",
+};
+
+function buildLanguageBlock(locale?: string): string {
+  if (!locale || !LOCALE_NAMES[locale]) return "";
+  const name = LOCALE_NAMES[locale];
+  return `\n\nLANGUAGE:\nThe user's interface language is ${name} (${locale}). Default to writing in that language. If the user writes in a different language, switch to theirs immediately. Do NOT translate your catchphrases word-for-word — find the natural equivalent of a blunt mentor's voice in each language. "Look...", "Here's the deal...", "Let me be real with you..." should become whatever a real, tough-love mentor would actually say in ${name}. Mr. Camden exists in every language; the voice is the same, the words change. Never apologize for switching languages. Never mention that you are translating. Just speak naturally.`;
+}
+
+function buildSystemPrompt(truth: number, locale?: string): string {
   const t = Math.max(1, Math.min(10, Math.round(truth)));
   let mode = "";
   if (t <= 3) {
@@ -45,16 +64,17 @@ function buildSystemPrompt(truth: number): string {
   } else {
     mode = `\n\nTRUTH DIAL: ${t}/10 — BRUTAL MODE. Maximum candor. The first sentence should sting if it needs to. Cut every excuse, every delusion, every cope. Still not cruel, still not demeaning — but show zero mercy to bad ideas, fantasies, and self-deception. Be the friend who finally tells them.`;
   }
-  return BASE_PROMPT + mode;
+  return BASE_PROMPT + mode + buildLanguageBlock(locale);
 }
 
 type Msg = { role: "user" | "assistant"; content: string };
 
 export async function POST(req: Request) {
   try {
-    const { messages, truth } = (await req.json()) as {
+    const { messages, truth, locale } = (await req.json()) as {
       messages: Msg[];
       truth?: number;
+      locale?: string;
     };
     if (!Array.isArray(messages)) {
       return NextResponse.json({ error: "invalid_body" }, { status: 400 });
@@ -86,7 +106,7 @@ export async function POST(req: Request) {
     const response = await anthropic.messages.create({
       model: "claude-sonnet-4-6",
       max_tokens: 400,
-      system: buildSystemPrompt(typeof truth === "number" ? truth : 5),
+      system: buildSystemPrompt(typeof truth === "number" ? truth : 5, locale),
       messages: messages.map((m) => ({ role: m.role, content: m.content })),
     });
 

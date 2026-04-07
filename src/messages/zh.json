@@ -1,0 +1,114 @@
+{
+  "nav": {
+    "pricing": "价格",
+    "login": "登录"
+  },
+  "home": {
+    "tagline": "以真话立业",
+    "title": "MR. CAMDEN",
+    "subtitle": "不会拍你马屁的AI。",
+    "cta": "免费试用 3 条消息",
+    "youAsked": "你问：",
+    "credit": "Mr. Camden",
+    "footer": "不绕弯子。不吹捧。不说\"好问题！\"",
+    "samples": {
+      "wasted": {
+        "q": "我 34 岁了，感觉这辈子白活了。",
+        "a": "你没白活 — 你只是终于清醒到能感到害怕。这份害怕是这些年最有用的感觉。别麻痹它。挑一件真正重要的事，明天就开始，哪怕笨拙、哪怕还没准备好。"
+      },
+      "ex": {
+        "q": "前任给我发了一句\"嗨\"，要不要回？",
+        "a": "我跟你直说：分手后一句话不是道歉，不是计划，也不是未来。那只是无聊。你要回，就认清楚你是他的消遣。"
+      },
+      "amazing": {
+        "q": "大家都说我这个点子很棒。",
+        "a": "大家这么说，是因为这对他们一点成本都没有。让他们先付钱预订一份试试，\"很棒\"马上就蒸发了。真正的认可是带价签的。"
+      }
+    }
+  },
+  "demo": {
+    "label": "试试真话旋钮",
+    "question": "我该辞职去创业吗？",
+    "dialLabel": "真话旋钮",
+    "gentle": "温和",
+    "real": "直白",
+    "brutal": "狠话",
+    "credit": "Mr. Camden",
+    "footer": "拖动旋钮。同一个问题，不同程度的慈悲。",
+    "answers": {
+      "1": {
+        "label": "温和",
+        "text": "能问出这个问题本身就需要勇气。跳之前，给自己一条真正的跑道 — 六到十二个月的存款、一份哪怕粗糙的计划，以及至少一个用钱包说\"愿意\"的人。这不是怯懦，是对梦想的尊重。"
+      },
+      "3": {
+        "label": "坦诚",
+        "text": "渴望不是计划。大多数太早辞职的人，是在点子站起来之前就没钱了。先攒钱、写计划，找到一个肯付钱的客户，再走出那扇门。"
+      },
+      "5": {
+        "label": "直白",
+        "text": "听着 — 这个故事的浪漫版本是假的。你得有积蓄、有计划，还得有至少一个愿意付钱给你的人，这才叫生意。在那之前，你只是有一个带离职期的爱好。"
+      },
+      "7": {
+        "label": "不留情",
+        "text": "你不是在问我问题，你是在求我批准。我不给。先找到一个付钱的客户。在那之前，你的工作是在供养你的幻想。"
+      },
+      "10": {
+        "label": "狠话",
+        "text": "话说白了：大多数\"辞职追梦\"的人，十八个月后都灰头土脸地爬回来 — 更穷、更安静、还装作那是一次\"成长体验\"。你没有生意，你有的只是感觉。感觉付不起房租。先利用晚上和周末去做。要是这样还能活下来，我们再谈辞职。"
+      }
+    }
+  },
+  "chat": {
+    "credits": "点数",
+    "empty": "问吧。做好心理准备。",
+    "placeholder": "告诉我你在想什么...",
+    "outOfCreditsPlaceholder": "点数已用尽",
+    "send": "发送",
+    "outOfCreditsTitle": "点数已用尽。",
+    "outOfCreditsBody": "真话不是免费的。去充点。",
+    "seePricing": "查看价格",
+    "truthDial": "真话旋钮",
+    "gentle": "温和",
+    "real": "直白",
+    "blunt": "不留情",
+    "brutal": "狠话",
+    "credit": "Mr. Camden"
+  },
+  "auth": {
+    "signupTitle": "领取 3 条免费消息",
+    "signupSubtitle": "做好被泼冷水的准备。",
+    "loginTitle": "欢迎回来",
+    "loginSubtitle": "这里没人会哄你。",
+    "emailPlaceholder": "邮箱",
+    "passwordPlaceholder": "密码",
+    "passwordSignupPlaceholder": "密码（6 位以上）",
+    "create": "创建账号",
+    "creating": "创建中...",
+    "signIn": "登录",
+    "signingIn": "登录中...",
+    "haveAccount": "已有账号？",
+    "noAccount": "还没有账号？",
+    "signInLink": "登录",
+    "signUpLink": "注册",
+    "checkEmailTitle": "查看你的邮箱",
+    "checkEmailBody": "我们已向 {email} 发送确认链接。点击链接激活账号，领取 3 条免费消息。"
+  },
+  "pricing": {
+    "brand": "MR. CAMDEN",
+    "title": "真话，论打买。",
+    "subtitle": "每条消息一点。",
+    "credits": "{n} 点",
+    "popular": "最受欢迎",
+    "buy": "购买",
+    "redirecting": "跳转中...",
+    "errorGeneric": "出了点问题。",
+    "tiers": {
+      "small": { "blurb": "小尝一口现实。" },
+      "medium": { "blurb": "给真正好奇的人。" },
+      "large": { "blurb": "给真正自知的人。" }
+    }
+  },
+  "language": {
+    "label": "语言"
+  }
+}

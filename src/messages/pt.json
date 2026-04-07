@@ -1,0 +1,114 @@
+{
+  "nav": {
+    "pricing": "Preços",
+    "login": "Entrar"
+  },
+  "home": {
+    "tagline": "Fundado na Verdade",
+    "title": "MR. CAMDEN",
+    "subtitle": "A IA que não vai passar a mão na sua cabeça.",
+    "cta": "Experimente 3 Mensagens Grátis",
+    "youAsked": "Você perguntou:",
+    "credit": "Mr. Camden",
+    "footer": "Sem rodeios. Sem hype. Sem \"ótima pergunta!\"",
+    "samples": {
+      "wasted": {
+        "q": "Tenho 34 anos e sinto que desperdicei minha vida.",
+        "a": "Você não desperdiçou — só está finalmente acordado o bastante para ter medo. Esse medo é a coisa mais útil que você sentiu em anos. Não anestesie. Escolha uma coisa que importe e comece amanhã, mal ajambrado e sem estar pronto."
+      },
+      "ex": {
+        "q": "Meu ex me mandou um 'oi'. Devo responder?",
+        "a": "Vou direto: uma palavra depois de um término não é um pedido de desculpas, nem um plano, nem um futuro. É tédio. Se for responder, responda sabendo que você é o entretenimento."
+      },
+      "amazing": {
+        "q": "Todo mundo diz que minha ideia é incrível.",
+        "a": "Todo mundo fala isso porque não custa nada pra eles. Peça pra pagarem adiantado. Vai ver o 'incrível' evaporar. Validação de verdade tem cifrão na frente."
+      }
+    }
+  },
+  "demo": {
+    "label": "Experimente o Botão da Verdade",
+    "question": "Devo largar o emprego para abrir meu negócio?",
+    "dialLabel": "Botão da Verdade",
+    "gentle": "Suave",
+    "real": "Direto",
+    "brutal": "Brutal",
+    "credit": "Mr. Camden",
+    "footer": "Arraste o botão. Mesma pergunta, níveis diferentes de piedade.",
+    "answers": {
+      "1": {
+        "label": "Suave",
+        "text": "Só de perguntar isso já mostra coragem. Antes de pular, se dê uma pista de decolagem de verdade — seis a doze meses de reserva, um plano ainda que tosco, e pelo menos uma pessoa que disse sim com a carteira. Isso não é medo, é respeito pelo sonho."
+      },
+      "3": {
+        "label": "Honesto",
+        "text": "Querer muito não é plano. A maioria que pede as contas cedo demais fica sem dinheiro antes da ideia se firmar. Guarde grana, escreva o plano, e feche um cliente pagante antes de atravessar aquela porta."
+      },
+      "5": {
+        "label": "Direto",
+        "text": "Olha — a versão romântica dessa história é mentira. Você precisa de reserva, de um plano, e de pelo menos uma pessoa disposta a te pagar antes de ter um negócio. Até lá, você tem um hobby com aviso prévio."
+      },
+      "7": {
+        "label": "Sem rodeios",
+        "text": "Você não está me fazendo uma pergunta, está pedindo permissão. Não vou dar. Arruma primeiro um cliente pagante. Até lá, seu emprego está bancando sua fantasia."
+      },
+      "10": {
+        "label": "Brutal",
+        "text": "Verdade crua: a maioria que 'larga tudo atrás do sonho' volta engatinhando em 18 meses — mais pobre, mais calada, fingindo que foi 'uma experiência de aprendizado'. Você não tem um negócio. Tem uma sensação. Sensação não paga aluguel. Construa à noite e nos fins de semana. Se sobreviver a isso, aí a gente conversa sobre largar o emprego."
+      }
+    }
+  },
+  "chat": {
+    "credits": "Créditos",
+    "empty": "Pergunte. E se segure.",
+    "placeholder": "Me diz o que está na sua cabeça...",
+    "outOfCreditsPlaceholder": "Sem créditos",
+    "send": "Enviar",
+    "outOfCreditsTitle": "Sem créditos.",
+    "outOfCreditsBody": "A verdade não é de graça. Recarregue.",
+    "seePricing": "Ver Preços",
+    "truthDial": "Botão da Verdade",
+    "gentle": "Suave",
+    "real": "Direto",
+    "blunt": "Sem rodeios",
+    "brutal": "Brutal",
+    "credit": "Mr. Camden"
+  },
+  "auth": {
+    "signupTitle": "Ganhe 3 mensagens grátis",
+    "signupSubtitle": "Prepare-se para não ser bajulado.",
+    "loginTitle": "Bem-vindo de volta",
+    "loginSubtitle": "Aqui ninguém vai te dar colo.",
+    "emailPlaceholder": "E-mail",
+    "passwordPlaceholder": "Senha",
+    "passwordSignupPlaceholder": "Senha (6+ caracteres)",
+    "create": "Criar Conta",
+    "creating": "Criando...",
+    "signIn": "Entrar",
+    "signingIn": "Entrando...",
+    "haveAccount": "Já tem conta?",
+    "noAccount": "Não tem conta?",
+    "signInLink": "Entrar",
+    "signUpLink": "Cadastrar",
+    "checkEmailTitle": "Confira seu e-mail",
+    "checkEmailBody": "Enviamos um link de confirmação para {email}. Clique para ativar sua conta e resgatar suas 3 mensagens grátis."
+  },
+  "pricing": {
+    "brand": "MR. CAMDEN",
+    "title": "Verdade, na dúzia.",
+    "subtitle": "Um crédito por mensagem.",
+    "credits": "{n} créditos",
+    "popular": "Mais Popular",
+    "buy": "Comprar",
+    "redirecting": "Redirecionando...",
+    "errorGeneric": "Algo quebrou.",
+    "tiers": {
+      "small": { "blurb": "Um gole da realidade." },
+      "medium": { "blurb": "Para os genuinamente curiosos." },
+      "large": { "blurb": "Para os verdadeiramente autoconscientes." }
+    }
+  },
+  "language": {
+    "label": "Idioma"
+  }
+}
