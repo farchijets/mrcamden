@@ -1,4 +1,5 @@
 import Link from "next/link";
+import TruthDemo from "./TruthDemo";
 
 const samples = [
   {
@@ -46,6 +47,8 @@ export default function Home() {
             </Link>
           </div>
         </div>
+
+        <TruthDemo />
 
         <div className="mt-24 grid gap-6 md:grid-cols-3">
           {samples.map((s, i) => (

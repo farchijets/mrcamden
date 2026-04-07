@@ -14,6 +14,10 @@ export default function ChatClient({
   const [credits, setCredits] = useState(initialCredits);
   const [loading, setLoading] = useState(false);
   const [outOfCredits, setOutOfCredits] = useState(initialCredits <= 0);
+  const [truth, setTruth] = useState(5);
+
+  const truthLabel =
+    truth <= 3 ? "Gentle" : truth <= 6 ? "Real" : truth <= 8 ? "Blunt" : "Brutal";
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -37,7 +41,7 @@ export default function ChatClient({
       const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages: newMessages }),
+        body: JSON.stringify({ messages: newMessages, truth }),
       });
 
       if (res.status === 402) {
@@ -144,6 +148,28 @@ export default function ChatClient({
         onSubmit={send}
         className="border-t border-gold/20 px-4 py-4 bg-bg"
       >
+        <div className="max-w-3xl mx-auto mb-3">
+          <div className="flex items-center justify-between mb-1 text-xs">
+            <span className="uppercase tracking-widest text-gold/80">Truth Dial</span>
+            <span className="text-gold font-semibold">
+              {truth}/10 — {truthLabel}
+            </span>
+          </div>
+          <input
+            type="range"
+            min={1}
+            max={10}
+            step={1}
+            value={truth}
+            onChange={(e) => setTruth(Number(e.target.value))}
+            className="truth-slider w-full"
+          />
+          <div className="flex justify-between text-[10px] text-white/40 uppercase tracking-widest mt-1">
+            <span>Gentle</span>
+            <span>Real</span>
+            <span>Brutal</span>
+          </div>
+        </div>
         <div className="max-w-3xl mx-auto flex gap-3">
           <input
             type="text"
