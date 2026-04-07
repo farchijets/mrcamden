@@ -2,8 +2,8 @@ import Link from "next/link";
 
 const samples = [
   {
-    q: "I want to build Uber for cats.",
-    a: "Look — cats don't need rides. Their owners do, and they already have Uber. You're solving a problem nobody has. Kill it and find a real one.",
+    q: "I'm 34 and I feel like I've wasted my life.",
+    a: "You haven't wasted it — you're just finally awake enough to be scared. That fear is the most useful thing you've felt in years. Don't numb it. Pick one thing that matters and start tomorrow, ugly and unprepared.",
   },
   {
     q: "My ex texted me 'hey'. Should I respond?",
