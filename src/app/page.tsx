@@ -18,6 +18,14 @@ const samples = [
 export default function Home() {
   return (
     <main className="relative min-h-screen overflow-hidden">
+      <nav className="absolute top-0 right-0 left-0 z-10 flex items-center justify-end gap-6 px-6 py-6 text-sm">
+        <Link href="/pricing" className="text-white/60 hover:text-gold transition">
+          Pricing
+        </Link>
+        <Link href="/login" className="text-white/60 hover:text-gold transition">
+          Log in
+        </Link>
+      </nav>
       <div className="mx-auto max-w-5xl px-6 py-20 md:py-28">
         <div className="animate-fade-in-up text-center">
           <p className="mb-4 text-xs uppercase tracking-[0.3em] text-gold/80">
