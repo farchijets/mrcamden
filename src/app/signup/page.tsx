@@ -10,17 +10,26 @@ export default function SignupPage() {
   const [password, setPassword] = useState("");
   const [err, setErr] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const [sent, setSent] = useState(false);
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
     setErr(null);
     setLoading(true);
     const supabase = createClient();
-    const { error } = await supabase.auth.signUp({ email, password });
+    const { data, error } = await supabase.auth.signUp({
+      email,
+      password,
+      options: { emailRedirectTo: `${window.location.origin}/chat` },
+    });
     setLoading(false);
     if (error) return setErr(error.message);
-    router.push("/chat");
-    router.refresh();
+    if (data.session) {
+      router.push("/chat");
+      router.refresh();
+      return;
+    }
+    setSent(true);
   }
 
   return (
@@ -32,6 +41,15 @@ export default function SignupPage() {
         <p className="text-center text-white/60 mb-8">
           Prepare to be unflattered.
         </p>
+        {sent ? (
+          <div className="rounded-sm border border-gold/20 bg-white/[0.02] p-6 text-center">
+            <p className="font-serif text-2xl gold-text mb-3">Check your email</p>
+            <p className="text-white/70 text-sm">
+              We sent a confirmation link to <span className="text-gold">{email}</span>.
+              Click it to activate your account and claim your 3 free messages.
+            </p>
+          </div>
+        ) : (
         <form
           onSubmit={submit}
           className="space-y-4 rounded-sm border border-gold/20 bg-white/[0.02] p-6"
@@ -62,6 +80,7 @@ export default function SignupPage() {
             {loading ? "Creating..." : "Create Account"}
           </button>
         </form>
+        )}
         <p className="text-center text-white/60 mt-6 text-sm">
           Already have an account?{" "}
           <Link href="/login" className="text-gold hover:underline">
