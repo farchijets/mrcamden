@@ -1,101 +1,69 @@
-import Image from "next/image";
+import Link from "next/link";
+
+const samples = [
+  {
+    q: "I want to build Uber for cats.",
+    a: "Look — cats don't need rides. Their owners do, and they already have Uber. You're solving a problem nobody has. Kill it and find a real one.",
+  },
+  {
+    q: "My ex texted me 'hey'. Should I respond?",
+    a: "Here's the deal: one word after a breakup isn't an apology, a plan, or a future. It's boredom. If you respond, do it knowing you're the entertainment.",
+  },
+  {
+    q: "Everyone says my idea is amazing.",
+    a: "Everyone says that because it costs them nothing. Ask them to pre-order it. Watch the 'amazing' evaporate. Real validation has a dollar sign.",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <main className="relative min-h-screen overflow-hidden">
+      <div className="mx-auto max-w-5xl px-6 py-20 md:py-28">
+        <div className="animate-fade-in-up text-center">
+          <p className="mb-4 text-xs uppercase tracking-[0.3em] text-gold/80">
+            Est. Truthfully
+          </p>
+          <h1 className="font-serif text-6xl md:text-8xl font-bold tracking-tight gold-text">
+            MR. CAMDEN
+          </h1>
+          <p className="mt-6 text-xl md:text-2xl text-white/80 italic font-serif">
+            The AI that won&rsquo;t kiss your behind.
+          </p>
+          <div className="mt-10">
+            <Link
+              href="/signup"
+              className="inline-block rounded-sm border border-gold bg-gold-gradient px-8 py-4 font-semibold text-bg shadow-lg shadow-gold/20 transition hover:brightness-110"
+            >
+              Try 3 Free Messages
+            </Link>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+
+        <div className="mt-24 grid gap-6 md:grid-cols-3">
+          {samples.map((s, i) => (
+            <div
+              key={i}
+              className="animate-fade-in-up rounded-sm border border-gold/20 bg-white/[0.02] p-6 backdrop-blur-sm"
+              style={{ animationDelay: `${0.2 + i * 0.15}s` }}
+            >
+              <p className="mb-3 text-sm text-white/50">You asked:</p>
+              <p className="mb-5 font-serif text-lg text-white">
+                &ldquo;{s.q}&rdquo;
+              </p>
+              <div className="border-t border-gold/20 pt-4">
+                <p className="mb-2 text-xs uppercase tracking-widest text-gold">
+                  Mr. Camden
+                </p>
+                <p className="text-white/80 leading-relaxed">{s.a}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <p className="mt-20 text-center text-xs text-white/40">
+          No hedging. No hype. No &ldquo;great question!&rdquo;
+        </p>
+      </div>
+    </main>
   );
 }
