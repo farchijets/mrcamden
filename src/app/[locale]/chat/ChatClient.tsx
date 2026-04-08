@@ -26,6 +26,16 @@ export default function ChatClient({
   const truth = 10;
   const truthLabel = t("real");
   const [billingOpen, setBillingOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMenuOpen(false);
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [menuOpen]);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -94,7 +104,7 @@ export default function ChatClient({
         <Link href="/" className="font-serif text-lg sm:text-2xl gold-text tracking-wide whitespace-nowrap">
           MR. CAMDEN
         </Link>
-        <div className="flex items-center gap-2 sm:gap-4">
+        <div className="hidden sm:flex items-center gap-4">
           <LanguageSwitcher currentLocale={locale} />
           <button
             type="button"
@@ -105,6 +115,62 @@ export default function ChatClient({
             <span className="text-gold font-semibold">{credits}</span>
             <span className="ml-2 text-xs text-gold/70">+</span>
           </button>
+        </div>
+
+        <div className="sm:hidden relative">
+          <button
+            type="button"
+            onClick={() => setMenuOpen((v) => !v)}
+            aria-label="Open menu"
+            className="flex items-center justify-center w-11 h-11 rounded-full border border-gold/40 hover:border-gold/80 hover:bg-gold/5 transition"
+          >
+            {/* Monocle icon — Mr. Camden's signature */}
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#e6c26e"
+              strokeWidth="1.8"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <circle cx="9" cy="11" r="6" />
+              <circle cx="9" cy="11" r="2" fill="#e6c26e" stroke="none" />
+              <path d="M15 14 Q19 18 17 22" />
+            </svg>
+          </button>
+
+          {menuOpen && (
+            <>
+              <div
+                className="fixed inset-0 z-30"
+                onClick={() => setMenuOpen(false)}
+              />
+              <div className="absolute right-0 mt-2 w-64 z-40 rounded-sm border border-gold/40 bg-bg/95 backdrop-blur-md shadow-2xl shadow-black/60 p-3 space-y-3 animate-fade-in-up">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setMenuOpen(false);
+                    setBillingOpen(true);
+                  }}
+                  className="w-full flex items-center justify-between px-3 py-3 rounded-sm border border-gold/30 hover:border-gold/70 hover:bg-gold/5 transition"
+                >
+                  <span className="text-white/60 text-sm">{t("credits")}</span>
+                  <span className="text-gold font-semibold">
+                    {credits}
+                    <span className="ml-2 text-xs text-gold/70">+</span>
+                  </span>
+                </button>
+                <div className="flex items-center justify-between px-3 py-2 rounded-sm border border-white/10">
+                  <span className="text-white/50 text-xs uppercase tracking-widest">
+                    Language
+                  </span>
+                  <LanguageSwitcher currentLocale={locale} />
+                </div>
+              </div>
+            </>
+          )}
         </div>
       </header>
 
