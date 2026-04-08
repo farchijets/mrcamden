@@ -4,7 +4,6 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import LanguageSwitcher from "../LanguageSwitcher";
 import Logo from "../Logo";
-import BillingModal from "./BillingModal";
 import { createClient } from "@/lib/supabase/client";
 
 type Msg = { role: "user" | "assistant"; content: string };
@@ -12,11 +11,10 @@ type Msg = { role: "user" | "assistant"; content: string };
 export default function ChatClient({
   initialCredits,
   locale,
-  hasActiveSub,
 }: {
   initialCredits: number;
   locale: string;
-  hasActiveSub: boolean;
+  hasActiveSub?: boolean;
 }) {
   const t = useTranslations("chat");
   const tNav = useTranslations("nav");
@@ -36,8 +34,37 @@ export default function ChatClient({
   const [showUpsell, setShowUpsell] = useState(false);
   // Truth dial is locked to "Real" in chat.
   const truth = 10;
-  const [billingOpen, setBillingOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [pricingShown, setPricingShown] = useState(false);
+  const [pricingThinking, setPricingThinking] = useState(false);
+  const [buying, setBuying] = useState<null | "entry" | "bulk">(null);
+
+  function openPricingBubble() {
+    setMenuOpen(false);
+    if (pricingShown || pricingThinking) return;
+    setPricingThinking(true);
+    setTimeout(() => {
+      setPricingThinking(false);
+      setPricingShown(true);
+    }, 700);
+  }
+
+  async function buyPack(pack: "entry" | "bulk") {
+    if (buying) return;
+    setBuying(pack);
+    try {
+      const res = await fetch("/api/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ pack, locale }),
+      });
+      const data = await res.json();
+      if (data.url) window.location.href = data.url;
+      else setBuying(null);
+    } catch {
+      setBuying(null);
+    }
+  }
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -140,7 +167,7 @@ export default function ChatClient({
           <LanguageSwitcher currentLocale={locale} />
           <button
             type="button"
-            onClick={() => setBillingOpen(true)}
+            onClick={() => openPricingBubble()}
             className="text-sm border border-gold/30 hover:border-gold/70 hover:bg-gold/5 rounded-sm px-3 py-2 min-h-[44px] transition"
           >
             <span className="text-white/50">{t("credits")}: </span>
@@ -191,7 +218,7 @@ export default function ChatClient({
                   type="button"
                   onClick={() => {
                     setMenuOpen(false);
-                    setBillingOpen(true);
+                    openPricingBubble();
                   }}
                   className="w-full flex items-center justify-between px-3 py-3 rounded-sm border border-gold/30 hover:border-gold/70 hover:bg-gold/5 transition"
                 >
@@ -223,14 +250,6 @@ export default function ChatClient({
         </div>
         </div>
       </header>
-
-      <BillingModal
-        open={billingOpen}
-        onClose={() => setBillingOpen(false)}
-        credits={credits}
-        hasActiveSub={hasActiveSub}
-        locale={locale}
-      />
 
       <div ref={scrollRef} className="flex-1 overflow-y-auto px-4 py-6">
         <div className="max-w-3xl mx-auto space-y-4">
@@ -288,14 +307,52 @@ export default function ChatClient({
                 </p>
                 <button
                   type="button"
-                  onClick={() => setBillingOpen(true)}
-                  className="group inline-flex items-center gap-2 text-gold/90 hover:text-gold text-sm"
+                  onClick={() => openPricingBubble()}
+                  className="group flex items-center gap-2 text-white/90 hover:text-gold transition"
                 >
-                  <span className="underline-offset-2 group-hover:underline">
-                    {tHome("upsellBuy")}
-                  </span>
-                  <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
+                  <span>{tHome("upsellBuy")}</span>
+                  <span aria-hidden className="text-gold/60 group-hover:text-gold transition-transform group-hover:translate-x-0.5">›</span>
                 </button>
+              </div>
+            </div>
+          )}
+          {pricingShown && (
+            <div className="flex justify-start">
+              <div className="max-w-[85%] bg-white/[0.03] border border-white/10 px-5 py-3 rounded-sm">
+                <p className="text-xs uppercase tracking-widest text-gold mb-1">
+                  {t("credit")}
+                </p>
+                <div className="flex flex-col gap-0.5">
+                  <button
+                    type="button"
+                    onClick={() => buyPack("entry")}
+                    disabled={buying !== null}
+                    className="group flex items-center gap-2 text-left text-white/90 hover:text-gold transition disabled:opacity-50"
+                  >
+                    <span>{tHome("packEntry")}</span>
+                    <span aria-hidden className="text-gold/60 group-hover:text-gold transition-transform group-hover:translate-x-0.5">›</span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => buyPack("bulk")}
+                    disabled={buying !== null}
+                    className="group flex items-center gap-2 text-left text-white/90 hover:text-gold transition disabled:opacity-50"
+                  >
+                    <span>{tHome("packBulk")}</span>
+                    <span aria-hidden className="text-gold/60 group-hover:text-gold transition-transform group-hover:translate-x-0.5">›</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+          {pricingThinking && (
+            <div className="flex justify-start">
+              <div className="bg-white/[0.03] border border-white/10 px-5 py-4 rounded-sm">
+                <div className="flex gap-2">
+                  <span className="w-2 h-2 rounded-full bg-gold animate-pulse-dot" />
+                  <span className="w-2 h-2 rounded-full bg-gold animate-pulse-dot" style={{ animationDelay: "0.2s" }} />
+                  <span className="w-2 h-2 rounded-full bg-gold animate-pulse-dot" style={{ animationDelay: "0.4s" }} />
+                </div>
               </div>
             </div>
           )}
@@ -307,7 +364,7 @@ export default function ChatClient({
               <p className="text-white/70 mb-4">{t("outOfCreditsBody")}</p>
               <button
                 type="button"
-                onClick={() => setBillingOpen(true)}
+                onClick={() => openPricingBubble()}
                 className="inline-block bg-gold-gradient text-bg font-semibold px-6 py-3 rounded-sm"
               >
                 {t("seePricing")}
