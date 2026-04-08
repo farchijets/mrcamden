@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import LanguageSwitcher from "./LanguageSwitcher";
-import SignupModal from "./SignupModal";
 import Logo from "./Logo";
 import { createClient } from "@/lib/supabase/client";
 
@@ -13,22 +12,28 @@ export default function HomeChatClient({ locale }: { locale: string }) {
   const tNav = useTranslations("nav");
   const tChat = useTranslations("chat");
   const tHome = useTranslations("home.chatHome");
+  const tAuth = useTranslations("auth");
 
   const seeded: Msg[] = [
     { role: "assistant", content: tHome("greeting") },
   ];
 
   const [input, setInput] = useState("");
-  const [signupOpen, setSignupOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [bubbles, setBubbles] = useState<("pricing" | "login")[]>([]);
-  const [thinking, setThinking] = useState<null | "pricing" | "login">(null);
+  const [bubbles, setBubbles] = useState<("pricing" | "login" | "signup")[]>([]);
+  const [thinking, setThinking] = useState<null | "pricing" | "login" | "signup">(null);
+  const [signupEmail, setSignupEmail] = useState("");
+  const [signupPassword, setSignupPassword] = useState("");
+  const [signupError, setSignupError] = useState<string | null>(null);
+  const [signupLoading, setSignupLoading] = useState(false);
+  const [signupSent, setSignupSent] = useState(false);
+  const [pendingQ, setPendingQ] = useState<string>("");
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
   const [loginError, setLoginError] = useState<string | null>(null);
   const [loginLoading, setLoginLoading] = useState(false);
 
-  function openBubble(kind: "pricing" | "login") {
+  function openBubble(kind: "pricing" | "login" | "signup") {
     setMenuOpen(false);
     if (bubbles.includes(kind) || thinking) return;
     setThinking(kind);
@@ -39,6 +44,39 @@ export default function HomeChatClient({ locale }: { locale: string }) {
   }
   const openPricing = () => openBubble("pricing");
   const openLogin = () => openBubble("login");
+  const openSignup = () => openBubble("signup");
+
+  async function submitSignup(e: React.FormEvent) {
+    e.preventDefault();
+    if (signupLoading) return;
+    setSignupError(null);
+    setSignupLoading(true);
+    if (pendingQ) {
+      try { localStorage.setItem("mrcamden_pending_q", pendingQ); } catch {}
+    }
+    try {
+      const supabase = createClient();
+      const { data, error } = await supabase.auth.signUp({
+        email: signupEmail,
+        password: signupPassword,
+        options: { emailRedirectTo: `${window.location.origin}/${locale}/chat` },
+      });
+      if (error) {
+        setSignupError(error.message);
+        setSignupLoading(false);
+        return;
+      }
+      if (data.session) {
+        window.location.href = `/${locale}/chat`;
+        return;
+      }
+      setSignupSent(true);
+      setSignupLoading(false);
+    } catch {
+      setSignupError("Something broke.");
+      setSignupLoading(false);
+    }
+  }
 
   async function submitLogin(e: React.FormEvent) {
     e.preventDefault();
@@ -76,7 +114,8 @@ export default function HomeChatClient({ locale }: { locale: string }) {
     e.preventDefault();
     if (!input.trim()) return;
     if (input.length > 1000) return;
-    setSignupOpen(true);
+    setPendingQ(input.trim());
+    openSignup();
   }
 
   return (
@@ -187,7 +226,7 @@ export default function HomeChatClient({ locale }: { locale: string }) {
           ))}
           {bubbles.map((kind) => (
             <div key={kind} className="flex justify-start">
-              <div className={`${kind === "login" ? "max-w-[85%] w-full sm:w-[28rem]" : "max-w-[85%]"} bg-white/[0.03] border border-white/10 px-5 py-3 rounded-sm`}>
+              <div className={`${kind === "login" || kind === "signup" ? "max-w-[85%] w-full sm:w-[28rem]" : "max-w-[85%]"} bg-white/[0.03] border border-white/10 px-5 py-3 rounded-sm`}>
                 <p className="text-xs uppercase tracking-widest text-gold mb-1">
                   {tChat("credit")}
                 </p>
@@ -195,7 +234,7 @@ export default function HomeChatClient({ locale }: { locale: string }) {
                   <div className="flex flex-col gap-0.5">
                     <button
                       type="button"
-                      onClick={() => setSignupOpen(true)}
+                      onClick={openSignup}
                       className="group flex items-center gap-2 text-left text-white/90 hover:text-gold transition"
                     >
                       <span>{tHome("packEntry")}</span>
@@ -203,13 +242,61 @@ export default function HomeChatClient({ locale }: { locale: string }) {
                     </button>
                     <button
                       type="button"
-                      onClick={() => setSignupOpen(true)}
+                      onClick={openSignup}
                       className="group flex items-center gap-2 text-left text-white/90 hover:text-gold transition"
                     >
                       <span>{tHome("packBulk")}</span>
                       <span aria-hidden className="text-gold/60 group-hover:text-gold transition-transform group-hover:translate-x-0.5">›</span>
                     </button>
                   </div>
+                )}
+                {kind === "signup" && (
+                  <>
+                    {signupSent ? (
+                      <>
+                        <p className="text-white/90 font-serif text-lg mb-1">
+                          {tAuth("checkEmailTitle")}
+                        </p>
+                        <p className="text-white/70 text-sm">
+                          {tAuth("checkEmailBody", { email: signupEmail })}
+                        </p>
+                      </>
+                    ) : (
+                      <>
+                        <p className="text-white/90 mb-3">{tHome("signupSubtitle")}</p>
+                        <form onSubmit={submitSignup} className="space-y-2">
+                          <input
+                            type="email"
+                            required
+                            value={signupEmail}
+                            onChange={(e) => setSignupEmail(e.target.value)}
+                            placeholder="email@example.com"
+                            className="w-full bg-black/50 border border-white/10 rounded-sm px-3 py-2 text-white focus:border-gold outline-none text-sm"
+                          />
+                          <input
+                            type="password"
+                            required
+                            minLength={6}
+                            value={signupPassword}
+                            onChange={(e) => setSignupPassword(e.target.value)}
+                            placeholder="••••••••"
+                            className="w-full bg-black/50 border border-white/10 rounded-sm px-3 py-2 text-white focus:border-gold outline-none text-sm"
+                          />
+                          {signupError && (
+                            <p className="text-red-400 text-xs">{signupError}</p>
+                          )}
+                          <button
+                            type="submit"
+                            disabled={signupLoading}
+                            className="group flex items-center gap-2 text-white/90 hover:text-gold disabled:opacity-50 transition"
+                          >
+                            <span>{signupLoading ? tAuth("creating") : tAuth("create")}</span>
+                            <span aria-hidden className="text-gold/60 group-hover:text-gold transition-transform group-hover:translate-x-0.5">›</span>
+                          </button>
+                        </form>
+                      </>
+                    )}
+                  </>
                 )}
                 {kind === "login" && (
                   <>
@@ -301,11 +388,6 @@ export default function HomeChatClient({ locale }: { locale: string }) {
         </div>
       </form>
 
-      <SignupModal
-        open={signupOpen}
-        onClose={() => setSignupOpen(false)}
-        pendingQuestion={input.trim()}
-      />
     </main>
   );
 }
