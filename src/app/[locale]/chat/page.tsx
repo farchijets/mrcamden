@@ -19,18 +19,14 @@ export default async function ChatPage({
 
   const { data: profile } = await supabase
     .from("profiles")
-    .select("credits, subscription_status")
+    .select("credits")
     .eq("id", user!.id)
     .single();
-
-  const status = profile?.subscription_status ?? null;
-  const hasActiveSub = status === "active" || status === "trialing";
 
   return (
     <ChatClient
       initialCredits={profile?.credits ?? 0}
       locale={params.locale}
-      hasActiveSub={hasActiveSub}
     />
   );
 }

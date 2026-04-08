@@ -13,11 +13,9 @@
       "loginPrompt": "Welcome back. Email and password.",
       "loginSubmit": "Sign in",
       "loginSubmitting": "Signing in...",
-      "sampleA": "You don't have a business. You have a feeling. Build it nights and weekends. If it survives, then we'll talk about quitting.",
       "pricingPitch": "Simple. 50 questions for $5. No subscriptions, no nonsense.",
       "upsellText": "That was your free one. Want more truth?",
       "upsellBuy": "50 questions — $5",
-      "upsellPro": "",
       "signupTitle": "Sign up to get your answer",
       "signupSubtitle": "One free message. No flattery."
     },
@@ -100,27 +98,6 @@
     "signUpLink": "Sign up",
     "checkEmailTitle": "Check your email",
     "checkEmailBody": "We sent a confirmation link to {email}. Click it to activate your account and claim your 1 free message."
-  },
-  "pricing": {
-    "brand": "MR. CAMDEN",
-    "title": "Truth, priced fairly.",
-    "subtitle": "One credit per message.",
-    "credits": "{n} credits",
-    "popular": "Most Popular",
-    "buy": "Buy",
-    "redirecting": "Redirecting...",
-    "errorGeneric": "Something broke.",
-    "tiers": {
-      "entry": {
-        "blurb": "A taste of reality."
-      },
-      "pro": {
-        "blurb": "For the truly self-aware."
-      }
-    },
-    "oneTime": " one-time",
-    "perMonth": "/mo",
-    "renews": "Renews monthly. Cancel anytime."
   },
   "language": {
     "label": "Language"

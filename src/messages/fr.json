@@ -8,11 +8,9 @@
   "home": {
     "chatHome": {
       "greeting": "Peux-tu encaisser la vérité ?",
-      "sampleA": "Tu n'as pas une entreprise, tu as un sentiment. Construis-la le soir et le week-end. Si ça survit, là on parlera de démissionner.",
       "pricingPitch": "Simple. 50 questions pour 5 $. Pas d'abonnement, pas de bêtises.",
       "upsellText": "C'était ton message gratuit. Tu veux plus de vérité ?",
       "upsellBuy": "50 questions — 5 $",
-      "upsellPro": "",
       "signupTitle": "Inscris-toi pour obtenir ta réponse",
       "signupSubtitle": "Un message gratuit. Aucune flatterie.",
       "packEntry": "50 questions / 5 $",
@@ -100,27 +98,6 @@
     "signUpLink": "S'inscrire",
     "checkEmailTitle": "Vérifie tes e-mails",
     "checkEmailBody": "Nous avons envoyé un lien de confirmation à {email}. Cliquez pour activer votre compte et récupérer votre 1 message gratuit."
-  },
-  "pricing": {
-    "brand": "MR. CAMDEN",
-    "title": "La vérité, à juste prix.",
-    "subtitle": "Un crédit par message.",
-    "credits": "{n} crédits",
-    "popular": "Le plus choisi",
-    "buy": "Acheter",
-    "redirecting": "Redirection...",
-    "errorGeneric": "Quelque chose a cassé.",
-    "tiers": {
-      "entry": {
-        "blurb": "Un avant-goût de la réalité."
-      },
-      "pro": {
-        "blurb": "Pour les vraiment lucides."
-      }
-    },
-    "oneTime": " paiement unique",
-    "perMonth": "/mois",
-    "renews": "Renouvelé chaque mois. Annulez quand vous voulez."
   },
   "language": {
     "label": "Langue"

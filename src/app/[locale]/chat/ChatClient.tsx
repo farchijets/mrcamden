@@ -14,7 +14,6 @@ export default function ChatClient({
 }: {
   initialCredits: number;
   locale: string;
-  hasActiveSub?: boolean;
 }) {
   const t = useTranslations("chat");
   const tNav = useTranslations("nav");

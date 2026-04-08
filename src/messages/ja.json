@@ -8,11 +8,9 @@
   "home": {
     "chatHome": {
       "greeting": "お前は真実に耐えられるか？",
-      "sampleA": "あなたにあるのは事業じゃない、感情だ。夜と週末で作れ。それでも生き残ったら、その時に辞職の話をしよう。",
       "pricingPitch": "シンプル。$5で50問。サブスクなし、面倒なし。",
       "upsellText": "それが無料分だった。もっと真実が欲しい？",
       "upsellBuy": "50問 — $5",
-      "upsellPro": "",
       "signupTitle": "回答を受け取るには登録",
       "signupSubtitle": "無料メッセージ1件。お世辞なし。",
       "packEntry": "50問 / $5",
@@ -100,27 +98,6 @@
     "signUpLink": "登録",
     "checkEmailTitle": "メールを確認してください",
     "checkEmailBody": "{email} に確認リンクを送信しました。クリックしてアカウントを有効化し、無料メッセージを1件受け取ってください。"
-  },
-  "pricing": {
-    "brand": "MR. CAMDEN",
-    "title": "真実を、適正価格で。",
-    "subtitle": "メッセージごとに1クレジット。",
-    "credits": "{n} クレジット",
-    "popular": "一番人気",
-    "buy": "購入",
-    "redirecting": "リダイレクト中...",
-    "errorGeneric": "何かが壊れました。",
-    "tiers": {
-      "entry": {
-        "blurb": "現実を一口。"
-      },
-      "pro": {
-        "blurb": "本気で自覚のある人へ。"
-      }
-    },
-    "oneTime": " 一回払い",
-    "perMonth": "/月",
-    "renews": "毎月更新。いつでも解約可能。"
   },
   "language": {
     "label": "言語"

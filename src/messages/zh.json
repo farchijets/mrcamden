@@ -8,11 +8,9 @@
   "home": {
     "chatHome": {
       "greeting": "你受得了真话吗？",
-      "sampleA": "你没有生意，你只是有个感觉。利用晚上和周末去做。要是能活下来，我们再谈辞职。",
       "pricingPitch": "简单。$5 买 50 个问题。没有订阅，没有废话。",
       "upsellText": "免费的那条用完了。想要更多真话？",
       "upsellBuy": "50 个问题 — $5",
-      "upsellPro": "",
       "signupTitle": "注册以获取你的答案",
       "signupSubtitle": "一条免费消息。没有奉承。",
       "packEntry": "50 个问题 / $5",
@@ -100,27 +98,6 @@
     "signUpLink": "注册",
     "checkEmailTitle": "查看你的邮箱",
     "checkEmailBody": "我们已将确认链接发送至 {email}。点击即可激活账户并领取 1 条免费消息。"
-  },
-  "pricing": {
-    "brand": "MR. CAMDEN",
-    "title": "真话，价格公道。",
-    "subtitle": "每条消息一个点数。",
-    "credits": "{n} 点",
-    "popular": "最受欢迎",
-    "buy": "购买",
-    "redirecting": "跳转中...",
-    "errorGeneric": "出了点问题。",
-    "tiers": {
-      "entry": {
-        "blurb": "先尝点现实。"
-      },
-      "pro": {
-        "blurb": "给真正自知的人。"
-      }
-    },
-    "oneTime": " 一次性",
-    "perMonth": "/月",
-    "renews": "按月续订，可随时取消。"
   },
   "language": {
     "label": "语言"
