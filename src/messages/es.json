@@ -6,6 +6,7 @@
   },
   "home": {
     "chatHome": {
+      "sampleA": "No tienes un negocio. Tienes un sentimiento. Constrúyelo por las noches y los fines de semana. Si sobrevive, entonces hablamos de renunciar.",
       "upsellText": "Esa fue la gratis. ¿Quieres más verdad? Compra créditos o pásate a Pro.",
       "upsellBuy": "Compra 10 créditos — $5",
       "upsellPro": "Suscríbete — $35/mes",

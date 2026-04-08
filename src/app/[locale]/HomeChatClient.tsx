@@ -11,10 +11,11 @@ export default function HomeChatClient({ locale }: { locale: string }) {
   const tNav = useTranslations("nav");
   const tChat = useTranslations("chat");
   const tDemo = useTranslations("demo");
+  const tHome = useTranslations("home.chatHome");
 
   const seeded: Msg[] = [
     { role: "user", content: tDemo("question") },
-    { role: "assistant", content: tDemo("answers.real.text") },
+    { role: "assistant", content: tHome("sampleA") },
   ];
 
   const [input, setInput] = useState("");
@@ -182,7 +183,7 @@ export default function HomeChatClient({ locale }: { locale: string }) {
             value={input}
             maxLength={1000}
             onChange={(e) => setInput(e.target.value)}
-            placeholder={tChat("placeholder")}
+            placeholder={tChat("empty")}
             className="flex-1 min-w-0 bg-black/50 border border-white/10 rounded-sm px-3 sm:px-4 py-3 text-white focus:border-gold outline-none"
           />
           <button
