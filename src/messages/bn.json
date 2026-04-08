@@ -16,7 +16,10 @@
       "signupTitle": "উত্তর পেতে সাইন আপ করো",
       "signupSubtitle": "একটি ফ্রি বার্তা। কোনো তোষামোদ নয়।",
       "packEntry": "৫০ প্রশ্ন / $5",
-      "packBulk": "১০০০ প্রশ্ন / $100"
+      "packBulk": "১০০০ প্রশ্ন / $100",
+      "loginPrompt": "ফিরে আসায় স্বাগতম। ইমেইল ও পাসওয়ার্ড।",
+      "loginSubmit": "সাইন ইন",
+      "loginSubmitting": "সাইন ইন হচ্ছে..."
     },
     "tagline": "সত্যের ভিত্তিতে প্রতিষ্ঠিত",
     "title": "MR. CAMDEN",

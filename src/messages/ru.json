@@ -16,7 +16,10 @@
       "signupTitle": "Зарегистрируйся, чтобы получить ответ",
       "signupSubtitle": "Одно бесплатное сообщение. Без лести.",
       "packEntry": "50 вопросов / $5",
-      "packBulk": "1000 вопросов / $100"
+      "packBulk": "1000 вопросов / $100",
+      "loginPrompt": "С возвращением. Email и пароль.",
+      "loginSubmit": "Войти",
+      "loginSubmitting": "Вход..."
     },
     "tagline": "Основано на правде",
     "title": "MR. CAMDEN",

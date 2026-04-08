@@ -16,7 +16,10 @@
       "signupTitle": "سجّل لتحصل على إجابتك",
       "signupSubtitle": "رسالة واحدة مجانية. بلا مجاملة.",
       "packEntry": "50 سؤالاً / 5 $",
-      "packBulk": "1000 سؤال / 100 $"
+      "packBulk": "1000 سؤال / 100 $",
+      "loginPrompt": "مرحباً بعودتك. البريد وكلمة المرور.",
+      "loginSubmit": "تسجيل الدخول",
+      "loginSubmitting": "جارٍ تسجيل الدخول..."
     },
     "tagline": "تأسّس على الصدق",
     "title": "MR. CAMDEN",

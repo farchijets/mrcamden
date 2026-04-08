@@ -289,9 +289,12 @@ export default function ChatClient({
                 <button
                   type="button"
                   onClick={() => setBillingOpen(true)}
-                  className="text-gold hover:underline text-left text-sm"
+                  className="group inline-flex items-center gap-2 text-gold/90 hover:text-gold text-sm"
                 >
-                  {tHome("upsellBuy")}
+                  <span className="underline-offset-2 group-hover:underline">
+                    {tHome("upsellBuy")}
+                  </span>
+                  <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
                 </button>
               </div>
             </div>

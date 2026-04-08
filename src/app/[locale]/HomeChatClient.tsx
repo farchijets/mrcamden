@@ -5,6 +5,7 @@ import { Link } from "@/i18n/routing";
 import LanguageSwitcher from "./LanguageSwitcher";
 import SignupModal from "./SignupModal";
 import Logo from "./Logo";
+import { createClient } from "@/lib/supabase/client";
 
 type Msg = { role: "user" | "assistant"; content: string };
 
@@ -22,6 +23,12 @@ export default function HomeChatClient({ locale }: { locale: string }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showPricing, setShowPricing] = useState(false);
   const [pricingThinking, setPricingThinking] = useState(false);
+  const [showLogin, setShowLogin] = useState(false);
+  const [loginThinking, setLoginThinking] = useState(false);
+  const [loginEmail, setLoginEmail] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
+  const [loginError, setLoginError] = useState<string | null>(null);
+  const [loginLoading, setLoginLoading] = useState(false);
 
   function openPricing() {
     setMenuOpen(false);
@@ -31,6 +38,39 @@ export default function HomeChatClient({ locale }: { locale: string }) {
       setPricingThinking(false);
       setShowPricing(true);
     }, 700);
+  }
+
+  function openLogin() {
+    setMenuOpen(false);
+    if (showLogin || loginThinking) return;
+    setLoginThinking(true);
+    setTimeout(() => {
+      setLoginThinking(false);
+      setShowLogin(true);
+    }, 700);
+  }
+
+  async function submitLogin(e: React.FormEvent) {
+    e.preventDefault();
+    if (loginLoading) return;
+    setLoginError(null);
+    setLoginLoading(true);
+    try {
+      const supabase = createClient();
+      const { error } = await supabase.auth.signInWithPassword({
+        email: loginEmail,
+        password: loginPassword,
+      });
+      if (error) {
+        setLoginError(error.message);
+        setLoginLoading(false);
+        return;
+      }
+      window.location.href = `/${locale}/chat`;
+    } catch {
+      setLoginError("Something broke.");
+      setLoginLoading(false);
+    }
   }
 
   useEffect(() => {
@@ -66,12 +106,13 @@ export default function HomeChatClient({ locale }: { locale: string }) {
           >
             {tNav("pricing")}
           </button>
-          <Link
-            href="/login"
+          <button
+            type="button"
+            onClick={openLogin}
             className="text-sm border border-gold/30 hover:border-gold/70 hover:bg-gold/5 rounded-sm px-3 py-2 min-h-[44px] flex items-center text-gold"
           >
             {tNav("login")}
-          </Link>
+          </button>
         </div>
 
         <div className="sm:hidden relative">
@@ -104,13 +145,13 @@ export default function HomeChatClient({ locale }: { locale: string }) {
                 onClick={() => setMenuOpen(false)}
               />
               <div className="absolute right-0 mt-2 w-64 z-40 rounded-sm border border-gold/40 bg-bg/95 backdrop-blur-md shadow-2xl shadow-black/60 p-3 space-y-3 animate-fade-in-up">
-                <Link
-                  href="/login"
-                  onClick={() => setMenuOpen(false)}
+                <button
+                  type="button"
+                  onClick={openLogin}
                   className="w-full flex items-center justify-center px-3 py-3 rounded-sm border border-gold/40 text-gold hover:bg-gold/5 transition"
                 >
                   {tNav("login")}
-                </Link>
+                </button>
                 <button
                   type="button"
                   onClick={openPricing}
@@ -171,6 +212,58 @@ export default function HomeChatClient({ locale }: { locale: string }) {
               </div>
             </div>
           )}
+          {loginThinking && (
+            <div className="flex justify-start">
+              <div className="bg-white/[0.03] border border-white/10 px-5 py-4 rounded-sm">
+                <div className="flex gap-2">
+                  <span className="w-2 h-2 rounded-full bg-gold animate-pulse-dot" />
+                  <span className="w-2 h-2 rounded-full bg-gold animate-pulse-dot" style={{ animationDelay: "0.2s" }} />
+                  <span className="w-2 h-2 rounded-full bg-gold animate-pulse-dot" style={{ animationDelay: "0.4s" }} />
+                </div>
+              </div>
+            </div>
+          )}
+          {showLogin && (
+            <div className="flex justify-start">
+              <div className="max-w-[85%] w-full sm:w-[28rem] bg-white/[0.03] border border-white/10 px-5 py-3 rounded-sm">
+                <p className="text-xs uppercase tracking-widest text-gold mb-2">
+                  {tChat("credit")}
+                </p>
+                <p className="text-white/90 mb-3">{tHome("loginPrompt")}</p>
+                <form onSubmit={submitLogin} className="space-y-2">
+                  <input
+                    type="email"
+                    required
+                    value={loginEmail}
+                    onChange={(e) => setLoginEmail(e.target.value)}
+                    placeholder="email@example.com"
+                    className="w-full bg-black/50 border border-white/10 rounded-sm px-3 py-2 text-white focus:border-gold outline-none text-sm"
+                  />
+                  <input
+                    type="password"
+                    required
+                    value={loginPassword}
+                    onChange={(e) => setLoginPassword(e.target.value)}
+                    placeholder="••••••••"
+                    className="w-full bg-black/50 border border-white/10 rounded-sm px-3 py-2 text-white focus:border-gold outline-none text-sm"
+                  />
+                  {loginError && (
+                    <p className="text-red-400 text-xs">{loginError}</p>
+                  )}
+                  <button
+                    type="submit"
+                    disabled={loginLoading}
+                    className="group inline-flex items-center gap-2 text-gold/90 hover:text-gold disabled:opacity-50"
+                  >
+                    <span className="underline-offset-2 group-hover:underline">
+                      {loginLoading ? tHome("loginSubmitting") : tHome("loginSubmit")}
+                    </span>
+                    <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
+                  </button>
+                </form>
+              </div>
+            </div>
+          )}
           {showPricing && (
             <div className="flex justify-start">
               <div className="max-w-[85%] bg-white/[0.03] border border-white/10 px-5 py-3 rounded-sm">
@@ -181,16 +274,22 @@ export default function HomeChatClient({ locale }: { locale: string }) {
                   <button
                     type="button"
                     onClick={() => setSignupOpen(true)}
-                    className="text-gold hover:underline text-left"
+                    className="group inline-flex items-center gap-2 text-gold/90 hover:text-gold text-left"
                   >
-                    {tHome("packEntry")}
+                    <span className="underline-offset-2 group-hover:underline">
+                      {tHome("packEntry")}
+                    </span>
+                    <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
                   </button>
                   <button
                     type="button"
                     onClick={() => setSignupOpen(true)}
-                    className="text-gold hover:underline text-left"
+                    className="group inline-flex items-center gap-2 text-gold/90 hover:text-gold text-left"
                   >
-                    {tHome("packBulk")}
+                    <span className="underline-offset-2 group-hover:underline">
+                      {tHome("packBulk")}
+                    </span>
+                    <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
                   </button>
                 </div>
               </div>

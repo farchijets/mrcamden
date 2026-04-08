@@ -16,7 +16,10 @@
       "signupTitle": "注册以获取你的答案",
       "signupSubtitle": "一条免费消息。没有奉承。",
       "packEntry": "50 个问题 / $5",
-      "packBulk": "1000 个问题 / $100"
+      "packBulk": "1000 个问题 / $100",
+      "loginPrompt": "欢迎回来。邮箱和密码。",
+      "loginSubmit": "登录",
+      "loginSubmitting": "登录中..."
     },
     "tagline": "以真话立业",
     "title": "MR. CAMDEN",

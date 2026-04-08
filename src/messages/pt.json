@@ -16,7 +16,10 @@
       "signupTitle": "Cadastre-se para receber sua resposta",
       "signupSubtitle": "Uma mensagem grátis. Sem bajulação.",
       "packEntry": "50 perguntas / $5",
-      "packBulk": "1000 perguntas / $100"
+      "packBulk": "1000 perguntas / $100",
+      "loginPrompt": "Bem-vindo de volta. Email e senha.",
+      "loginSubmit": "Entrar",
+      "loginSubmitting": "Entrando..."
     },
     "tagline": "Fundado na Verdade",
     "title": "MR. CAMDEN",

@@ -16,7 +16,10 @@
       "signupTitle": "जवाब पाने के लिए साइन अप करें",
       "signupSubtitle": "एक मुफ़्त संदेश। कोई चापलूसी नहीं।",
       "packEntry": "50 सवाल / $5",
-      "packBulk": "1000 सवाल / $100"
+      "packBulk": "1000 सवाल / $100",
+      "loginPrompt": "वापसी पर स्वागत है। ईमेल और पासवर्ड।",
+      "loginSubmit": "साइन इन",
+      "loginSubmitting": "साइन इन हो रहा है..."
     },
     "tagline": "सच्चाई से स्थापित",
     "title": "MR. CAMDEN",

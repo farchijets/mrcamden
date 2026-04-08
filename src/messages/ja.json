@@ -16,7 +16,10 @@
       "signupTitle": "回答を受け取るには登録",
       "signupSubtitle": "無料メッセージ1件。お世辞なし。",
       "packEntry": "50問 / $5",
-      "packBulk": "1000問 / $100"
+      "packBulk": "1000問 / $100",
+      "loginPrompt": "おかえり。メールとパスワードを。",
+      "loginSubmit": "サインイン",
+      "loginSubmitting": "サインイン中..."
     },
     "tagline": "真実とともに創業",
     "title": "MR. CAMDEN",
