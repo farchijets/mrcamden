@@ -20,20 +20,6 @@ export default function HomeChatClient({ locale }: { locale: string }) {
   const [input, setInput] = useState("");
   const [signupOpen, setSignupOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [showPricing, setShowPricing] = useState(false);
-  const [pricingThinking, setPricingThinking] = useState(false);
-
-  function openPricing() {
-    setMenuOpen(false);
-    if (showPricing || pricingThinking) return;
-    setPricingThinking(true);
-    setTimeout(() => {
-      setPricingThinking(false);
-      setShowPricing(true);
-    }, 900);
-  }
-
-  const truthLabel = tChat("real");
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -53,20 +39,14 @@ export default function HomeChatClient({ locale }: { locale: string }) {
 
   return (
     <main className="flex flex-col h-[100dvh]">
-      <header className="border-b border-gold/20 px-3 sm:px-6 py-3 sm:py-4 flex items-center justify-between gap-2">
+      <header className="border-b border-gold/20 py-3 sm:py-4">
+        <div className="max-w-3xl mx-auto px-4 flex items-center justify-between gap-2">
         <Link href="/" className="shrink-0">
           <Logo size="md" />
         </Link>
 
         <div className="hidden sm:flex items-center gap-4">
           <LanguageSwitcher currentLocale={locale} />
-          <button
-            type="button"
-            onClick={openPricing}
-            className="text-sm text-white/60 hover:text-gold transition"
-          >
-            {tNav("pricing")}
-          </button>
           <Link
             href="/login"
             className="text-sm border border-gold/30 hover:border-gold/70 hover:bg-gold/5 rounded-sm px-3 py-2 min-h-[44px] flex items-center text-gold"
@@ -112,13 +92,6 @@ export default function HomeChatClient({ locale }: { locale: string }) {
                 >
                   {tNav("login")}
                 </Link>
-                <button
-                  type="button"
-                  onClick={openPricing}
-                  className="w-full flex items-center justify-between px-3 py-3 rounded-sm border border-gold/30 hover:border-gold/70 hover:bg-gold/5 transition text-white/80"
-                >
-                  <span className="text-sm">{tNav("pricing")}</span>
-                </button>
                 <div className="flex items-center justify-between px-3 py-2 rounded-sm border border-white/10">
                   <span className="text-white/50 text-xs uppercase tracking-widest">
                     Language
@@ -128,6 +101,7 @@ export default function HomeChatClient({ locale }: { locale: string }) {
               </div>
             </>
           )}
+        </div>
         </div>
       </header>
 
@@ -154,51 +128,6 @@ export default function HomeChatClient({ locale }: { locale: string }) {
               </div>
             </div>
           ))}
-          {pricingThinking && (
-            <div className="flex justify-start">
-              <div className="bg-white/[0.03] border border-white/10 px-5 py-4 rounded-sm">
-                <div className="flex gap-2">
-                  <span className="w-2 h-2 rounded-full bg-gold animate-pulse-dot" />
-                  <span
-                    className="w-2 h-2 rounded-full bg-gold animate-pulse-dot"
-                    style={{ animationDelay: "0.2s" }}
-                  />
-                  <span
-                    className="w-2 h-2 rounded-full bg-gold animate-pulse-dot"
-                    style={{ animationDelay: "0.4s" }}
-                  />
-                </div>
-              </div>
-            </div>
-          )}
-          {showPricing && (
-            <div className="flex justify-start">
-              <div className="max-w-[85%] bg-gold/5 border border-gold/40 px-5 py-4 rounded-sm">
-                <p className="text-xs uppercase tracking-widest text-gold mb-2">
-                  {tChat("credit")}
-                </p>
-                <p className="whitespace-pre-wrap text-white/90 mb-4">
-                  {tHome("pricingPitch")}
-                </p>
-                <div className="flex flex-col sm:flex-row gap-2">
-                  <button
-                    type="button"
-                    onClick={() => setSignupOpen(true)}
-                    className="flex-1 bg-gold-gradient text-bg font-semibold px-4 py-3 rounded-sm"
-                  >
-                    {tHome("upsellBuy")}
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setSignupOpen(true)}
-                    className="flex-1 border border-gold/60 text-gold hover:bg-gold/10 font-semibold px-4 py-3 rounded-sm"
-                  >
-                    {tHome("upsellPro")}
-                  </button>
-                </div>
-              </div>
-            </div>
-          )}
         </div>
       </div>
 
@@ -206,14 +135,6 @@ export default function HomeChatClient({ locale }: { locale: string }) {
         onSubmit={trySend}
         className="border-t border-gold/20 px-3 sm:px-4 py-4 bg-bg"
       >
-        <div className="max-w-3xl mx-auto mb-3 flex items-center justify-start gap-2 text-xs">
-          <span className="uppercase tracking-widest text-white/50">
-            {tChat("truthDial")}:
-          </span>
-          <span className="uppercase tracking-widest text-gold font-semibold">
-            {truthLabel}
-          </span>
-        </div>
         <div className="max-w-3xl mx-auto flex gap-2 sm:gap-3">
           <input
             type="text"

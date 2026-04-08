@@ -34,9 +34,8 @@ export default function ChatClient({
   const [loading, setLoading] = useState(false);
   const [outOfCredits, setOutOfCredits] = useState(initialCredits <= 0);
   const [showUpsell, setShowUpsell] = useState(false);
-  // Truth dial is locked to "Real" in chat — Useless/Soft are visual only.
+  // Truth dial is locked to "Real" in chat.
   const truth = 10;
-  const truthLabel = t("real");
   const [billingOpen, setBillingOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -132,7 +131,8 @@ export default function ChatClient({
 
   return (
     <main className="flex flex-col h-[100dvh]">
-      <header className="border-b border-gold/20 px-3 sm:px-6 py-3 sm:py-4 flex items-center justify-between gap-2">
+      <header className="border-b border-gold/20 py-3 sm:py-4">
+        <div className="max-w-3xl mx-auto px-4 flex items-center justify-between gap-2">
         <Link href="/" className="shrink-0">
           <Logo size="md" />
         </Link>
@@ -221,6 +221,7 @@ export default function ChatClient({
             </>
           )}
         </div>
+        </div>
       </header>
 
       <BillingModal
@@ -278,25 +279,25 @@ export default function ChatClient({
           )}
           {showUpsell && !loading && (
             <div className="flex justify-start">
-              <div className="max-w-[85%] bg-gold/5 border border-gold/40 px-5 py-4 rounded-sm">
-                <p className="text-xs uppercase tracking-widest text-gold mb-2">
+              <div className="max-w-[85%] bg-white/[0.03] border border-white/10 px-5 py-3 rounded-sm">
+                <p className="text-xs uppercase tracking-widest text-gold mb-1">
                   {t("credit")}
                 </p>
-                <p className="whitespace-pre-wrap text-white/90 mb-4">
+                <p className="whitespace-pre-wrap text-white/90 mb-3">
                   {tHome("upsellText")}
                 </p>
-                <div className="flex flex-col sm:flex-row gap-2">
+                <div className="flex flex-col gap-1">
                   <button
                     type="button"
                     onClick={() => setBillingOpen(true)}
-                    className="flex-1 bg-gold-gradient text-bg font-semibold px-4 py-3 rounded-sm"
+                    className="text-gold hover:underline text-left text-sm"
                   >
                     {tHome("upsellBuy")}
                   </button>
                   <button
                     type="button"
                     onClick={() => setBillingOpen(true)}
-                    className="flex-1 border border-gold/60 text-gold hover:bg-gold/10 font-semibold px-4 py-3 rounded-sm"
+                    className="text-gold hover:underline text-left text-sm"
                   >
                     {tHome("upsellPro")}
                   </button>
@@ -310,26 +311,19 @@ export default function ChatClient({
                 {t("outOfCreditsTitle")}
               </p>
               <p className="text-white/70 mb-4">{t("outOfCreditsBody")}</p>
-              <Link
-                href="/pricing"
+              <button
+                type="button"
+                onClick={() => setBillingOpen(true)}
                 className="inline-block bg-gold-gradient text-bg font-semibold px-6 py-3 rounded-sm"
               >
                 {t("seePricing")}
-              </Link>
+              </button>
             </div>
           )}
         </div>
       </div>
 
       <form onSubmit={send} className="border-t border-gold/20 px-3 sm:px-4 py-4 bg-bg">
-        <div className="max-w-3xl mx-auto mb-3 flex items-center justify-start gap-2 text-xs">
-          <span className="uppercase tracking-widest text-white/50">
-            {t("truthDial")}:
-          </span>
-          <span className="uppercase tracking-widest text-gold font-semibold">
-            {truthLabel}
-          </span>
-        </div>
         <div className="max-w-3xl mx-auto flex gap-2 sm:gap-3">
           <input
             type="text"
