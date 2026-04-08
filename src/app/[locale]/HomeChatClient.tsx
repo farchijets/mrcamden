@@ -206,7 +206,7 @@ export default function HomeChatClient({ locale }: { locale: string }) {
         onSubmit={trySend}
         className="border-t border-gold/20 px-3 sm:px-4 py-4 bg-bg"
       >
-        <div className="max-w-3xl mx-auto mb-3 flex items-center justify-center gap-2 text-xs">
+        <div className="max-w-3xl mx-auto mb-3 flex items-center justify-start gap-2 text-xs">
           <span className="uppercase tracking-widest text-white/50">
             {tChat("truthDial")}:
           </span>
