@@ -7,14 +7,16 @@
   },
   "home": {
     "chatHome": {
-      "greeting": "Tu peux encaisser la vérité ?",
+      "greeting": "Je sais garder un secret, mais peux-tu encaisser la vérité ?",
       "sampleA": "Tu n'as pas une entreprise, tu as un sentiment. Construis-la le soir et le week-end. Si ça survit, là on parlera de démissionner.",
       "pricingPitch": "Simple. 50 questions pour 5 $. Pas d'abonnement, pas de bêtises.",
       "upsellText": "C'était ton message gratuit. Tu veux plus de vérité ?",
       "upsellBuy": "50 questions — 5 $",
       "upsellPro": "",
       "signupTitle": "Inscris-toi pour obtenir ta réponse",
-      "signupSubtitle": "Un message gratuit. Aucune flatterie."
+      "signupSubtitle": "Un message gratuit. Aucune flatterie.",
+      "packEntry": "50 questions / 5 $",
+      "packBulk": "1000 questions / 100 $"
     },
     "tagline": "Fondé sur la Vérité",
     "title": "MR. CAMDEN",
@@ -60,7 +62,7 @@
     "real": "Brutal"
   },
   "chat": {
-    "credits": "Crédits",
+    "credits": "Questions",
     "empty": "Demande. Accroche-toi.",
     "placeholder": "Dis-moi ce qui te trotte dans la tête...",
     "outOfCreditsPlaceholder": "Plus de crédits",
@@ -74,7 +76,8 @@
     "tooLong": "Les messages sont limités à 1000 caractères.",
     "useless": "Inutile",
     "soft": "Doux",
-    "real": "Brutal"
+    "real": "Brutal",
+    "notSavedDisclaimer": "Cette conversation n'est pas sauvegardée. Lis-la attentivement."
   },
   "auth": {
     "signupTitle": "Obtenez 1 message gratuit",
@@ -120,26 +123,22 @@
     "label": "Langue"
   },
   "billing": {
-    "title": "Acheter des crédits",
+    "title": "Acheter des questions",
     "subtitle": "Payez pour la vérité.",
-    "currentCredits": "Crédits actuels",
+    "currentCredits": "Restantes",
     "entry": {
       "title": "50 Questions",
       "price": "5 $",
       "unit": "paiement unique",
       "cta": "Acheter"
     },
-    "pro": {
-      "title": "Mr. Camden Pro",
-      "price": "35 $",
-      "unit": "par mois",
-      "credits": "100 crédits / mois",
-      "cta": "S'abonner",
-      "current": "Forfait actuel",
-      "badge": "Meilleure offre"
-    },
-    "manage": "Gérer l'abonnement",
     "close": "Fermer",
-    "loading": "Chargement..."
+    "loading": "Chargement...",
+    "bulk": {
+      "title": "1000 Questions",
+      "price": "$100",
+      "unit": "paiement unique",
+      "cta": "Acheter"
+    }
   }
 }

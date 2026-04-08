@@ -7,14 +7,16 @@
   },
   "home": {
     "chatHome": {
-      "greeting": "你受得了真话吗？",
+      "greeting": "我懂得保守秘密，但你受得了真话吗？",
       "sampleA": "你没有生意，你只是有个感觉。利用晚上和周末去做。要是能活下来，我们再谈辞职。",
       "pricingPitch": "简单。$5 买 50 个问题。没有订阅，没有废话。",
       "upsellText": "免费的那条用完了。想要更多真话？",
       "upsellBuy": "50 个问题 — $5",
       "upsellPro": "",
       "signupTitle": "注册以获取你的答案",
-      "signupSubtitle": "一条免费消息。没有奉承。"
+      "signupSubtitle": "一条免费消息。没有奉承。",
+      "packEntry": "50 个问题 / $5",
+      "packBulk": "1000 个问题 / $100"
     },
     "tagline": "以真话立业",
     "title": "MR. CAMDEN",
@@ -60,7 +62,7 @@
     "real": "残酷"
   },
   "chat": {
-    "credits": "点数",
+    "credits": "问题",
     "empty": "问吧。做好心理准备。",
     "placeholder": "告诉我你在想什么...",
     "outOfCreditsPlaceholder": "点数已用尽",
@@ -74,7 +76,8 @@
     "tooLong": "每条消息最多 1000 个字符。",
     "useless": "没用",
     "soft": "温和",
-    "real": "残酷"
+    "real": "残酷",
+    "notSavedDisclaimer": "此对话不会被保存。请仔细阅读。"
   },
   "auth": {
     "signupTitle": "获取 1 条免费消息",
@@ -120,26 +123,22 @@
     "label": "语言"
   },
   "billing": {
-    "title": "购买点数",
+    "title": "购买问题",
     "subtitle": "为真相买单。",
-    "currentCredits": "当前点数",
+    "currentCredits": "剩余",
     "entry": {
       "title": "50 个问题",
       "price": "$5",
       "unit": "一次性",
       "cta": "购买"
     },
-    "pro": {
-      "title": "Mr. Camden Pro",
-      "price": "$35",
-      "unit": "每月",
-      "credits": "每月 100 点数",
-      "cta": "订阅",
-      "current": "当前方案",
-      "badge": "最超值"
-    },
-    "manage": "管理订阅",
     "close": "关闭",
-    "loading": "加载中..."
+    "loading": "加载中...",
+    "bulk": {
+      "title": "1000 个问题",
+      "price": "$100",
+      "unit": "一次性",
+      "cta": "购买"
+    }
   }
 }

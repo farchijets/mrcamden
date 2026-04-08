@@ -350,6 +350,9 @@ export default function ChatClient({
             {input.length} / 1000
           </span>
         </div>
+        <p className="max-w-3xl mx-auto mt-1 text-center text-[11px] text-white/40 italic">
+          {t("notSavedDisclaimer")}
+        </p>
       </form>
     </main>
   );

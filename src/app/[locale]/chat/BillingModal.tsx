@@ -30,7 +30,7 @@ export default function BillingModal({
 
   if (!open) return null;
 
-  async function buy(pack: "entry") {
+  async function buy(pack: "entry" | "bulk") {
     setLoading(pack);
     try {
       const res = await fetch("/api/checkout", {
@@ -73,24 +73,46 @@ export default function BillingModal({
           </p>
         </div>
 
-        <div className="border-2 border-gold rounded-sm p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-gold/5">
-          <div>
-            <p className="font-serif text-2xl gold-text">{t("entry.title")}</p>
-            <p className="text-gold font-semibold mt-1">
-              {t("entry.price")}{" "}
-              <span className="text-white/50 text-sm font-normal">
-                {t("entry.unit")}
-              </span>
-            </p>
+        <div className="space-y-4">
+          <div className="border border-white/15 rounded-sm p-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <div>
+              <p className="font-serif text-2xl text-white">{t("entry.title")}</p>
+              <p className="text-gold font-semibold mt-1">
+                {t("entry.price")}{" "}
+                <span className="text-white/50 text-sm font-normal">
+                  {t("entry.unit")}
+                </span>
+              </p>
+            </div>
+            <button
+              type="button"
+              disabled={loading !== null}
+              onClick={() => buy("entry")}
+              className="bg-white/10 hover:bg-white/20 border border-gold/40 text-white font-semibold px-6 py-3 rounded-sm disabled:opacity-40 w-full sm:w-auto"
+            >
+              {loading === "entry" ? t("loading") : t("entry.cta")}
+            </button>
           </div>
-          <button
-            type="button"
-            disabled={loading !== null}
-            onClick={() => buy("entry")}
-            className="bg-gold-gradient text-bg font-semibold px-6 py-3 rounded-sm disabled:opacity-40 w-full sm:w-auto"
-          >
-            {loading === "entry" ? t("loading") : t("entry.cta")}
-          </button>
+
+          <div className="border-2 border-gold rounded-sm p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-gold/5">
+            <div>
+              <p className="font-serif text-2xl gold-text">{t("bulk.title")}</p>
+              <p className="text-gold font-semibold mt-1">
+                {t("bulk.price")}{" "}
+                <span className="text-white/50 text-sm font-normal">
+                  {t("bulk.unit")}
+                </span>
+              </p>
+            </div>
+            <button
+              type="button"
+              disabled={loading !== null}
+              onClick={() => buy("bulk")}
+              className="bg-gold-gradient text-bg font-semibold px-6 py-3 rounded-sm disabled:opacity-40 w-full sm:w-auto"
+            >
+              {loading === "bulk" ? t("loading") : t("bulk.cta")}
+            </button>
+          </div>
         </div>
       </div>
     </div>

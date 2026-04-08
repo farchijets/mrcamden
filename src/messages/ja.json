@@ -7,14 +7,16 @@
   },
   "home": {
     "chatHome": {
-      "greeting": "真実に耐えられるか？",
+      "greeting": "秘密の守り方は知っている。だが、お前は真実に耐えられるか？",
       "sampleA": "あなたにあるのは事業じゃない、感情だ。夜と週末で作れ。それでも生き残ったら、その時に辞職の話をしよう。",
       "pricingPitch": "シンプル。$5で50問。サブスクなし、面倒なし。",
       "upsellText": "それが無料分だった。もっと真実が欲しい？",
       "upsellBuy": "50問 — $5",
       "upsellPro": "",
       "signupTitle": "回答を受け取るには登録",
-      "signupSubtitle": "無料メッセージ1件。お世辞なし。"
+      "signupSubtitle": "無料メッセージ1件。お世辞なし。",
+      "packEntry": "50問 / $5",
+      "packBulk": "1000問 / $100"
     },
     "tagline": "真実とともに創業",
     "title": "MR. CAMDEN",
@@ -60,7 +62,7 @@
     "real": "容赦なし"
   },
   "chat": {
-    "credits": "クレジット",
+    "credits": "質問",
     "empty": "聞け。覚悟はしておけ。",
     "placeholder": "気になっていることを話してくれ...",
     "outOfCreditsPlaceholder": "クレジット切れ",
@@ -74,7 +76,8 @@
     "tooLong": "メッセージは1000文字までです。",
     "useless": "無意味",
     "soft": "やさしめ",
-    "real": "容赦なし"
+    "real": "容赦なし",
+    "notSavedDisclaimer": "この会話は保存されません。よく読んでください。"
   },
   "auth": {
     "signupTitle": "無料メッセージを1件受け取る",
@@ -120,26 +123,22 @@
     "label": "言語"
   },
   "billing": {
-    "title": "クレジットを購入",
+    "title": "質問を購入",
     "subtitle": "真実に対価を。",
-    "currentCredits": "現在のクレジット",
+    "currentCredits": "残り",
     "entry": {
       "title": "50 問",
       "price": "$5",
       "unit": "1回のみ",
       "cta": "購入"
     },
-    "pro": {
-      "title": "Mr. Camden Pro",
-      "price": "$35",
-      "unit": "月額",
-      "credits": "月 100 クレジット",
-      "cta": "登録する",
-      "current": "現在のプラン",
-      "badge": "一番お得"
-    },
-    "manage": "サブスクリプションを管理",
     "close": "閉じる",
-    "loading": "読み込み中..."
+    "loading": "読み込み中...",
+    "bulk": {
+      "title": "1000 質問",
+      "price": "$100",
+      "unit": "1回のみ",
+      "cta": "購入"
+    }
   }
 }

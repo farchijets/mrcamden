@@ -177,9 +177,22 @@ export default function HomeChatClient({ locale }: { locale: string }) {
                 <p className="text-xs uppercase tracking-widest text-gold mb-1">
                   {tChat("credit")}
                 </p>
-                <p className="whitespace-pre-wrap text-white/90">
-                  {tHome("pricingPitch")}
-                </p>
+                <div className="flex flex-col gap-1">
+                  <button
+                    type="button"
+                    onClick={() => setSignupOpen(true)}
+                    className="text-gold hover:underline text-left"
+                  >
+                    {tHome("packEntry")}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setSignupOpen(true)}
+                    className="text-gold hover:underline text-left"
+                  >
+                    {tHome("packBulk")}
+                  </button>
+                </div>
               </div>
             </div>
           )}
@@ -220,6 +233,9 @@ export default function HomeChatClient({ locale }: { locale: string }) {
             {input.length} / 1000
           </span>
         </div>
+        <p className="max-w-3xl mx-auto mt-1 text-center text-[11px] text-white/40 italic">
+          {tChat("notSavedDisclaimer")}
+        </p>
       </form>
 
       <SignupModal

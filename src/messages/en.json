@@ -7,7 +7,9 @@
   },
   "home": {
     "chatHome": {
-      "greeting": "Can you handle the truth?",
+      "greeting": "I know how to keep a secret, but can you handle the truth?",
+      "packEntry": "50 questions / $5",
+      "packBulk": "1000 questions / $100",
       "sampleA": "You don't have a business. You have a feeling. Build it nights and weekends. If it survives, then we'll talk about quitting.",
       "pricingPitch": "Simple. 50 questions for $5. No subscriptions, no nonsense.",
       "upsellText": "That was your free one. Want more truth?",
@@ -60,7 +62,8 @@
     "real": "Brutal"
   },
   "chat": {
-    "credits": "Credits",
+    "notSavedDisclaimer": "This conversation is not saved. Read carefully.",
+    "credits": "Questions",
     "empty": "Ask. Brace yourself.",
     "placeholder": "Tell me what's on your mind...",
     "outOfCreditsPlaceholder": "Out of credits",
@@ -120,25 +123,21 @@
     "label": "Language"
   },
   "billing": {
-    "title": "Buy credits",
+    "title": "Buy questions",
     "subtitle": "Pay for the truth.",
-    "currentCredits": "Current credits",
+    "currentCredits": "Remaining",
     "entry": {
       "title": "50 Questions",
       "price": "$5",
       "unit": "one-time",
       "cta": "Buy"
     },
-    "pro": {
-      "title": "Mr. Camden Pro",
-      "price": "$35",
-      "unit": "per month",
-      "credits": "100 credits / month",
-      "cta": "Subscribe",
-      "current": "Current plan",
-      "badge": "Best Value"
+    "bulk": {
+      "title": "1000 Questions",
+      "price": "$100",
+      "unit": "one-time",
+      "cta": "Buy"
     },
-    "manage": "Manage subscription",
     "close": "Close",
     "loading": "Loading..."
   }

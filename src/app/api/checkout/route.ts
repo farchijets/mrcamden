@@ -10,6 +10,11 @@ const PACKS = {
     credits: 50,
     mode: "payment" as const,
   },
+  bulk: {
+    priceEnv: "STRIPE_PRICE_BULK",
+    credits: 1000,
+    mode: "payment" as const,
+  },
 } as const;
 
 type Pack = keyof typeof PACKS;

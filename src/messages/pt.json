@@ -7,14 +7,16 @@
   },
   "home": {
     "chatHome": {
-      "greeting": "Você aguenta a verdade?",
+      "greeting": "Sei guardar segredo, mas você aguenta a verdade?",
       "sampleA": "Você não tem um negócio. Tem um sentimento. Constrói à noite e nos fins de semana. Se sobreviver, aí a gente fala sobre pedir demissão.",
       "pricingPitch": "Simples. 50 perguntas por $5. Sem assinaturas, sem enrolação.",
       "upsellText": "Essa foi a grátis. Quer mais verdade?",
       "upsellBuy": "50 perguntas — $5",
       "upsellPro": "",
       "signupTitle": "Cadastre-se para receber sua resposta",
-      "signupSubtitle": "Uma mensagem grátis. Sem bajulação."
+      "signupSubtitle": "Uma mensagem grátis. Sem bajulação.",
+      "packEntry": "50 perguntas / $5",
+      "packBulk": "1000 perguntas / $100"
     },
     "tagline": "Fundado na Verdade",
     "title": "MR. CAMDEN",
@@ -60,7 +62,7 @@
     "real": "Brutal"
   },
   "chat": {
-    "credits": "Créditos",
+    "credits": "Perguntas",
     "empty": "Pergunte. E se segure.",
     "placeholder": "Me diz o que está na sua cabeça...",
     "outOfCreditsPlaceholder": "Sem créditos",
@@ -74,7 +76,8 @@
     "tooLong": "As mensagens são limitadas a 1000 caracteres.",
     "useless": "Inútil",
     "soft": "Suave",
-    "real": "Brutal"
+    "real": "Brutal",
+    "notSavedDisclaimer": "Esta conversa não é salva. Leia com atenção."
   },
   "auth": {
     "signupTitle": "Ganhe 1 mensagem grátis",
@@ -120,26 +123,22 @@
     "label": "Idioma"
   },
   "billing": {
-    "title": "Comprar créditos",
+    "title": "Comprar perguntas",
     "subtitle": "Pague pela verdade.",
-    "currentCredits": "Créditos atuais",
+    "currentCredits": "Restantes",
     "entry": {
       "title": "50 Perguntas",
       "price": "US$ 5",
       "unit": "pagamento único",
       "cta": "Comprar"
     },
-    "pro": {
-      "title": "Mr. Camden Pro",
-      "price": "US$ 35",
-      "unit": "por mês",
-      "credits": "100 créditos / mês",
-      "cta": "Assinar",
-      "current": "Plano atual",
-      "badge": "Melhor Valor"
-    },
-    "manage": "Gerenciar assinatura",
     "close": "Fechar",
-    "loading": "Carregando..."
+    "loading": "Carregando...",
+    "bulk": {
+      "title": "1000 Perguntas",
+      "price": "$100",
+      "unit": "pagamento único",
+      "cta": "Comprar"
+    }
   }
 }
