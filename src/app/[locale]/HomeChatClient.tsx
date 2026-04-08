@@ -21,6 +21,12 @@ export default function HomeChatClient({ locale }: { locale: string }) {
   const [input, setInput] = useState("");
   const [signupOpen, setSignupOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [showPricing, setShowPricing] = useState(false);
+
+  function openPricing() {
+    setShowPricing(true);
+    setMenuOpen(false);
+  }
 
   const truthLabel = tChat("real");
 
@@ -52,12 +58,13 @@ export default function HomeChatClient({ locale }: { locale: string }) {
 
         <div className="hidden sm:flex items-center gap-4">
           <LanguageSwitcher currentLocale={locale} />
-          <Link
-            href="/pricing"
+          <button
+            type="button"
+            onClick={openPricing}
             className="text-sm text-white/60 hover:text-gold transition"
           >
             {tNav("pricing")}
-          </Link>
+          </button>
           <Link
             href="/login"
             className="text-sm border border-gold/30 hover:border-gold/70 hover:bg-gold/5 rounded-sm px-3 py-2 min-h-[44px] flex items-center text-gold"
@@ -103,13 +110,13 @@ export default function HomeChatClient({ locale }: { locale: string }) {
                 >
                   {tNav("login")}
                 </Link>
-                <Link
-                  href="/pricing"
-                  onClick={() => setMenuOpen(false)}
+                <button
+                  type="button"
+                  onClick={openPricing}
                   className="w-full flex items-center justify-between px-3 py-3 rounded-sm border border-gold/30 hover:border-gold/70 hover:bg-gold/5 transition text-white/80"
                 >
                   <span className="text-sm">{tNav("pricing")}</span>
-                </Link>
+                </button>
                 <div className="flex items-center justify-between px-3 py-2 rounded-sm border border-white/10">
                   <span className="text-white/50 text-xs uppercase tracking-widest">
                     Language
@@ -145,6 +152,34 @@ export default function HomeChatClient({ locale }: { locale: string }) {
               </div>
             </div>
           ))}
+          {showPricing && (
+            <div className="flex justify-start">
+              <div className="max-w-[85%] bg-gold/5 border border-gold/40 px-5 py-4 rounded-sm">
+                <p className="text-xs uppercase tracking-widest text-gold mb-2">
+                  {tChat("credit")}
+                </p>
+                <p className="whitespace-pre-wrap text-white/90 mb-4">
+                  {tHome("pricingPitch")}
+                </p>
+                <div className="flex flex-col sm:flex-row gap-2">
+                  <button
+                    type="button"
+                    onClick={() => setSignupOpen(true)}
+                    className="flex-1 bg-gold-gradient text-bg font-semibold px-4 py-3 rounded-sm"
+                  >
+                    {tHome("upsellBuy")}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setSignupOpen(true)}
+                    className="flex-1 border border-gold/60 text-gold hover:bg-gold/10 font-semibold px-4 py-3 rounded-sm"
+                  >
+                    {tHome("upsellPro")}
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
 
