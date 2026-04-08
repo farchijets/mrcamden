@@ -78,7 +78,8 @@
     "useless": "Inutile",
     "soft": "Doux",
     "real": "Brutal",
-    "notSavedDisclaimer": "Chat privé — rien n'est sauvegardé ni partagé."
+    "notSavedDisclaimer": "Chat privé — rien n'est sauvegardé ni partagé.",
+    "errorBody": "Quelque chose a cassé de mon côté. Ton crédit n'a pas été débité — réessaie dans un instant."
   },
   "auth": {
     "signupTitle": "Obtenez 1 message gratuit",

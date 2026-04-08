@@ -129,7 +129,20 @@ export default function ChatClient({
           if (data.credits <= 0) setOutOfCredits(true);
         }
         if (opts?.fromPending) setShowUpsell(true);
+      } else if (!res.ok) {
+        setMessages([
+          ...newMessages,
+          {
+            role: "assistant",
+            content: t("errorBody"),
+          },
+        ]);
       }
+    } catch {
+      setMessages([
+        ...newMessages,
+        { role: "assistant", content: t("errorBody") },
+      ]);
     } finally {
       setLoading(false);
     }

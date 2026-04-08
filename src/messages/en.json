@@ -64,6 +64,7 @@
   },
   "chat": {
     "notSavedDisclaimer": "Private chat — nothing is saved or shared.",
+    "errorBody": "Something broke on my end. Your credit wasn't charged — try again in a moment.",
     "credits": "Questions",
     "empty": "Ask. Brace yourself.",
     "placeholder": "Tell me what's on your mind...",

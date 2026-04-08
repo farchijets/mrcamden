@@ -78,7 +78,8 @@
     "useless": "Inútil",
     "soft": "Suave",
     "real": "Brutal",
-    "notSavedDisclaimer": "Chat privado — nada é salvo ou compartilhado."
+    "notSavedDisclaimer": "Chat privado — nada é salvo ou compartilhado.",
+    "errorBody": "Algo quebrou do meu lado. Seu crédito não foi cobrado — tente novamente em um instante."
   },
   "auth": {
     "signupTitle": "Ganhe 1 mensagem grátis",

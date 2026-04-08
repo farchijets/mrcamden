@@ -123,12 +123,23 @@ export async function POST(req: Request) {
       apiKey: process.env.ANTHROPIC_API_KEY || "",
     });
 
-    const response = await anthropic.messages.create({
-      model: "claude-sonnet-4-6",
-      max_tokens: 400,
-      system: buildSystemPrompt(typeof truth === "number" ? truth : 5, locale),
-      messages: messages.map((m) => ({ role: m.role, content: m.content })),
-    });
+    let response;
+    try {
+      response = await anthropic.messages.create({
+        model: "claude-sonnet-4-5",
+        max_tokens: 400,
+        system: buildSystemPrompt(
+          typeof truth === "number" ? truth : 5,
+          locale,
+        ),
+        messages: messages.map((m) => ({ role: m.role, content: m.content })),
+      });
+    } catch (err) {
+      // Refund the credit if the model call failed
+      await supabase.rpc("add_credits", { p_user: user.id, p_amount: 1 });
+      const msg = err instanceof Error ? err.message : "model_error";
+      return NextResponse.json({ error: msg }, { status: 502 });
+    }
 
     const textBlock = response.content.find((c) => c.type === "text");
     const reply =

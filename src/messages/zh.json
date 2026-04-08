@@ -78,7 +78,8 @@
     "useless": "没用",
     "soft": "温和",
     "real": "残酷",
-    "notSavedDisclaimer": "私密对话 — 不保存，不分享。"
+    "notSavedDisclaimer": "私密对话 — 不保存，不分享。",
+    "errorBody": "我这边出问题了。没有扣除你的点数 — 稍后再试。"
   },
   "auth": {
     "signupTitle": "获取 1 条免费消息",
