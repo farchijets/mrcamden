@@ -5,6 +5,13 @@
     "dashboard": "Dashboard"
   },
   "home": {
+    "chatHome": {
+      "upsellText": "That was your free one. Want more truth? Buy credits or go Pro.",
+      "upsellBuy": "Buy 10 credits — $5",
+      "upsellPro": "Subscribe — $35/mo",
+      "signupTitle": "Sign up to get your answer",
+      "signupSubtitle": "One free message. No flattery."
+    },
     "tagline": "Est. Truthfully",
     "title": "MR. CAMDEN",
     "subtitle": "The AI that won't kiss your behind.",

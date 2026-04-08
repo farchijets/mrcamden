@@ -5,6 +5,13 @@
     "dashboard": "控制台"
   },
   "home": {
+    "chatHome": {
+      "upsellText": "免费的那条用完了。想要更多真话？买点数或升级 Pro。",
+      "upsellBuy": "购买 10 点数 — $5",
+      "upsellPro": "订阅 — $35/月",
+      "signupTitle": "注册以获取你的答案",
+      "signupSubtitle": "一条免费消息。没有奉承。"
+    },
     "tagline": "以真话立业",
     "title": "MR. CAMDEN",
     "subtitle": "不会拍你马屁的AI。",
