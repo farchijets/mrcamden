@@ -317,14 +317,26 @@ export default function ChatClient({
                 <p className="whitespace-pre-wrap text-white/90 mb-3">
                   {tHome("upsellText")}
                 </p>
-                <button
-                  type="button"
-                  onClick={() => openPricingBubble()}
-                  className="group flex items-center gap-2 text-white/90 hover:text-gold transition"
-                >
-                  <span>{tHome("upsellBuy")}</span>
-                  <span aria-hidden className="text-gold/60 group-hover:text-gold transition-transform group-hover:translate-x-0.5">›</span>
-                </button>
+                <div className="flex flex-col gap-0.5">
+                  <button
+                    type="button"
+                    onClick={() => buyPack("entry")}
+                    disabled={buying !== null}
+                    className="group flex items-center gap-2 text-left text-white/90 hover:text-gold transition disabled:opacity-50"
+                  >
+                    <span>{tHome("packEntry")}</span>
+                    <span aria-hidden className="text-gold/60 group-hover:text-gold transition-transform group-hover:translate-x-0.5">›</span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => buyPack("bulk")}
+                    disabled={buying !== null}
+                    className="group flex items-center gap-2 text-left text-white/90 hover:text-gold transition disabled:opacity-50"
+                  >
+                    <span>{tHome("packBulk")}</span>
+                    <span aria-hidden className="text-gold/60 group-hover:text-gold transition-transform group-hover:translate-x-0.5">›</span>
+                  </button>
+                </div>
               </div>
             </div>
           )}
