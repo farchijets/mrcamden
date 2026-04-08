@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/i18n/routing";
+import Logo from "../Logo";
 
 type TierId = "entry" | "pro";
 
@@ -42,8 +43,8 @@ export default function PricingPage() {
     <main className="min-h-screen px-6 py-20">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-16">
-          <Link href="/" className="font-serif text-sm gold-text tracking-widest">
-            {t("brand")}
+          <Link href="/" className="inline-block">
+            <Logo size="sm" />
           </Link>
           <h1 className="font-serif text-5xl md:text-6xl gold-text mt-4">
             {t("title")}

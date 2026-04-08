@@ -3,6 +3,7 @@ import { useState, useRef, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import LanguageSwitcher from "../LanguageSwitcher";
+import Logo from "../Logo";
 import BillingModal from "./BillingModal";
 import { createClient } from "@/lib/supabase/client";
 
@@ -132,8 +133,8 @@ export default function ChatClient({
   return (
     <main className="flex flex-col h-[100dvh]">
       <header className="border-b border-gold/20 px-3 sm:px-6 py-3 sm:py-4 flex items-center justify-between gap-2">
-        <Link href="/" className="font-serif text-lg sm:text-2xl gold-text tracking-wide whitespace-nowrap">
-          MR. CAMDEN
+        <Link href="/" className="shrink-0">
+          <Logo size="md" />
         </Link>
         <div className="hidden sm:flex items-center gap-4">
           <LanguageSwitcher currentLocale={locale} />
