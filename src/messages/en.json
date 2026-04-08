@@ -6,7 +6,7 @@
   "home": {
     "tagline": "Est. Truthfully",
     "title": "MR. CAMDEN",
-    "subtitle": "The AI that won't kiss your behind.",
+    "subtitle": "Ask at your own risk.",
     "cta": "Try 1 Free Message",
     "youAsked": "You asked:",
     "credit": "Mr. Camden",
@@ -30,33 +30,22 @@
     "label": "Try the Truth Dial",
     "question": "Should I quit my job to start my business?",
     "dialLabel": "Truth Dial",
-    "gentle": "Gentle",
-    "real": "Real",
-    "brutal": "Brutal",
     "credit": "Mr. Camden",
     "footer": "Drag the dial. Same question, different levels of mercy.",
     "answers": {
-      "1": {
-        "label": "Gentle",
+      "useless": {
         "text": "It takes guts to even ask. Before you leap, give yourself a real runway — six to twelve months of savings, a rough plan, and at least one person who's said yes with their wallet. That isn't fear talking, that's respect for the dream."
       },
-      "3": {
-        "label": "Honest",
-        "text": "Wanting it badly isn't a plan. Most people who quit early run out of money before the idea finds its legs. Build savings, write the plan, and land one paying customer before you walk out that door."
-      },
-      "5": {
-        "label": "Real",
+      "soft": {
         "text": "Look — the romantic version of this story is a lie. You need savings, a plan, and at least one person willing to pay you before you have a business. Until then, you have a hobby with a notice period."
       },
-      "7": {
-        "label": "Blunt",
-        "text": "You're not asking me a question, you're asking for permission. I'm not giving it. Get a paying customer first. Until then, your job is funding your fantasy."
-      },
-      "10": {
-        "label": "Brutal",
+      "real": {
         "text": "Here's the deal: most people who 'quit to chase the dream' come crawling back in 18 months — poorer, quieter, and pretending it was a learning experience. You don't have a business. You have a feeling. Feelings don't pay rent. Build it nights and weekends. If it survives that, then we'll talk about quitting."
       }
-    }
+    },
+    "useless": "Useless",
+    "soft": "Soft",
+    "real": "Real"
   },
   "chat": {
     "credits": "Credits",
@@ -68,13 +57,12 @@
     "outOfCreditsBody": "The truth isn't free. Grab more.",
     "seePricing": "See Pricing",
     "truthDial": "Truth Dial",
-    "gentle": "Gentle",
-    "real": "Real",
-    "blunt": "Blunt",
-    "brutal": "Brutal",
     "credit": "Mr. Camden",
     "charLimit": "{n} / 1000",
-    "tooLong": "Messages are capped at 1000 characters."
+    "tooLong": "Messages are capped at 1000 characters.",
+    "useless": "Useless",
+    "soft": "Soft",
+    "real": "Real"
   },
   "auth": {
     "signupTitle": "Get 1 free message",

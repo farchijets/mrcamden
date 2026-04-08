@@ -6,7 +6,7 @@
   "home": {
     "tagline": "Fundado na Verdade",
     "title": "MR. CAMDEN",
-    "subtitle": "A IA que não vai passar a mão na sua cabeça.",
+    "subtitle": "Pergunte por sua conta e risco.",
     "cta": "Experimente 1 mensagem grátis",
     "youAsked": "Você perguntou:",
     "credit": "Mr. Camden",
@@ -30,33 +30,22 @@
     "label": "Experimente o Botão da Verdade",
     "question": "Devo largar o emprego para abrir meu negócio?",
     "dialLabel": "Botão da Verdade",
-    "gentle": "Suave",
-    "real": "Direto",
-    "brutal": "Brutal",
     "credit": "Mr. Camden",
     "footer": "Arraste o botão. Mesma pergunta, níveis diferentes de piedade.",
     "answers": {
-      "1": {
-        "label": "Suave",
+      "useless": {
         "text": "Só de perguntar isso já mostra coragem. Antes de pular, se dê uma pista de decolagem de verdade — seis a doze meses de reserva, um plano ainda que tosco, e pelo menos uma pessoa que disse sim com a carteira. Isso não é medo, é respeito pelo sonho."
       },
-      "3": {
-        "label": "Honesto",
-        "text": "Querer muito não é plano. A maioria que pede as contas cedo demais fica sem dinheiro antes da ideia se firmar. Guarde grana, escreva o plano, e feche um cliente pagante antes de atravessar aquela porta."
-      },
-      "5": {
-        "label": "Direto",
+      "soft": {
         "text": "Olha — a versão romântica dessa história é mentira. Você precisa de reserva, de um plano, e de pelo menos uma pessoa disposta a te pagar antes de ter um negócio. Até lá, você tem um hobby com aviso prévio."
       },
-      "7": {
-        "label": "Sem rodeios",
-        "text": "Você não está me fazendo uma pergunta, está pedindo permissão. Não vou dar. Arruma primeiro um cliente pagante. Até lá, seu emprego está bancando sua fantasia."
-      },
-      "10": {
-        "label": "Brutal",
+      "real": {
         "text": "Verdade crua: a maioria que 'larga tudo atrás do sonho' volta engatinhando em 18 meses — mais pobre, mais calada, fingindo que foi 'uma experiência de aprendizado'. Você não tem um negócio. Tem uma sensação. Sensação não paga aluguel. Construa à noite e nos fins de semana. Se sobreviver a isso, aí a gente conversa sobre largar o emprego."
       }
-    }
+    },
+    "useless": "Inútil",
+    "soft": "Suave",
+    "real": "Real"
   },
   "chat": {
     "credits": "Créditos",
@@ -68,13 +57,12 @@
     "outOfCreditsBody": "A verdade não é de graça. Recarregue.",
     "seePricing": "Ver Preços",
     "truthDial": "Botão da Verdade",
-    "gentle": "Suave",
-    "real": "Direto",
-    "blunt": "Sem rodeios",
-    "brutal": "Brutal",
     "credit": "Mr. Camden",
     "charLimit": "{n} / 1000",
-    "tooLong": "As mensagens são limitadas a 1000 caracteres."
+    "tooLong": "As mensagens são limitadas a 1000 caracteres.",
+    "useless": "Inútil",
+    "soft": "Suave",
+    "real": "Real"
   },
   "auth": {
     "signupTitle": "Ganhe 1 mensagem grátis",

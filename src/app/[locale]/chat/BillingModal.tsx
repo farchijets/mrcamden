@@ -69,14 +69,14 @@ export default function BillingModal({
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-xl bg-bg border border-gold/40 rounded-sm shadow-2xl p-6 sm:p-8"
+        className="relative w-full max-w-xl max-h-[90vh] overflow-y-auto bg-bg border border-gold/40 rounded-sm shadow-2xl p-4 sm:p-8"
         onClick={(e) => e.stopPropagation()}
       >
         <button
           type="button"
           onClick={onClose}
           aria-label={t("close")}
-          className="absolute top-3 right-3 text-white/60 hover:text-gold text-2xl leading-none w-8 h-8 flex items-center justify-center"
+          className="absolute top-2 right-2 text-white/60 hover:text-gold text-3xl leading-none w-11 h-11 flex items-center justify-center"
         >
           ×
         </button>
@@ -92,7 +92,7 @@ export default function BillingModal({
 
         <div className="space-y-4">
           {/* Entry pack */}
-          <div className="border border-white/15 rounded-sm p-5 flex items-center justify-between gap-4">
+          <div className="border border-white/15 rounded-sm p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4">
             <div>
               <p className="font-serif text-xl text-white">
                 {t("entry.title")}
@@ -108,14 +108,14 @@ export default function BillingModal({
               type="button"
               disabled={loading !== null}
               onClick={() => buy("entry")}
-              className="bg-white/10 hover:bg-white/20 border border-gold/40 text-white font-semibold px-5 py-2.5 rounded-sm disabled:opacity-40"
+              className="bg-white/10 hover:bg-white/20 border border-gold/40 text-white font-semibold px-5 py-3 rounded-sm disabled:opacity-40 w-full sm:w-auto"
             >
               {loading === "entry" ? t("loading") : t("entry.cta")}
             </button>
           </div>
 
           {/* Pro sub */}
-          <div className="relative border-2 border-gold rounded-sm p-5 flex items-center justify-between gap-4 bg-gold/5">
+          <div className="relative border-2 border-gold rounded-sm p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4 bg-gold/5">
             <span className="absolute -top-3 left-5 bg-gold-gradient text-bg text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-sm">
               {t("pro.badge")}
             </span>
@@ -138,7 +138,7 @@ export default function BillingModal({
                 type="button"
                 disabled={loading !== null}
                 onClick={() => buy("pro")}
-                className="bg-gold-gradient text-bg font-semibold px-5 py-2.5 rounded-sm disabled:opacity-40"
+                className="bg-gold-gradient text-bg font-semibold px-5 py-3 rounded-sm disabled:opacity-40 w-full sm:w-auto"
               >
                 {loading === "pro" ? t("loading") : t("pro.cta")}
               </button>

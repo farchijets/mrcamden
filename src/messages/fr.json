@@ -6,7 +6,7 @@
   "home": {
     "tagline": "Fondé sur la Vérité",
     "title": "MR. CAMDEN",
-    "subtitle": "L'IA qui ne va pas te cirer les pompes.",
+    "subtitle": "Demande à tes risques et périls.",
     "cta": "Essayez 1 message gratuit",
     "youAsked": "Tu as demandé :",
     "credit": "Mr. Camden",
@@ -30,33 +30,22 @@
     "label": "Essaie le Cadran de Vérité",
     "question": "Devrais-je quitter mon job pour lancer ma boîte ?",
     "dialLabel": "Cadran de Vérité",
-    "gentle": "Doux",
-    "real": "Franc",
-    "brutal": "Brutal",
     "credit": "Mr. Camden",
     "footer": "Bouge le cadran. Même question, différents niveaux de pitié.",
     "answers": {
-      "1": {
-        "label": "Doux",
+      "useless": {
         "text": "Rien que de poser la question, ça demande du cran. Avant de sauter, donne-toi une vraie piste d'envol — six à douze mois d'épargne, un plan grossier, et au moins une personne qui a dit oui avec son porte-monnaie. Ce n'est pas la peur qui parle, c'est le respect pour le rêve."
       },
-      "3": {
-        "label": "Honnête",
-        "text": "Vouloir fort n'est pas un plan. La plupart de ceux qui démissionnent trop tôt se retrouvent à sec avant que l'idée ne prenne son envol. Épargne, rédige le plan, décroche un client qui paie avant de passer cette porte."
-      },
-      "5": {
-        "label": "Franc",
+      "soft": {
         "text": "Écoute — la version romantique de cette histoire est un mensonge. Il te faut des économies, un plan, et au moins une personne prête à te payer avant d'avoir une entreprise. Sans ça, tu as un hobby avec un préavis."
       },
-      "7": {
-        "label": "Direct",
-        "text": "Tu ne me poses pas une question, tu me demandes la permission. Je ne te la donne pas. Trouve d'abord un client payant. En attendant, ton boulot finance ton fantasme."
-      },
-      "10": {
-        "label": "Brutal",
+      "real": {
         "text": "Soyons clairs : la plupart de ceux qui « plaquent tout pour leur rêve » reviennent à quatre pattes dix-huit mois plus tard — plus pauvres, plus discrets, en prétendant que c'était une expérience formatrice. Tu n'as pas d'entreprise. Tu as une sensation. Les sensations ne paient pas le loyer. Construis-la le soir et le week-end. Si elle survit à ça, on reparlera de démission."
       }
-    }
+    },
+    "useless": "Inutile",
+    "soft": "Doux",
+    "real": "Vrai"
   },
   "chat": {
     "credits": "Crédits",
@@ -68,13 +57,12 @@
     "outOfCreditsBody": "La vérité n'est pas gratuite. Recharge.",
     "seePricing": "Voir les tarifs",
     "truthDial": "Cadran de Vérité",
-    "gentle": "Doux",
-    "real": "Franc",
-    "blunt": "Direct",
-    "brutal": "Brutal",
     "credit": "Mr. Camden",
     "charLimit": "{n} / 1000",
-    "tooLong": "Les messages sont limités à 1000 caractères."
+    "tooLong": "Les messages sont limités à 1000 caractères.",
+    "useless": "Inutile",
+    "soft": "Doux",
+    "real": "Vrai"
   },
   "auth": {
     "signupTitle": "Obtenez 1 message gratuit",

@@ -18,16 +18,16 @@ body {
 .truth-slider {
   -webkit-appearance: none;
   appearance: none;
-  height: 4px;
-  border-radius: 2px;
+  height: 6px;
+  border-radius: 3px;
   background: linear-gradient(to right, #4a3a1a 0%, #c8a04a 50%, #e6c26e 100%);
   outline: none;
 }
 .truth-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 18px;
-  height: 18px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
   background: #e6c26e;
   border: 2px solid #0a0a0a;
@@ -39,13 +39,23 @@ body {
   transform: scale(1.15);
 }
 .truth-slider::-moz-range-thumb {
-  width: 18px;
-  height: 18px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
   background: #e6c26e;
   border: 2px solid #0a0a0a;
   box-shadow: 0 0 10px rgba(200, 160, 74, 0.6);
   cursor: pointer;
+}
+@media (pointer: coarse) {
+  .truth-slider::-webkit-slider-thumb {
+    width: 28px;
+    height: 28px;
+  }
+  .truth-slider::-moz-range-thumb {
+    width: 28px;
+    height: 28px;
+  }
 }
 
 .grain::before {

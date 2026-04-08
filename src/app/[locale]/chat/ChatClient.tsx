@@ -22,7 +22,12 @@ export default function ChatClient({
   const [credits, setCredits] = useState(initialCredits);
   const [loading, setLoading] = useState(false);
   const [outOfCredits, setOutOfCredits] = useState(initialCredits <= 0);
-  const [truth, setTruth] = useState(5);
+  // Slider position 0=Useless, 1=Soft, 2=Real (mapped to API truth 1/5/10)
+  const [truthPos, setTruthPos] = useState(2);
+  const TRUTH_API = [1, 5, 10] as const;
+  const truth = TRUTH_API[truthPos];
+  const TRUTH_KEYS = ["useless", "soft", "real"] as const;
+  const truthLabel = t(TRUTH_KEYS[truthPos]);
   const [billingOpen, setBillingOpen] = useState(false);
 
   useEffect(() => {
@@ -40,14 +45,6 @@ export default function ChatClient({
     }
   }, []);
 
-  const truthLabel =
-    truth <= 3
-      ? t("gentle")
-      : truth <= 6
-        ? t("real")
-        : truth <= 8
-          ? t("blunt")
-          : t("brutal");
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -95,17 +92,17 @@ export default function ChatClient({
   }
 
   return (
-    <main className="flex flex-col h-screen">
-      <header className="border-b border-gold/20 px-6 py-4 flex items-center justify-between">
-        <Link href="/" className="font-serif text-2xl gold-text tracking-wide">
+    <main className="flex flex-col h-[100dvh]">
+      <header className="border-b border-gold/20 px-3 sm:px-6 py-3 sm:py-4 flex items-center justify-between gap-2">
+        <Link href="/" className="font-serif text-lg sm:text-2xl gold-text tracking-wide whitespace-nowrap">
           MR. CAMDEN
         </Link>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2 sm:gap-4">
           <LanguageSwitcher currentLocale={locale} />
           <button
             type="button"
             onClick={() => setBillingOpen(true)}
-            className="text-sm border border-gold/30 hover:border-gold/70 hover:bg-gold/5 rounded-sm px-3 py-1.5 transition"
+            className="text-sm border border-gold/30 hover:border-gold/70 hover:bg-gold/5 rounded-sm px-3 py-2 min-h-[44px] transition"
           >
             <span className="text-white/50">{t("credits")}: </span>
             <span className="text-gold font-semibold">{credits}</span>
@@ -184,32 +181,32 @@ export default function ChatClient({
         </div>
       </div>
 
-      <form onSubmit={send} className="border-t border-gold/20 px-4 py-4 bg-bg">
+      <form onSubmit={send} className="border-t border-gold/20 px-3 sm:px-4 py-4 bg-bg">
         <div className="max-w-3xl mx-auto mb-3">
           <div className="flex items-center justify-between mb-1 text-xs">
             <span className="uppercase tracking-widest text-gold/80">
               {t("truthDial")}
             </span>
-            <span className="text-gold font-semibold">
-              {truth}/10 — {truthLabel}
+            <span className="text-gold font-semibold uppercase tracking-widest">
+              {truthLabel}
             </span>
           </div>
           <input
             type="range"
-            min={1}
-            max={10}
+            min={0}
+            max={2}
             step={1}
-            value={truth}
-            onChange={(e) => setTruth(Number(e.target.value))}
+            value={truthPos}
+            onChange={(e) => setTruthPos(Number(e.target.value))}
             className="truth-slider w-full"
           />
           <div className="flex justify-between text-[10px] text-white/40 uppercase tracking-widest mt-1">
-            <span>{t("gentle")}</span>
+            <span>{t("useless")}</span>
+            <span>{t("soft")}</span>
             <span>{t("real")}</span>
-            <span>{t("brutal")}</span>
           </div>
         </div>
-        <div className="max-w-3xl mx-auto flex gap-3">
+        <div className="max-w-3xl mx-auto flex gap-2 sm:gap-3">
           <input
             type="text"
             value={input}
@@ -219,14 +216,14 @@ export default function ChatClient({
               outOfCredits ? t("outOfCreditsPlaceholder") : t("placeholder")
             }
             disabled={outOfCredits || loading}
-            className="flex-1 bg-black/50 border border-white/10 rounded-sm px-4 py-3 text-white focus:border-gold outline-none disabled:opacity-50"
+            className="flex-1 min-w-0 bg-black/50 border border-white/10 rounded-sm px-3 sm:px-4 py-3 text-white focus:border-gold outline-none disabled:opacity-50"
           />
           <button
             type="submit"
             disabled={
               outOfCredits || loading || !input.trim() || input.length > 1000
             }
-            className="bg-gold-gradient text-bg font-semibold px-6 rounded-sm disabled:opacity-30"
+            className="bg-gold-gradient text-bg font-semibold px-4 sm:px-6 py-3 rounded-sm disabled:opacity-30 shrink-0"
           >
             {t("send")}
           </button>

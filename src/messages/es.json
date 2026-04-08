@@ -6,7 +6,7 @@
   "home": {
     "tagline": "Fundado con la Verdad",
     "title": "MR. CAMDEN",
-    "subtitle": "La IA que no te va a dorar la píldora.",
+    "subtitle": "Pregunta bajo tu propio riesgo.",
     "cta": "Prueba 1 mensaje gratis",
     "youAsked": "Preguntaste:",
     "credit": "Mr. Camden",
@@ -30,33 +30,22 @@
     "label": "Prueba el Dial de la Verdad",
     "question": "¿Debería dejar mi trabajo para montar mi negocio?",
     "dialLabel": "Dial de la Verdad",
-    "gentle": "Suave",
-    "real": "Real",
-    "brutal": "Brutal",
     "credit": "Mr. Camden",
     "footer": "Mueve el dial. Misma pregunta, distintos niveles de piedad.",
     "answers": {
-      "1": {
-        "label": "Suave",
+      "useless": {
         "text": "Hace falta valor solo para preguntarlo. Antes de saltar, date una pista de verdad: seis a doce meses de ahorro, un plan aunque sea tosco, y al menos una persona que haya dicho que sí con la cartera. Eso no es miedo, es respeto por el sueño."
       },
-      "3": {
-        "label": "Honesto",
-        "text": "Quererlo mucho no es un plan. La mayoría de los que dejan el trabajo antes de tiempo se quedan sin dinero antes de que la idea arranque. Ahorra, escribe el plan, y consigue un cliente que pague antes de cruzar esa puerta."
-      },
-      "5": {
-        "label": "Real",
+      "soft": {
         "text": "Mira — la versión romántica de esta historia es mentira. Necesitas ahorros, un plan y al menos una persona dispuesta a pagarte antes de tener un negocio. Hasta entonces, tienes un hobby con periodo de preaviso."
       },
-      "7": {
-        "label": "Directo",
-        "text": "No me estás haciendo una pregunta, me estás pidiendo permiso. No te lo voy a dar. Consigue primero un cliente que pague. Hasta entonces, tu trabajo está financiando tu fantasía."
-      },
-      "10": {
-        "label": "Brutal",
+      "real": {
         "text": "Te lo digo sin anestesia: la mayoría de los que 'dejan todo para perseguir el sueño' vuelven arrastrándose a los 18 meses — más pobres, más callados, y fingiendo que fue una experiencia de aprendizaje. No tienes un negocio. Tienes una sensación. Las sensaciones no pagan el alquiler. Móntalo por las noches y los fines de semana. Si sobrevive a eso, hablamos de dejarlo."
       }
-    }
+    },
+    "useless": "Inútil",
+    "soft": "Suave",
+    "real": "Real"
   },
   "chat": {
     "credits": "Créditos",
@@ -68,13 +57,12 @@
     "outOfCreditsBody": "La verdad no es gratis. Consigue más.",
     "seePricing": "Ver Precios",
     "truthDial": "Dial de la Verdad",
-    "gentle": "Suave",
-    "real": "Real",
-    "blunt": "Directo",
-    "brutal": "Brutal",
     "credit": "Mr. Camden",
     "charLimit": "{n} / 1000",
-    "tooLong": "Los mensajes están limitados a 1000 caracteres."
+    "tooLong": "Los mensajes están limitados a 1000 caracteres.",
+    "useless": "Inútil",
+    "soft": "Suave",
+    "real": "Real"
   },
   "auth": {
     "signupTitle": "Consigue 1 mensaje gratis",
