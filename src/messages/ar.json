@@ -118,5 +118,28 @@
   },
   "language": {
     "label": "اللغة"
+  },
+  "billing": {
+    "title": "شراء الرصيد",
+    "subtitle": "ادفع ثمن الحقيقة.",
+    "currentCredits": "الرصيد الحالي",
+    "entry": {
+      "title": "10 نقاط",
+      "price": "5 $",
+      "unit": "دفعة واحدة",
+      "cta": "شراء"
+    },
+    "pro": {
+      "title": "Mr. Camden Pro",
+      "price": "35 $",
+      "unit": "شهريًا",
+      "credits": "100 نقطة / شهر",
+      "cta": "اشترك",
+      "current": "الخطة الحالية",
+      "badge": "أفضل قيمة"
+    },
+    "manage": "إدارة الاشتراك",
+    "close": "إغلاق",
+    "loading": "جارٍ التحميل..."
   }
 }

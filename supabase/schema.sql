@@ -3,8 +3,15 @@
 create table if not exists public.profiles (
   id uuid primary key references auth.users(id) on delete cascade,
   credits int not null default 1,
-  created_at timestamptz not null default now()
+  created_at timestamptz not null default now(),
+  stripe_customer_id text unique,
+  stripe_subscription_id text,
+  subscription_status text,
+  subscription_current_period_end timestamptz,
+  cancel_at_period_end boolean not null default false
 );
+
+create index if not exists profiles_stripe_customer_id_idx on public.profiles(stripe_customer_id);
 
 alter table public.profiles enable row level security;
 

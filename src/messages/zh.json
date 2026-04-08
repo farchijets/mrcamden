@@ -118,5 +118,28 @@
   },
   "language": {
     "label": "语言"
+  },
+  "billing": {
+    "title": "购买点数",
+    "subtitle": "为真相买单。",
+    "currentCredits": "当前点数",
+    "entry": {
+      "title": "10 点数",
+      "price": "$5",
+      "unit": "一次性",
+      "cta": "购买"
+    },
+    "pro": {
+      "title": "Mr. Camden Pro",
+      "price": "$35",
+      "unit": "每月",
+      "credits": "每月 100 点数",
+      "cta": "订阅",
+      "current": "当前方案",
+      "badge": "最超值"
+    },
+    "manage": "管理订阅",
+    "close": "关闭",
+    "loading": "加载中..."
   }
 }

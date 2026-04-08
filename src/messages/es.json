@@ -118,5 +118,28 @@
   },
   "language": {
     "label": "Idioma"
+  },
+  "billing": {
+    "title": "Compra créditos",
+    "subtitle": "Paga por la verdad.",
+    "currentCredits": "Créditos actuales",
+    "entry": {
+      "title": "10 Créditos",
+      "price": "5 $",
+      "unit": "pago único",
+      "cta": "Comprar"
+    },
+    "pro": {
+      "title": "Mr. Camden Pro",
+      "price": "35 $",
+      "unit": "al mes",
+      "credits": "100 créditos / mes",
+      "cta": "Suscribirse",
+      "current": "Plan actual",
+      "badge": "Mejor Valor"
+    },
+    "manage": "Gestionar suscripción",
+    "close": "Cerrar",
+    "loading": "Cargando..."
   }
 }

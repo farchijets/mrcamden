@@ -118,5 +118,28 @@
   },
   "language": {
     "label": "言語"
+  },
+  "billing": {
+    "title": "クレジットを購入",
+    "subtitle": "真実に対価を。",
+    "currentCredits": "現在のクレジット",
+    "entry": {
+      "title": "10 クレジット",
+      "price": "$5",
+      "unit": "1回のみ",
+      "cta": "購入"
+    },
+    "pro": {
+      "title": "Mr. Camden Pro",
+      "price": "$35",
+      "unit": "月額",
+      "credits": "月 100 クレジット",
+      "cta": "登録する",
+      "current": "現在のプラン",
+      "badge": "一番お得"
+    },
+    "manage": "サブスクリプションを管理",
+    "close": "閉じる",
+    "loading": "読み込み中..."
   }
 }

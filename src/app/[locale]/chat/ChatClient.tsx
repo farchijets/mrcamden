@@ -3,15 +3,18 @@ import { useState, useRef, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import LanguageSwitcher from "../LanguageSwitcher";
+import BillingModal from "./BillingModal";
 
 type Msg = { role: "user" | "assistant"; content: string };
 
 export default function ChatClient({
   initialCredits,
   locale,
+  hasActiveSub,
 }: {
   initialCredits: number;
   locale: string;
+  hasActiveSub: boolean;
 }) {
   const t = useTranslations("chat");
   const [messages, setMessages] = useState<Msg[]>([]);
@@ -20,6 +23,22 @@ export default function ChatClient({
   const [loading, setLoading] = useState(false);
   const [outOfCredits, setOutOfCredits] = useState(initialCredits <= 0);
   const [truth, setTruth] = useState(5);
+  const [billingOpen, setBillingOpen] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const url = new URL(window.location.href);
+    if (url.searchParams.get("billing") === "success") {
+      url.searchParams.delete("billing");
+      const clean = url.pathname + (url.search ? url.search : "");
+      window.history.replaceState({}, "", clean);
+      window.location.reload();
+    } else if (url.searchParams.get("billing") === "cancel") {
+      url.searchParams.delete("billing");
+      const clean = url.pathname + (url.search ? url.search : "");
+      window.history.replaceState({}, "", clean);
+    }
+  }, []);
 
   const truthLabel =
     truth <= 3
@@ -83,12 +102,25 @@ export default function ChatClient({
         </Link>
         <div className="flex items-center gap-4">
           <LanguageSwitcher currentLocale={locale} />
-          <div className="text-sm">
+          <button
+            type="button"
+            onClick={() => setBillingOpen(true)}
+            className="text-sm border border-gold/30 hover:border-gold/70 hover:bg-gold/5 rounded-sm px-3 py-1.5 transition"
+          >
             <span className="text-white/50">{t("credits")}: </span>
             <span className="text-gold font-semibold">{credits}</span>
-          </div>
+            <span className="ml-2 text-xs text-gold/70">+</span>
+          </button>
         </div>
       </header>
+
+      <BillingModal
+        open={billingOpen}
+        onClose={() => setBillingOpen(false)}
+        credits={credits}
+        hasActiveSub={hasActiveSub}
+        locale={locale}
+      />
 
       <div ref={scrollRef} className="flex-1 overflow-y-auto px-4 py-6">
         <div className="max-w-3xl mx-auto space-y-4">

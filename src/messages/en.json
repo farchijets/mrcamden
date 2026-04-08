@@ -118,5 +118,28 @@
   },
   "language": {
     "label": "Language"
+  },
+  "billing": {
+    "title": "Buy credits",
+    "subtitle": "Pay for the truth.",
+    "currentCredits": "Current credits",
+    "entry": {
+      "title": "10 Credits",
+      "price": "$5",
+      "unit": "one-time",
+      "cta": "Buy"
+    },
+    "pro": {
+      "title": "Mr. Camden Pro",
+      "price": "$35",
+      "unit": "per month",
+      "credits": "100 credits / month",
+      "cta": "Subscribe",
+      "current": "Current plan",
+      "badge": "Best Value"
+    },
+    "manage": "Manage subscription",
+    "close": "Close",
+    "loading": "Loading..."
   }
 }
