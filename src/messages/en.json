@@ -7,7 +7,7 @@
   },
   "home": {
     "chatHome": {
-      "greeting": "I know how to keep a secret, but can you handle the truth?",
+      "greeting": "Can you handle the truth?",
       "packEntry": "50 questions / $5",
       "packBulk": "1000 questions / $100",
       "loginPrompt": "Welcome back. Email and password.",
