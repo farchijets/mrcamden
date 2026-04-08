@@ -76,8 +76,28 @@ export async function POST(req: Request) {
       truth?: number;
       locale?: string;
     };
-    if (!Array.isArray(messages)) {
+    if (!Array.isArray(messages) || messages.length === 0) {
       return NextResponse.json({ error: "invalid_body" }, { status: 400 });
+    }
+    if (messages.length > 200) {
+      return NextResponse.json(
+        { error: "too_many_messages", limit: 200 },
+        { status: 400 },
+      );
+    }
+    const last = messages[messages.length - 1];
+    if (
+      !last ||
+      typeof last.content !== "string" ||
+      last.content.trim().length === 0
+    ) {
+      return NextResponse.json({ error: "invalid_body" }, { status: 400 });
+    }
+    if (last.content.length > 1000) {
+      return NextResponse.json(
+        { error: "message_too_long", limit: 1000 },
+        { status: 400 },
+      );
     }
 
     const supabase = createClient();

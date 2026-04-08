@@ -7,7 +7,7 @@
     "tagline": "Fondé sur la Vérité",
     "title": "MR. CAMDEN",
     "subtitle": "L'IA qui ne va pas te cirer les pompes.",
-    "cta": "Essaie 3 Messages Gratuits",
+    "cta": "Essayez 1 message gratuit",
     "youAsked": "Tu as demandé :",
     "credit": "Mr. Camden",
     "footer": "Sans détours. Sans flagornerie. Sans « excellente question ! »",
@@ -72,10 +72,12 @@
     "real": "Franc",
     "blunt": "Direct",
     "brutal": "Brutal",
-    "credit": "Mr. Camden"
+    "credit": "Mr. Camden",
+    "charLimit": "{n} / 1000",
+    "tooLong": "Les messages sont limités à 1000 caractères."
   },
   "auth": {
-    "signupTitle": "Obtiens 3 messages gratuits",
+    "signupTitle": "Obtenez 1 message gratuit",
     "signupSubtitle": "Prépare-toi à ne pas être flatté.",
     "loginTitle": "Re-bonjour",
     "loginSubtitle": "Pas de tapis rouge ici.",
@@ -91,11 +93,11 @@
     "signInLink": "Se connecter",
     "signUpLink": "S'inscrire",
     "checkEmailTitle": "Vérifie tes e-mails",
-    "checkEmailBody": "Nous avons envoyé un lien de confirmation à {email}. Clique dessus pour activer ton compte et récupérer tes 3 messages gratuits."
+    "checkEmailBody": "Nous avons envoyé un lien de confirmation à {email}. Cliquez pour activer votre compte et récupérer votre 1 message gratuit."
   },
   "pricing": {
     "brand": "MR. CAMDEN",
-    "title": "La vérité, à la douzaine.",
+    "title": "La vérité, à juste prix.",
     "subtitle": "Un crédit par message.",
     "credits": "{n} crédits",
     "popular": "Le plus choisi",
@@ -103,10 +105,16 @@
     "redirecting": "Redirection...",
     "errorGeneric": "Quelque chose a cassé.",
     "tiers": {
-      "small": { "blurb": "Un avant-goût du réel." },
-      "medium": { "blurb": "Pour les vraiment curieux." },
-      "large": { "blurb": "Pour les vraiment lucides." }
-    }
+      "entry": {
+        "blurb": "Un avant-goût de la réalité."
+      },
+      "pro": {
+        "blurb": "Pour les vraiment lucides."
+      }
+    },
+    "oneTime": " paiement unique",
+    "perMonth": "/mois",
+    "renews": "Renouvelé chaque mois. Annulez quand vous voulez."
   },
   "language": {
     "label": "Langue"

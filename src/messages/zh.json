@@ -7,7 +7,7 @@
     "tagline": "以真话立业",
     "title": "MR. CAMDEN",
     "subtitle": "不会拍你马屁的AI。",
-    "cta": "免费试用 3 条消息",
+    "cta": "试用 1 条免费消息",
     "youAsked": "你问：",
     "credit": "Mr. Camden",
     "footer": "不绕弯子。不吹捧。不说\"好问题！\"",
@@ -72,10 +72,12 @@
     "real": "直白",
     "blunt": "不留情",
     "brutal": "狠话",
-    "credit": "Mr. Camden"
+    "credit": "Mr. Camden",
+    "charLimit": "{n} / 1000",
+    "tooLong": "每条消息最多 1000 个字符。"
   },
   "auth": {
-    "signupTitle": "领取 3 条免费消息",
+    "signupTitle": "获取 1 条免费消息",
     "signupSubtitle": "做好被泼冷水的准备。",
     "loginTitle": "欢迎回来",
     "loginSubtitle": "这里没人会哄你。",
@@ -91,22 +93,28 @@
     "signInLink": "登录",
     "signUpLink": "注册",
     "checkEmailTitle": "查看你的邮箱",
-    "checkEmailBody": "我们已向 {email} 发送确认链接。点击链接激活账号，领取 3 条免费消息。"
+    "checkEmailBody": "我们已将确认链接发送至 {email}。点击即可激活账户并领取 1 条免费消息。"
   },
   "pricing": {
     "brand": "MR. CAMDEN",
-    "title": "真话，论打买。",
-    "subtitle": "每条消息一点。",
+    "title": "真话，价格公道。",
+    "subtitle": "每条消息一个点数。",
     "credits": "{n} 点",
     "popular": "最受欢迎",
     "buy": "购买",
     "redirecting": "跳转中...",
     "errorGeneric": "出了点问题。",
     "tiers": {
-      "small": { "blurb": "小尝一口现实。" },
-      "medium": { "blurb": "给真正好奇的人。" },
-      "large": { "blurb": "给真正自知的人。" }
-    }
+      "entry": {
+        "blurb": "先尝点现实。"
+      },
+      "pro": {
+        "blurb": "给真正自知的人。"
+      }
+    },
+    "oneTime": " 一次性",
+    "perMonth": "/月",
+    "renews": "按月续订，可随时取消。"
   },
   "language": {
     "label": "语言"

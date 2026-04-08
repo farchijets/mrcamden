@@ -2,7 +2,7 @@
 
 create table if not exists public.profiles (
   id uuid primary key references auth.users(id) on delete cascade,
-  credits int not null default 3,
+  credits int not null default 1,
   created_at timestamptz not null default now()
 );
 
@@ -21,7 +21,7 @@ security definer
 set search_path = public
 as $$
 begin
-  insert into public.profiles (id, credits) values (new.id, 3)
+  insert into public.profiles (id, credits) values (new.id, 1)
   on conflict (id) do nothing;
   return new;
 end;
@@ -73,3 +73,9 @@ $$;
 
 grant execute on function public.deduct_credit(uuid) to authenticated;
 grant execute on function public.add_credits(uuid, int) to service_role;
+
+-- Idempotency log for Stripe webhook events
+create table if not exists public.stripe_events (
+  id text primary key,
+  processed_at timestamptz not null default now()
+);

@@ -3,17 +3,17 @@ import { useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/i18n/routing";
 
-type TierId = "small" | "medium" | "large";
+type TierId = "entry" | "pro";
 
 const TIERS: {
   id: TierId;
   price: string;
   credits: number;
+  recurring: boolean;
   popular?: boolean;
 }[] = [
-  { id: "small", price: "$1", credits: 10 },
-  { id: "medium", price: "$5", credits: 60, popular: true },
-  { id: "large", price: "$10", credits: 150 },
+  { id: "entry", price: "$5", credits: 10, recurring: false },
+  { id: "pro", price: "$35", credits: 100, recurring: true, popular: true },
 ];
 
 export default function PricingPage() {
@@ -40,7 +40,7 @@ export default function PricingPage() {
 
   return (
     <main className="min-h-screen px-6 py-20">
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-4xl mx-auto">
         <div className="text-center mb-16">
           <Link href="/" className="font-serif text-sm gold-text tracking-widest">
             {t("brand")}
@@ -51,7 +51,7 @@ export default function PricingPage() {
           <p className="text-white/60 mt-4">{t("subtitle")}</p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-2">
           {TIERS.map((tier) => (
             <div
               key={tier.id}
@@ -66,8 +66,16 @@ export default function PricingPage() {
                   {t("popular")}
                 </div>
               )}
-              <p className="font-serif text-5xl gold-text">{tier.price}</p>
+              <p className="font-serif text-5xl gold-text">
+                {tier.price}
+                <span className="text-xl text-white/60 font-sans not-italic ml-1">
+                  {tier.recurring ? t("perMonth") : t("oneTime")}
+                </span>
+              </p>
               <p className="text-2xl mt-2">{t("credits", { n: tier.credits })}</p>
+              {tier.recurring && (
+                <p className="text-sm text-gold/80 mt-1">{t("renews")}</p>
+              )}
               <p className="text-white/60 mt-2 italic">
                 {t(`tiers.${tier.id}.blurb`)}
               </p>

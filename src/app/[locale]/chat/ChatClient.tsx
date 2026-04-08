@@ -41,6 +41,7 @@ export default function ChatClient({
   async function send(e: React.FormEvent) {
     e.preventDefault();
     if (!input.trim() || loading || outOfCredits) return;
+    if (input.length > 1000) return;
 
     const userMsg: Msg = { role: "user", content: input.trim() };
     const newMessages = [...messages, userMsg];
@@ -180,6 +181,7 @@ export default function ChatClient({
           <input
             type="text"
             value={input}
+            maxLength={1000}
             onChange={(e) => setInput(e.target.value)}
             placeholder={
               outOfCredits ? t("outOfCreditsPlaceholder") : t("placeholder")
@@ -189,11 +191,26 @@ export default function ChatClient({
           />
           <button
             type="submit"
-            disabled={outOfCredits || loading || !input.trim()}
+            disabled={
+              outOfCredits || loading || !input.trim() || input.length > 1000
+            }
             className="bg-gold-gradient text-bg font-semibold px-6 rounded-sm disabled:opacity-30"
           >
             {t("send")}
           </button>
+        </div>
+        <div className="max-w-3xl mx-auto mt-2 text-right text-xs tabular-nums">
+          <span
+            className={
+              input.length >= 950
+                ? "text-red-400"
+                : input.length >= 900
+                  ? "text-gold"
+                  : "text-white/40"
+            }
+          >
+            {input.length} / 1000
+          </span>
         </div>
       </form>
     </main>

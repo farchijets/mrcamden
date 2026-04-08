@@ -7,7 +7,7 @@
     "tagline": "Est. Truthfully",
     "title": "MR. CAMDEN",
     "subtitle": "The AI that won't kiss your behind.",
-    "cta": "Try 3 Free Messages",
+    "cta": "Try 1 Free Message",
     "youAsked": "You asked:",
     "credit": "Mr. Camden",
     "footer": "No hedging. No hype. No \"great question!\"",
@@ -72,10 +72,12 @@
     "real": "Real",
     "blunt": "Blunt",
     "brutal": "Brutal",
-    "credit": "Mr. Camden"
+    "credit": "Mr. Camden",
+    "charLimit": "{n} / 1000",
+    "tooLong": "Messages are capped at 1000 characters."
   },
   "auth": {
-    "signupTitle": "Get 3 free messages",
+    "signupTitle": "Get 1 free message",
     "signupSubtitle": "Prepare to be unflattered.",
     "loginTitle": "Welcome back",
     "loginSubtitle": "No hand-holding here.",
@@ -91,11 +93,11 @@
     "signInLink": "Sign in",
     "signUpLink": "Sign up",
     "checkEmailTitle": "Check your email",
-    "checkEmailBody": "We sent a confirmation link to {email}. Click it to activate your account and claim your 3 free messages."
+    "checkEmailBody": "We sent a confirmation link to {email}. Click it to activate your account and claim your 1 free message."
   },
   "pricing": {
     "brand": "MR. CAMDEN",
-    "title": "Truth, by the dozen.",
+    "title": "Truth, priced fairly.",
     "subtitle": "One credit per message.",
     "credits": "{n} credits",
     "popular": "Most Popular",
@@ -103,10 +105,16 @@
     "redirecting": "Redirecting...",
     "errorGeneric": "Something broke.",
     "tiers": {
-      "small": { "blurb": "A taste of reality." },
-      "medium": { "blurb": "For the genuinely curious." },
-      "large": { "blurb": "For the truly self-aware." }
-    }
+      "entry": {
+        "blurb": "A taste of reality."
+      },
+      "pro": {
+        "blurb": "For the truly self-aware."
+      }
+    },
+    "oneTime": " one-time",
+    "perMonth": "/mo",
+    "renews": "Renews monthly. Cancel anytime."
   },
   "language": {
     "label": "Language"

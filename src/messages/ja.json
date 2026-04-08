@@ -7,7 +7,7 @@
     "tagline": "真実とともに創業",
     "title": "MR. CAMDEN",
     "subtitle": "ご機嫌取りをしないAI。",
-    "cta": "無料メッセージを3回試す",
+    "cta": "無料メッセージを1件試す",
     "youAsked": "あなたの質問：",
     "credit": "Mr. Camden",
     "footer": "ぼかさない。盛らない。「いい質問ですね！」も言わない。",
@@ -72,10 +72,12 @@
     "real": "率直",
     "blunt": "ずばり",
     "brutal": "容赦なし",
-    "credit": "Mr. Camden"
+    "credit": "Mr. Camden",
+    "charLimit": "{n} / 1000",
+    "tooLong": "メッセージは1000文字までです。"
   },
   "auth": {
-    "signupTitle": "無料メッセージを3回ゲット",
+    "signupTitle": "無料メッセージを1件受け取る",
     "signupSubtitle": "お世辞は期待するな。",
     "loginTitle": "おかえり",
     "loginSubtitle": "ここでは手取り足取りはしない。",
@@ -91,22 +93,28 @@
     "signInLink": "ログイン",
     "signUpLink": "登録",
     "checkEmailTitle": "メールを確認してください",
-    "checkEmailBody": "{email} に確認リンクを送信しました。クリックしてアカウントを有効化し、無料メッセージ3回を受け取ってください。"
+    "checkEmailBody": "{email} に確認リンクを送信しました。クリックしてアカウントを有効化し、無料メッセージを1件受け取ってください。"
   },
   "pricing": {
     "brand": "MR. CAMDEN",
-    "title": "真実を、まとめ買いで。",
-    "subtitle": "1メッセージにつき1クレジット。",
+    "title": "真実を、適正価格で。",
+    "subtitle": "メッセージごとに1クレジット。",
     "credits": "{n} クレジット",
     "popular": "一番人気",
     "buy": "購入",
     "redirecting": "リダイレクト中...",
     "errorGeneric": "何かが壊れました。",
     "tiers": {
-      "small": { "blurb": "現実のひと口。" },
-      "medium": { "blurb": "本気で知りたい人へ。" },
-      "large": { "blurb": "本当に自分を見つめる人へ。" }
-    }
+      "entry": {
+        "blurb": "現実を一口。"
+      },
+      "pro": {
+        "blurb": "本気で自覚のある人へ。"
+      }
+    },
+    "oneTime": " 一回払い",
+    "perMonth": "/月",
+    "renews": "毎月更新。いつでも解約可能。"
   },
   "language": {
     "label": "言語"

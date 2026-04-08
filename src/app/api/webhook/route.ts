@@ -23,17 +23,67 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: msg }, { status: 400 });
   }
 
-  if (event.type === "checkout.session.completed") {
-    const session = event.data.object as Stripe.Checkout.Session;
-    const userId = session.metadata?.user_id;
-    const credits = Number(session.metadata?.credits || 0);
-    if (userId && credits > 0) {
-      const supabase = createServiceClient();
-      await supabase.rpc("add_credits", {
-        p_user: userId,
-        p_amount: credits,
-      });
+  const supabase = createServiceClient();
+
+  // Idempotency: skip if we've already processed this event id
+  const { data: inserted, error: insertErr } = await supabase
+    .from("stripe_events")
+    .insert({ id: event.id })
+    .select("id")
+    .maybeSingle();
+  if (insertErr) {
+    // If duplicate key, treat as already processed
+    if (
+      typeof insertErr.code === "string" &&
+      insertErr.code === "23505"
+    ) {
+      return NextResponse.json({ received: true, duplicate: true });
     }
+    return NextResponse.json({ error: "db_error" }, { status: 500 });
+  }
+  if (!inserted) {
+    return NextResponse.json({ received: true, duplicate: true });
+  }
+
+  try {
+    if (event.type === "checkout.session.completed") {
+      const session = event.data.object as Stripe.Checkout.Session;
+      // Only grant credits here for one-time payments.
+      // Subscriptions are handled in invoice.payment_succeeded so there's
+      // one code path for first invoice and renewals.
+      if (session.mode === "payment") {
+        const userId = session.metadata?.user_id;
+        const credits = Number(session.metadata?.credits || 0);
+        if (userId && credits > 0) {
+          await supabase.rpc("add_credits", {
+            p_user: userId,
+            p_amount: credits,
+          });
+        }
+      }
+    } else if (event.type === "invoice.payment_succeeded") {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const invoice = event.data.object as any;
+      const rawSub = invoice.subscription;
+      const subId: string | undefined =
+        typeof rawSub === "string" ? rawSub : rawSub?.id;
+      if (subId) {
+        const sub = await stripe.subscriptions.retrieve(subId);
+        const userId = sub.metadata?.user_id;
+        const credits = Number(sub.metadata?.credits || 0);
+        if (userId && credits > 0) {
+          await supabase.rpc("add_credits", {
+            p_user: userId,
+            p_amount: credits,
+          });
+        }
+      }
+    } else if (event.type === "customer.subscription.deleted") {
+      // No-op: user keeps any credits already granted.
+    }
+  } catch (e) {
+    const msg = e instanceof Error ? e.message : "handler_error";
+    return NextResponse.json({ error: msg }, { status: 500 });
   }
 
   return NextResponse.json({ received: true });
