@@ -22,10 +22,16 @@ export default function HomeChatClient({ locale }: { locale: string }) {
   const [signupOpen, setSignupOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [showPricing, setShowPricing] = useState(false);
+  const [pricingThinking, setPricingThinking] = useState(false);
 
   function openPricing() {
-    setShowPricing(true);
     setMenuOpen(false);
+    if (showPricing || pricingThinking) return;
+    setPricingThinking(true);
+    setTimeout(() => {
+      setPricingThinking(false);
+      setShowPricing(true);
+    }, 900);
   }
 
   const truthLabel = tChat("real");
@@ -152,6 +158,23 @@ export default function HomeChatClient({ locale }: { locale: string }) {
               </div>
             </div>
           ))}
+          {pricingThinking && (
+            <div className="flex justify-start">
+              <div className="bg-white/[0.03] border border-white/10 px-5 py-4 rounded-sm">
+                <div className="flex gap-2">
+                  <span className="w-2 h-2 rounded-full bg-gold animate-pulse-dot" />
+                  <span
+                    className="w-2 h-2 rounded-full bg-gold animate-pulse-dot"
+                    style={{ animationDelay: "0.2s" }}
+                  />
+                  <span
+                    className="w-2 h-2 rounded-full bg-gold animate-pulse-dot"
+                    style={{ animationDelay: "0.4s" }}
+                  />
+                </div>
+              </div>
+            </div>
+          )}
           {showPricing && (
             <div className="flex justify-start">
               <div className="max-w-[85%] bg-gold/5 border border-gold/40 px-5 py-4 rounded-sm">
