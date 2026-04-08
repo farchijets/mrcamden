@@ -2,7 +2,8 @@
   "nav": {
     "pricing": "الأسعار",
     "login": "تسجيل الدخول",
-    "dashboard": "لوحة التحكم"
+    "dashboard": "لوحة التحكم",
+    "logout": "تسجيل الخروج"
   },
   "home": {
     "chatHome": {

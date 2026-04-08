@@ -2,7 +2,8 @@
   "nav": {
     "pricing": "Precios",
     "login": "Entrar",
-    "dashboard": "Panel"
+    "dashboard": "Panel",
+    "logout": "Cerrar sesión"
   },
   "home": {
     "chatHome": {

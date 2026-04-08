@@ -2,7 +2,8 @@
   "nav": {
     "pricing": "মূল্য",
     "login": "লগ ইন",
-    "dashboard": "ড্যাশবোর্ড"
+    "dashboard": "ড্যাশবোর্ড",
+    "logout": "লগ আউট"
   },
   "home": {
     "chatHome": {

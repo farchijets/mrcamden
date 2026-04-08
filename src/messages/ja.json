@@ -2,7 +2,8 @@
   "nav": {
     "pricing": "料金",
     "login": "ログイン",
-    "dashboard": "ダッシュボード"
+    "dashboard": "ダッシュボード",
+    "logout": "ログアウト"
   },
   "home": {
     "chatHome": {

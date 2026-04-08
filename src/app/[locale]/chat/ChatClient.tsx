@@ -4,6 +4,7 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import LanguageSwitcher from "../LanguageSwitcher";
 import BillingModal from "./BillingModal";
+import { createClient } from "@/lib/supabase/client";
 
 type Msg = { role: "user" | "assistant"; content: string };
 
@@ -17,7 +18,15 @@ export default function ChatClient({
   hasActiveSub: boolean;
 }) {
   const t = useTranslations("chat");
+  const tNav = useTranslations("nav");
   const tHome = useTranslations("home.chatHome");
+
+  async function signOut() {
+    const supabase = createClient();
+    await supabase.auth.signOut();
+    window.location.href = `/${locale}`;
+  }
+
   const [messages, setMessages] = useState<Msg[]>([]);
   const [input, setInput] = useState("");
   const [credits, setCredits] = useState(initialCredits);
@@ -137,6 +146,13 @@ export default function ChatClient({
             <span className="text-gold font-semibold">{credits}</span>
             <span className="ml-2 text-xs text-gold/70">+</span>
           </button>
+          <button
+            type="button"
+            onClick={signOut}
+            className="text-sm text-white/50 hover:text-gold transition px-2"
+          >
+            {tNav("logout")}
+          </button>
         </div>
 
         <div className="sm:hidden relative">
@@ -190,6 +206,16 @@ export default function ChatClient({
                   </span>
                   <LanguageSwitcher currentLocale={locale} />
                 </div>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setMenuOpen(false);
+                    signOut();
+                  }}
+                  className="w-full flex items-center justify-center px-3 py-3 rounded-sm border border-white/10 text-white/60 hover:text-gold hover:border-gold/40 transition text-sm"
+                >
+                  {tNav("logout")}
+                </button>
               </div>
             </>
           )}

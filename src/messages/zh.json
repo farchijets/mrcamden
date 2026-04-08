@@ -2,7 +2,8 @@
   "nav": {
     "pricing": "价格",
     "login": "登录",
-    "dashboard": "控制台"
+    "dashboard": "控制台",
+    "logout": "退出登录"
   },
   "home": {
     "chatHome": {
