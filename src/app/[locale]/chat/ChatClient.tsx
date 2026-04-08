@@ -22,12 +22,9 @@ export default function ChatClient({
   const [credits, setCredits] = useState(initialCredits);
   const [loading, setLoading] = useState(false);
   const [outOfCredits, setOutOfCredits] = useState(initialCredits <= 0);
-  // Slider position 0=Useless, 1=Soft, 2=Real (mapped to API truth 1/5/10)
-  const [truthPos, setTruthPos] = useState(2);
-  const TRUTH_API = [1, 5, 10] as const;
-  const truth = TRUTH_API[truthPos];
-  const TRUTH_KEYS = ["useless", "soft", "real"] as const;
-  const truthLabel = t(TRUTH_KEYS[truthPos]);
+  // Truth dial is locked to "Real" in chat — Useless/Soft are visual only.
+  const truth = 10;
+  const truthLabel = t("real");
   const [billingOpen, setBillingOpen] = useState(false);
 
   useEffect(() => {
@@ -196,14 +193,15 @@ export default function ChatClient({
             min={0}
             max={2}
             step={1}
-            value={truthPos}
-            onChange={(e) => setTruthPos(Number(e.target.value))}
-            className="truth-slider w-full"
+            value={2}
+            disabled
+            readOnly
+            className="truth-slider truth-slider--locked w-full"
           />
-          <div className="flex justify-between text-[10px] text-white/40 uppercase tracking-widest mt-1">
-            <span>{t("useless")}</span>
-            <span>{t("soft")}</span>
-            <span>{t("real")}</span>
+          <div className="flex justify-between text-[10px] uppercase tracking-widest mt-1">
+            <span className="text-white/20 line-through">{t("useless")}</span>
+            <span className="text-white/20 line-through">{t("soft")}</span>
+            <span className="text-gold">{t("real")}</span>
           </div>
         </div>
         <div className="max-w-3xl mx-auto flex gap-2 sm:gap-3">
