@@ -80,7 +80,7 @@
     "useless": "没用",
     "soft": "温和",
     "real": "残酷",
-    "notSavedDisclaimer": "此对话不会被保存。请仔细阅读。"
+    "notSavedDisclaimer": "私密对话 — 不保存，不分享。"
   },
   "auth": {
     "signupTitle": "获取 1 条免费消息",

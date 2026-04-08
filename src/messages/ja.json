@@ -80,7 +80,7 @@
     "useless": "無意味",
     "soft": "やさしめ",
     "real": "容赦なし",
-    "notSavedDisclaimer": "この会話は保存されません。よく読んでください。"
+    "notSavedDisclaimer": "プライベートチャット — 何も保存・共有されません。"
   },
   "auth": {
     "signupTitle": "無料メッセージを1件受け取る",

@@ -65,7 +65,7 @@
     "real": "Brutal"
   },
   "chat": {
-    "notSavedDisclaimer": "This conversation is not saved. Read carefully.",
+    "notSavedDisclaimer": "Private chat — nothing is saved or shared.",
     "credits": "Questions",
     "empty": "Ask. Brace yourself.",
     "placeholder": "Tell me what's on your mind...",

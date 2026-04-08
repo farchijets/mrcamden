@@ -21,34 +21,24 @@ export default function HomeChatClient({ locale }: { locale: string }) {
   const [input, setInput] = useState("");
   const [signupOpen, setSignupOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [showPricing, setShowPricing] = useState(false);
-  const [pricingThinking, setPricingThinking] = useState(false);
-  const [showLogin, setShowLogin] = useState(false);
-  const [loginThinking, setLoginThinking] = useState(false);
+  const [bubbles, setBubbles] = useState<("pricing" | "login")[]>([]);
+  const [thinking, setThinking] = useState<null | "pricing" | "login">(null);
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
   const [loginError, setLoginError] = useState<string | null>(null);
   const [loginLoading, setLoginLoading] = useState(false);
 
-  function openPricing() {
+  function openBubble(kind: "pricing" | "login") {
     setMenuOpen(false);
-    if (showPricing || pricingThinking) return;
-    setPricingThinking(true);
+    if (bubbles.includes(kind) || thinking) return;
+    setThinking(kind);
     setTimeout(() => {
-      setPricingThinking(false);
-      setShowPricing(true);
+      setThinking(null);
+      setBubbles((b) => [...b, kind]);
     }, 700);
   }
-
-  function openLogin() {
-    setMenuOpen(false);
-    if (showLogin || loginThinking) return;
-    setLoginThinking(true);
-    setTimeout(() => {
-      setLoginThinking(false);
-      setShowLogin(true);
-    }, 700);
-  }
+  const openPricing = () => openBubble("pricing");
+  const openLogin = () => openBubble("login");
 
   async function submitLogin(e: React.FormEvent) {
     e.preventDefault();
@@ -195,102 +185,76 @@ export default function HomeChatClient({ locale }: { locale: string }) {
               </div>
             </div>
           ))}
-          {pricingThinking && (
-            <div className="flex justify-start">
-              <div className="bg-white/[0.03] border border-white/10 px-5 py-4 rounded-sm">
-                <div className="flex gap-2">
-                  <span className="w-2 h-2 rounded-full bg-gold animate-pulse-dot" />
-                  <span
-                    className="w-2 h-2 rounded-full bg-gold animate-pulse-dot"
-                    style={{ animationDelay: "0.2s" }}
-                  />
-                  <span
-                    className="w-2 h-2 rounded-full bg-gold animate-pulse-dot"
-                    style={{ animationDelay: "0.4s" }}
-                  />
-                </div>
+          {bubbles.map((kind) => (
+            <div key={kind} className="flex justify-start">
+              <div className={`${kind === "login" ? "max-w-[85%] w-full sm:w-[28rem]" : "max-w-[85%]"} bg-white/[0.03] border border-white/10 px-5 py-3 rounded-sm`}>
+                <p className="text-xs uppercase tracking-widest text-gold mb-1">
+                  {tChat("credit")}
+                </p>
+                {kind === "pricing" && (
+                  <div className="flex flex-col gap-0.5">
+                    <button
+                      type="button"
+                      onClick={() => setSignupOpen(true)}
+                      className="group flex items-center gap-2 text-left text-white/90 hover:text-gold transition"
+                    >
+                      <span>{tHome("packEntry")}</span>
+                      <span aria-hidden className="text-gold/60 group-hover:text-gold transition-transform group-hover:translate-x-0.5">›</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setSignupOpen(true)}
+                      className="group flex items-center gap-2 text-left text-white/90 hover:text-gold transition"
+                    >
+                      <span>{tHome("packBulk")}</span>
+                      <span aria-hidden className="text-gold/60 group-hover:text-gold transition-transform group-hover:translate-x-0.5">›</span>
+                    </button>
+                  </div>
+                )}
+                {kind === "login" && (
+                  <>
+                    <p className="text-white/90 mb-3">{tHome("loginPrompt")}</p>
+                    <form onSubmit={submitLogin} className="space-y-2">
+                      <input
+                        type="email"
+                        required
+                        value={loginEmail}
+                        onChange={(e) => setLoginEmail(e.target.value)}
+                        placeholder="email@example.com"
+                        className="w-full bg-black/50 border border-white/10 rounded-sm px-3 py-2 text-white focus:border-gold outline-none text-sm"
+                      />
+                      <input
+                        type="password"
+                        required
+                        value={loginPassword}
+                        onChange={(e) => setLoginPassword(e.target.value)}
+                        placeholder="••••••••"
+                        className="w-full bg-black/50 border border-white/10 rounded-sm px-3 py-2 text-white focus:border-gold outline-none text-sm"
+                      />
+                      {loginError && (
+                        <p className="text-red-400 text-xs">{loginError}</p>
+                      )}
+                      <button
+                        type="submit"
+                        disabled={loginLoading}
+                        className="group flex items-center gap-2 text-white/90 hover:text-gold disabled:opacity-50 transition"
+                      >
+                        <span>{loginLoading ? tHome("loginSubmitting") : tHome("loginSubmit")}</span>
+                        <span aria-hidden className="text-gold/60 group-hover:text-gold transition-transform group-hover:translate-x-0.5">›</span>
+                      </button>
+                    </form>
+                  </>
+                )}
               </div>
             </div>
-          )}
-          {loginThinking && (
+          ))}
+          {thinking && (
             <div className="flex justify-start">
               <div className="bg-white/[0.03] border border-white/10 px-5 py-4 rounded-sm">
                 <div className="flex gap-2">
                   <span className="w-2 h-2 rounded-full bg-gold animate-pulse-dot" />
                   <span className="w-2 h-2 rounded-full bg-gold animate-pulse-dot" style={{ animationDelay: "0.2s" }} />
                   <span className="w-2 h-2 rounded-full bg-gold animate-pulse-dot" style={{ animationDelay: "0.4s" }} />
-                </div>
-              </div>
-            </div>
-          )}
-          {showLogin && (
-            <div className="flex justify-start">
-              <div className="max-w-[85%] w-full sm:w-[28rem] bg-white/[0.03] border border-white/10 px-5 py-3 rounded-sm">
-                <p className="text-xs uppercase tracking-widest text-gold mb-2">
-                  {tChat("credit")}
-                </p>
-                <p className="text-white/90 mb-3">{tHome("loginPrompt")}</p>
-                <form onSubmit={submitLogin} className="space-y-2">
-                  <input
-                    type="email"
-                    required
-                    value={loginEmail}
-                    onChange={(e) => setLoginEmail(e.target.value)}
-                    placeholder="email@example.com"
-                    className="w-full bg-black/50 border border-white/10 rounded-sm px-3 py-2 text-white focus:border-gold outline-none text-sm"
-                  />
-                  <input
-                    type="password"
-                    required
-                    value={loginPassword}
-                    onChange={(e) => setLoginPassword(e.target.value)}
-                    placeholder="••••••••"
-                    className="w-full bg-black/50 border border-white/10 rounded-sm px-3 py-2 text-white focus:border-gold outline-none text-sm"
-                  />
-                  {loginError && (
-                    <p className="text-red-400 text-xs">{loginError}</p>
-                  )}
-                  <button
-                    type="submit"
-                    disabled={loginLoading}
-                    className="group inline-flex items-center gap-2 text-gold/90 hover:text-gold disabled:opacity-50"
-                  >
-                    <span className="underline-offset-2 group-hover:underline">
-                      {loginLoading ? tHome("loginSubmitting") : tHome("loginSubmit")}
-                    </span>
-                    <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
-                  </button>
-                </form>
-              </div>
-            </div>
-          )}
-          {showPricing && (
-            <div className="flex justify-start">
-              <div className="max-w-[85%] bg-white/[0.03] border border-white/10 px-5 py-3 rounded-sm">
-                <p className="text-xs uppercase tracking-widest text-gold mb-1">
-                  {tChat("credit")}
-                </p>
-                <div className="flex flex-col gap-1">
-                  <button
-                    type="button"
-                    onClick={() => setSignupOpen(true)}
-                    className="group inline-flex items-center gap-2 text-gold/90 hover:text-gold text-left"
-                  >
-                    <span className="underline-offset-2 group-hover:underline">
-                      {tHome("packEntry")}
-                    </span>
-                    <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setSignupOpen(true)}
-                    className="group inline-flex items-center gap-2 text-gold/90 hover:text-gold text-left"
-                  >
-                    <span className="underline-offset-2 group-hover:underline">
-                      {tHome("packBulk")}
-                    </span>
-                    <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
-                  </button>
                 </div>
               </div>
             </div>
