@@ -98,7 +98,9 @@
     "signInLink": "ログイン",
     "signUpLink": "登録",
     "checkEmailTitle": "メールを確認してください",
-    "checkEmailBody": "{email} に確認リンクを送信しました。クリックしてアカウントを有効化し、無料メッセージを1件受け取ってください。"
+    "checkEmailBody": "{email} に確認リンクを送信しました。クリックしてアカウントを有効化し、無料メッセージを1件受け取ってください。",
+    "continueWithGoogle": "Google で続ける",
+    "orUseEmail": "またはメールを使用"
   },
   "language": {
     "label": "言語"

@@ -98,7 +98,9 @@
     "signInLink": "登录",
     "signUpLink": "注册",
     "checkEmailTitle": "查看你的邮箱",
-    "checkEmailBody": "我们已将确认链接发送至 {email}。点击即可激活账户并领取 1 条免费消息。"
+    "checkEmailBody": "我们已将确认链接发送至 {email}。点击即可激活账户并领取 1 条免费消息。",
+    "continueWithGoogle": "使用 Google 继续",
+    "orUseEmail": "或使用邮箱"
   },
   "language": {
     "label": "语言"

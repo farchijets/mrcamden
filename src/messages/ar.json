@@ -98,7 +98,9 @@
     "signInLink": "تسجيل الدخول",
     "signUpLink": "إنشاء حساب",
     "checkEmailTitle": "تحقق من بريدك",
-    "checkEmailBody": "أرسلنا رابط تأكيد إلى {email}. اضغط عليه لتفعيل حسابك والحصول على رسالتك المجانية."
+    "checkEmailBody": "أرسلنا رابط تأكيد إلى {email}. اضغط عليه لتفعيل حسابك والحصول على رسالتك المجانية.",
+    "continueWithGoogle": "المتابعة باستخدام Google",
+    "orUseEmail": "أو استخدم البريد الإلكتروني"
   },
   "language": {
     "label": "اللغة"

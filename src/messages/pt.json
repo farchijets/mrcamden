@@ -98,7 +98,9 @@
     "signInLink": "Entrar",
     "signUpLink": "Cadastrar",
     "checkEmailTitle": "Confira seu e-mail",
-    "checkEmailBody": "Enviamos um link de confirmação para {email}. Clique para ativar sua conta e resgatar sua 1 mensagem grátis."
+    "checkEmailBody": "Enviamos um link de confirmação para {email}. Clique para ativar sua conta e resgatar sua 1 mensagem grátis.",
+    "continueWithGoogle": "Continuar com Google",
+    "orUseEmail": "ou usar email"
   },
   "language": {
     "label": "Idioma"
