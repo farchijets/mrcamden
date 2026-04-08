@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import LanguageSwitcher from "./LanguageSwitcher";
@@ -19,6 +19,18 @@ export default function HomeChatClient({ locale }: { locale: string }) {
 
   const [input, setInput] = useState("");
   const [signupOpen, setSignupOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const truthLabel = tChat("real");
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMenuOpen(false);
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [menuOpen]);
 
   function trySend(e: React.FormEvent) {
     e.preventDefault();
@@ -36,11 +48,12 @@ export default function HomeChatClient({ locale }: { locale: string }) {
         >
           MR. CAMDEN
         </Link>
-        <div className="flex items-center gap-3 sm:gap-4">
+
+        <div className="hidden sm:flex items-center gap-4">
           <LanguageSwitcher currentLocale={locale} />
           <Link
             href="/pricing"
-            className="hidden sm:inline text-sm text-white/60 hover:text-gold transition"
+            className="text-sm text-white/60 hover:text-gold transition"
           >
             {tNav("pricing")}
           </Link>
@@ -50,6 +63,61 @@ export default function HomeChatClient({ locale }: { locale: string }) {
           >
             {tNav("login")}
           </Link>
+        </div>
+
+        <div className="sm:hidden relative">
+          <button
+            type="button"
+            onClick={() => setMenuOpen((v) => !v)}
+            aria-label="Open menu"
+            className="flex items-center justify-center w-11 h-11 rounded-full border border-gold/40 hover:border-gold/80 hover:bg-gold/5 transition"
+          >
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#e6c26e"
+              strokeWidth="1.8"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <circle cx="9" cy="11" r="6" />
+              <circle cx="9" cy="11" r="2" fill="#e6c26e" stroke="none" />
+              <path d="M15 14 Q19 18 17 22" />
+            </svg>
+          </button>
+
+          {menuOpen && (
+            <>
+              <div
+                className="fixed inset-0 z-30"
+                onClick={() => setMenuOpen(false)}
+              />
+              <div className="absolute right-0 mt-2 w-64 z-40 rounded-sm border border-gold/40 bg-bg/95 backdrop-blur-md shadow-2xl shadow-black/60 p-3 space-y-3 animate-fade-in-up">
+                <Link
+                  href="/login"
+                  onClick={() => setMenuOpen(false)}
+                  className="w-full flex items-center justify-center px-3 py-3 rounded-sm border border-gold/40 text-gold hover:bg-gold/5 transition"
+                >
+                  {tNav("login")}
+                </Link>
+                <Link
+                  href="/pricing"
+                  onClick={() => setMenuOpen(false)}
+                  className="w-full flex items-center justify-between px-3 py-3 rounded-sm border border-gold/30 hover:border-gold/70 hover:bg-gold/5 transition text-white/80"
+                >
+                  <span className="text-sm">{tNav("pricing")}</span>
+                </Link>
+                <div className="flex items-center justify-between px-3 py-2 rounded-sm border border-white/10">
+                  <span className="text-white/50 text-xs uppercase tracking-widest">
+                    Language
+                  </span>
+                  <LanguageSwitcher currentLocale={locale} />
+                </div>
+              </div>
+            </>
+          )}
         </div>
       </header>
 
@@ -83,6 +151,31 @@ export default function HomeChatClient({ locale }: { locale: string }) {
         onSubmit={trySend}
         className="border-t border-gold/20 px-3 sm:px-4 py-4 bg-bg"
       >
+        <div className="max-w-3xl mx-auto mb-3">
+          <div className="flex items-center justify-between mb-1 text-xs">
+            <span className="uppercase tracking-widest text-gold/80">
+              {tChat("truthDial")}
+            </span>
+            <span className="text-gold font-semibold uppercase tracking-widest">
+              {truthLabel}
+            </span>
+          </div>
+          <input
+            type="range"
+            min={0}
+            max={2}
+            step={1}
+            value={2}
+            disabled
+            readOnly
+            className="truth-slider truth-slider--locked w-full"
+          />
+          <div className="flex justify-between text-[10px] uppercase tracking-widest mt-1">
+            <span className="text-white/20 line-through">{tChat("useless")}</span>
+            <span className="text-white/20 line-through">{tChat("soft")}</span>
+            <span className="text-gold">{tChat("real")}</span>
+          </div>
+        </div>
         <div className="max-w-3xl mx-auto flex gap-2 sm:gap-3">
           <input
             type="text"
