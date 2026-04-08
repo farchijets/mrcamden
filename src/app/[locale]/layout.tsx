@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Playfair_Display, DM_Sans, Cinzel } from "next/font/google";
+import { Playfair_Display, DM_Sans, DM_Serif_Display } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -16,10 +16,10 @@ const dmSans = DM_Sans({
   variable: "--font-dmsans",
   display: "swap",
 });
-const cinzel = Cinzel({
+const dmSerifDisplay = DM_Serif_Display({
   subsets: ["latin"],
-  weight: ["600", "900"],
-  variable: "--font-cinzel",
+  weight: "400",
+  variable: "--font-dmserifdisplay",
   display: "swap",
 });
 
@@ -49,7 +49,7 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} dir={dir}>
       <body
-        className={`${playfair.variable} ${dmSans.variable} ${cinzel.variable} font-sans bg-bg text-white antialiased grain`}
+        className={`${playfair.variable} ${dmSans.variable} ${dmSerifDisplay.variable} font-sans bg-bg text-white antialiased grain`}
       >
         <NextIntlClientProvider locale={locale} messages={messages}>
           {children}
