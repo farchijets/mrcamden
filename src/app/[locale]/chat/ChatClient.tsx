@@ -303,7 +303,7 @@ export default function ChatClient({
               </div>
             </div>
           )}
-          {outOfCredits && (
+          {outOfCredits && !showUpsell && (
             <div className="mt-8 rounded-sm border border-gold/40 bg-gold/5 p-6 text-center">
               <p className="font-serif text-2xl gold-text mb-2">
                 {t("outOfCreditsTitle")}
