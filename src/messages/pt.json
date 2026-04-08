@@ -5,6 +5,15 @@
     "dashboard": "Painel"
   },
   "home": {
+    "chatHome": {
+      "sampleA": "Você não tem um negócio. Tem um sentimento. Constrói à noite e nos fins de semana. Se sobreviver, aí a gente fala sobre pedir demissão.",
+      "pricingPitch": "A verdade não é grátis. 10 créditos por $5, ou $35/mês por 100. Escolhe teu veneno.",
+      "upsellText": "Essa foi a grátis. Quer mais verdade? Compre créditos ou vá de Pro.",
+      "upsellBuy": "Comprar 10 créditos — $5",
+      "upsellPro": "Assinar — $35/mês",
+      "signupTitle": "Cadastre-se para receber sua resposta",
+      "signupSubtitle": "Uma mensagem grátis. Sem bajulação."
+    },
     "tagline": "Fundado na Verdade",
     "title": "MR. CAMDEN",
     "subtitle": "A IA que não vai passar a mão na sua cabeça.",

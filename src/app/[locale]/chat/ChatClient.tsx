@@ -17,11 +17,13 @@ export default function ChatClient({
   hasActiveSub: boolean;
 }) {
   const t = useTranslations("chat");
+  const tHome = useTranslations("home.chatHome");
   const [messages, setMessages] = useState<Msg[]>([]);
   const [input, setInput] = useState("");
   const [credits, setCredits] = useState(initialCredits);
   const [loading, setLoading] = useState(false);
   const [outOfCredits, setOutOfCredits] = useState(initialCredits <= 0);
+  const [showUpsell, setShowUpsell] = useState(false);
   // Truth dial is locked to "Real" in chat — Useless/Soft are visual only.
   const truth = 10;
   const truthLabel = t("real");
@@ -61,12 +63,11 @@ export default function ChatClient({
     });
   }, [messages, loading]);
 
-  async function send(e: React.FormEvent) {
-    e.preventDefault();
-    if (!input.trim() || loading || outOfCredits) return;
-    if (input.length > 1000) return;
+  async function doSend(text: string, opts?: { fromPending?: boolean }) {
+    if (!text.trim() || loading || outOfCredits) return;
+    if (text.length > 1000) return;
 
-    const userMsg: Msg = { role: "user", content: input.trim() };
+    const userMsg: Msg = { role: "user", content: text.trim() };
     const newMessages = [...messages, userMsg];
     setMessages(newMessages);
     setInput("");
@@ -92,11 +93,32 @@ export default function ChatClient({
           setCredits(data.credits);
           if (data.credits <= 0) setOutOfCredits(true);
         }
+        if (opts?.fromPending) setShowUpsell(true);
       }
     } finally {
       setLoading(false);
     }
   }
+
+  async function send(e: React.FormEvent) {
+    e.preventDefault();
+    await doSend(input);
+  }
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    let pending: string | null = null;
+    try {
+      pending = localStorage.getItem("mrcamden_pending_q");
+    } catch {}
+    if (pending && pending.trim()) {
+      try {
+        localStorage.removeItem("mrcamden_pending_q");
+      } catch {}
+      doSend(pending, { fromPending: true });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <main className="flex flex-col h-[100dvh]">
@@ -223,6 +245,34 @@ export default function ChatClient({
                     className="w-2 h-2 rounded-full bg-gold animate-pulse-dot"
                     style={{ animationDelay: "0.4s" }}
                   />
+                </div>
+              </div>
+            </div>
+          )}
+          {showUpsell && !loading && (
+            <div className="flex justify-start">
+              <div className="max-w-[85%] bg-gold/5 border border-gold/40 px-5 py-4 rounded-sm">
+                <p className="text-xs uppercase tracking-widest text-gold mb-2">
+                  {t("credit")}
+                </p>
+                <p className="whitespace-pre-wrap text-white/90 mb-4">
+                  {tHome("upsellText")}
+                </p>
+                <div className="flex flex-col sm:flex-row gap-2">
+                  <button
+                    type="button"
+                    onClick={() => setBillingOpen(true)}
+                    className="flex-1 bg-gold-gradient text-bg font-semibold px-4 py-3 rounded-sm"
+                  >
+                    {tHome("upsellBuy")}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setBillingOpen(true)}
+                    className="flex-1 border border-gold/60 text-gold hover:bg-gold/10 font-semibold px-4 py-3 rounded-sm"
+                  >
+                    {tHome("upsellPro")}
+                  </button>
                 </div>
               </div>
             </div>
