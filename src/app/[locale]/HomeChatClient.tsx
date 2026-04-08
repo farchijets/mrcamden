@@ -206,30 +206,13 @@ export default function HomeChatClient({ locale }: { locale: string }) {
         onSubmit={trySend}
         className="border-t border-gold/20 px-3 sm:px-4 py-4 bg-bg"
       >
-        <div className="max-w-3xl mx-auto mb-3">
-          <div className="flex items-center justify-between mb-1 text-xs">
-            <span className="uppercase tracking-widest text-gold/80">
-              {tChat("truthDial")}
-            </span>
-            <span className="text-gold font-semibold uppercase tracking-widest">
-              {truthLabel}
-            </span>
-          </div>
-          <input
-            type="range"
-            min={0}
-            max={2}
-            step={1}
-            value={2}
-            disabled
-            readOnly
-            className="truth-slider truth-slider--locked w-full"
-          />
-          <div className="flex justify-between text-[10px] uppercase tracking-widest mt-1">
-            <span className="text-white/20 line-through">{tChat("useless")}</span>
-            <span className="text-white/20 line-through">{tChat("soft")}</span>
-            <span className="text-gold">{tChat("real")}</span>
-          </div>
+        <div className="max-w-3xl mx-auto mb-3 flex items-center justify-center gap-2 text-xs">
+          <span className="uppercase tracking-widest text-white/50">
+            {tChat("truthDial")}:
+          </span>
+          <span className="uppercase tracking-widest text-gold font-semibold">
+            {truthLabel}
+          </span>
         </div>
         <div className="max-w-3xl mx-auto flex gap-2 sm:gap-3">
           <input
