@@ -1,7 +1,8 @@
 {
   "nav": {
     "pricing": "Precios",
-    "login": "Entrar"
+    "login": "Entrar",
+    "dashboard": "Panel"
   },
   "home": {
     "tagline": "Fundado con la Verdad",

@@ -1,7 +1,8 @@
 {
   "nav": {
     "pricing": "Tarifs",
-    "login": "Connexion"
+    "login": "Connexion",
+    "dashboard": "Tableau de bord"
   },
   "home": {
     "tagline": "Fondé sur la Vérité",

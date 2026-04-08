@@ -1,7 +1,8 @@
 {
   "nav": {
     "pricing": "Pricing",
-    "login": "Log in"
+    "login": "Log in",
+    "dashboard": "Dashboard"
   },
   "home": {
     "tagline": "Est. Truthfully",

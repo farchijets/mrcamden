@@ -1,7 +1,8 @@
 {
   "nav": {
     "pricing": "Цены",
-    "login": "Войти"
+    "login": "Войти",
+    "dashboard": "Панель"
   },
   "home": {
     "tagline": "Основано на правде",

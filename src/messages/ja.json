@@ -1,7 +1,8 @@
 {
   "nav": {
     "pricing": "料金",
-    "login": "ログイン"
+    "login": "ログイン",
+    "dashboard": "ダッシュボード"
   },
   "home": {
     "tagline": "真実とともに創業",

@@ -1,7 +1,10 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/routing";
+import { createClient } from "@/lib/supabase/server";
 import TruthDemo from "./TruthDemo";
 import LanguageSwitcher from "./LanguageSwitcher";
+
+export const dynamic = "force-dynamic";
 
 export default async function Home({
   params,
@@ -12,6 +15,12 @@ export default async function Home({
   const t = await getTranslations("home");
   const tNav = await getTranslations("nav");
 
+  const supabase = createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  const isAuthed = !!user;
+
   const sampleKeys = ["wasted", "ex", "amazing"] as const;
 
   return (
@@ -21,9 +30,15 @@ export default async function Home({
         <Link href="/pricing" className="text-white/60 hover:text-gold transition">
           {tNav("pricing")}
         </Link>
-        <Link href="/login" className="text-white/60 hover:text-gold transition">
-          {tNav("login")}
-        </Link>
+        {isAuthed ? (
+          <Link href="/chat" className="text-gold hover:brightness-125 transition">
+            {tNav("dashboard")}
+          </Link>
+        ) : (
+          <Link href="/login" className="text-white/60 hover:text-gold transition">
+            {tNav("login")}
+          </Link>
+        )}
       </nav>
       <div className="mx-auto max-w-5xl px-4 sm:px-6 pt-24 pb-16 sm:py-20 md:py-28">
         <div className="animate-fade-in-up text-center">
@@ -38,7 +53,7 @@ export default async function Home({
           </p>
           <div className="mt-10 px-2">
             <Link
-              href="/signup"
+              href={isAuthed ? "/chat" : "/signup"}
               className="inline-block w-full sm:w-auto rounded-sm border border-gold bg-gold-gradient px-8 py-4 font-semibold text-bg shadow-lg shadow-gold/20 transition hover:brightness-110"
             >
               {t("cta")}
