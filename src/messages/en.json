@@ -9,10 +9,10 @@
     "chatHome": {
       "greeting": "Can you handle the truth?",
       "sampleA": "You don't have a business. You have a feeling. Build it nights and weekends. If it survives, then we'll talk about quitting.",
-      "pricingPitch": "Truth isn't free. 10 credits for $5, or $35/month for 100. Pick your poison.",
-      "upsellText": "That was your free one. Want more truth? Buy credits or go Pro.",
-      "upsellBuy": "Buy 10 credits — $5",
-      "upsellPro": "Subscribe — $35/mo",
+      "pricingPitch": "Simple. 50 questions for $5. No subscriptions, no nonsense.",
+      "upsellText": "That was your free one. Want more truth?",
+      "upsellBuy": "50 questions — $5",
+      "upsellPro": "",
       "signupTitle": "Sign up to get your answer",
       "signupSubtitle": "One free message. No flattery."
     },
@@ -124,7 +124,7 @@
     "subtitle": "Pay for the truth.",
     "currentCredits": "Current credits",
     "entry": {
-      "title": "10 Credits",
+      "title": "50 Questions",
       "price": "$5",
       "unit": "one-time",
       "cta": "Buy"

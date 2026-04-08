@@ -9,10 +9,10 @@
     "chatHome": {
       "greeting": "Você aguenta a verdade?",
       "sampleA": "Você não tem um negócio. Tem um sentimento. Constrói à noite e nos fins de semana. Se sobreviver, aí a gente fala sobre pedir demissão.",
-      "pricingPitch": "A verdade não é grátis. 10 créditos por $5, ou $35/mês por 100. Escolhe teu veneno.",
-      "upsellText": "Essa foi a grátis. Quer mais verdade? Compre créditos ou vá de Pro.",
-      "upsellBuy": "Comprar 10 créditos — $5",
-      "upsellPro": "Assinar — $35/mês",
+      "pricingPitch": "Simples. 50 perguntas por $5. Sem assinaturas, sem enrolação.",
+      "upsellText": "Essa foi a grátis. Quer mais verdade?",
+      "upsellBuy": "50 perguntas — $5",
+      "upsellPro": "",
       "signupTitle": "Cadastre-se para receber sua resposta",
       "signupSubtitle": "Uma mensagem grátis. Sem bajulação."
     },
@@ -124,7 +124,7 @@
     "subtitle": "Pague pela verdade.",
     "currentCredits": "Créditos atuais",
     "entry": {
-      "title": "10 Créditos",
+      "title": "50 Perguntas",
       "price": "US$ 5",
       "unit": "pagamento único",
       "cta": "Comprar"

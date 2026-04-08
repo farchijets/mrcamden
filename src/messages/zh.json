@@ -9,10 +9,10 @@
     "chatHome": {
       "greeting": "你受得了真话吗？",
       "sampleA": "你没有生意，你只是有个感觉。利用晚上和周末去做。要是能活下来，我们再谈辞职。",
-      "pricingPitch": "真话不是免费的。$5 买 10 点数，或者 $35/月 拿 100 点。自己选。",
-      "upsellText": "免费的那条用完了。想要更多真话？买点数或升级 Pro。",
-      "upsellBuy": "购买 10 点数 — $5",
-      "upsellPro": "订阅 — $35/月",
+      "pricingPitch": "简单。$5 买 50 个问题。没有订阅，没有废话。",
+      "upsellText": "免费的那条用完了。想要更多真话？",
+      "upsellBuy": "50 个问题 — $5",
+      "upsellPro": "",
       "signupTitle": "注册以获取你的答案",
       "signupSubtitle": "一条免费消息。没有奉承。"
     },
@@ -124,7 +124,7 @@
     "subtitle": "为真相买单。",
     "currentCredits": "当前点数",
     "entry": {
-      "title": "10 点数",
+      "title": "50 个问题",
       "price": "$5",
       "unit": "一次性",
       "cta": "购买"

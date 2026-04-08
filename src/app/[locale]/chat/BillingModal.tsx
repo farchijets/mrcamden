@@ -14,7 +14,6 @@ export default function BillingModal({
   open,
   onClose,
   credits,
-  hasActiveSub,
   locale,
 }: Props) {
   const t = useTranslations("billing");
@@ -31,29 +30,13 @@ export default function BillingModal({
 
   if (!open) return null;
 
-  async function buy(pack: "entry" | "pro") {
+  async function buy(pack: "entry") {
     setLoading(pack);
     try {
       const res = await fetch("/api/checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ pack, locale }),
-      });
-      const data = await res.json();
-      if (data.url) window.location.href = data.url;
-      else setLoading(null);
-    } catch {
-      setLoading(null);
-    }
-  }
-
-  async function manage() {
-    setLoading("manage");
-    try {
-      const res = await fetch("/api/billing/portal", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ locale }),
       });
       const data = await res.json();
       if (data.url) window.location.href = data.url;
@@ -90,74 +73,25 @@ export default function BillingModal({
           </p>
         </div>
 
-        <div className="space-y-4">
-          {/* Entry pack */}
-          <div className="border border-white/15 rounded-sm p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4">
-            <div>
-              <p className="font-serif text-xl text-white">
-                {t("entry.title")}
-              </p>
-              <p className="text-gold font-semibold mt-1">
-                {t("entry.price")}{" "}
-                <span className="text-white/50 text-sm font-normal">
-                  {t("entry.unit")}
-                </span>
-              </p>
-            </div>
-            <button
-              type="button"
-              disabled={loading !== null}
-              onClick={() => buy("entry")}
-              className="bg-white/10 hover:bg-white/20 border border-gold/40 text-white font-semibold px-5 py-3 rounded-sm disabled:opacity-40 w-full sm:w-auto"
-            >
-              {loading === "entry" ? t("loading") : t("entry.cta")}
-            </button>
-          </div>
-
-          {/* Pro sub */}
-          <div className="relative border-2 border-gold rounded-sm p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4 bg-gold/5">
-            <span className="absolute -top-3 left-5 bg-gold-gradient text-bg text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-sm">
-              {t("pro.badge")}
-            </span>
-            <div>
-              <p className="font-serif text-xl gold-text">{t("pro.title")}</p>
-              <p className="text-gold font-semibold mt-1">
-                {t("pro.price")}{" "}
-                <span className="text-white/50 text-sm font-normal">
-                  {t("pro.unit")}
-                </span>
-              </p>
-              <p className="text-xs text-white/60 mt-1">{t("pro.credits")}</p>
-            </div>
-            {hasActiveSub ? (
-              <span className="text-xs uppercase tracking-widest text-gold border border-gold/60 px-3 py-2 rounded-sm">
-                {t("pro.current")}
+        <div className="border-2 border-gold rounded-sm p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-gold/5">
+          <div>
+            <p className="font-serif text-2xl gold-text">{t("entry.title")}</p>
+            <p className="text-gold font-semibold mt-1">
+              {t("entry.price")}{" "}
+              <span className="text-white/50 text-sm font-normal">
+                {t("entry.unit")}
               </span>
-            ) : (
-              <button
-                type="button"
-                disabled={loading !== null}
-                onClick={() => buy("pro")}
-                className="bg-gold-gradient text-bg font-semibold px-5 py-3 rounded-sm disabled:opacity-40 w-full sm:w-auto"
-              >
-                {loading === "pro" ? t("loading") : t("pro.cta")}
-              </button>
-            )}
+            </p>
           </div>
+          <button
+            type="button"
+            disabled={loading !== null}
+            onClick={() => buy("entry")}
+            className="bg-gold-gradient text-bg font-semibold px-6 py-3 rounded-sm disabled:opacity-40 w-full sm:w-auto"
+          >
+            {loading === "entry" ? t("loading") : t("entry.cta")}
+          </button>
         </div>
-
-        {hasActiveSub && (
-          <div className="mt-6 pt-5 border-t border-white/10 text-center">
-            <button
-              type="button"
-              disabled={loading !== null}
-              onClick={manage}
-              className="text-sm text-gold hover:underline disabled:opacity-40"
-            >
-              {loading === "manage" ? t("loading") : t("manage")}
-            </button>
-          </div>
-        )}
       </div>
     </div>
   );

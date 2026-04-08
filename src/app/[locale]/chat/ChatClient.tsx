@@ -286,22 +286,13 @@ export default function ChatClient({
                 <p className="whitespace-pre-wrap text-white/90 mb-3">
                   {tHome("upsellText")}
                 </p>
-                <div className="flex flex-col gap-1">
-                  <button
-                    type="button"
-                    onClick={() => setBillingOpen(true)}
-                    className="text-gold hover:underline text-left text-sm"
-                  >
-                    {tHome("upsellBuy")}
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setBillingOpen(true)}
-                    className="text-gold hover:underline text-left text-sm"
-                  >
-                    {tHome("upsellPro")}
-                  </button>
-                </div>
+                <button
+                  type="button"
+                  onClick={() => setBillingOpen(true)}
+                  className="text-gold hover:underline text-left text-sm"
+                >
+                  {tHome("upsellBuy")}
+                </button>
               </div>
             </div>
           )}

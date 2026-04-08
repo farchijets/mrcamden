@@ -20,6 +20,18 @@ export default function HomeChatClient({ locale }: { locale: string }) {
   const [input, setInput] = useState("");
   const [signupOpen, setSignupOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [showPricing, setShowPricing] = useState(false);
+  const [pricingThinking, setPricingThinking] = useState(false);
+
+  function openPricing() {
+    setMenuOpen(false);
+    if (showPricing || pricingThinking) return;
+    setPricingThinking(true);
+    setTimeout(() => {
+      setPricingThinking(false);
+      setShowPricing(true);
+    }, 700);
+  }
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -47,6 +59,13 @@ export default function HomeChatClient({ locale }: { locale: string }) {
 
         <div className="hidden sm:flex items-center gap-4">
           <LanguageSwitcher currentLocale={locale} />
+          <button
+            type="button"
+            onClick={openPricing}
+            className="text-sm text-white/60 hover:text-gold transition px-2"
+          >
+            {tNav("pricing")}
+          </button>
           <Link
             href="/login"
             className="text-sm border border-gold/30 hover:border-gold/70 hover:bg-gold/5 rounded-sm px-3 py-2 min-h-[44px] flex items-center text-gold"
@@ -92,6 +111,13 @@ export default function HomeChatClient({ locale }: { locale: string }) {
                 >
                   {tNav("login")}
                 </Link>
+                <button
+                  type="button"
+                  onClick={openPricing}
+                  className="w-full flex items-center justify-center px-3 py-3 rounded-sm border border-white/10 text-white/60 hover:text-gold hover:border-gold/40 transition text-sm"
+                >
+                  {tNav("pricing")}
+                </button>
                 <div className="flex items-center justify-between px-3 py-2 rounded-sm border border-white/10">
                   <span className="text-white/50 text-xs uppercase tracking-widest">
                     Language
@@ -128,6 +154,35 @@ export default function HomeChatClient({ locale }: { locale: string }) {
               </div>
             </div>
           ))}
+          {pricingThinking && (
+            <div className="flex justify-start">
+              <div className="bg-white/[0.03] border border-white/10 px-5 py-4 rounded-sm">
+                <div className="flex gap-2">
+                  <span className="w-2 h-2 rounded-full bg-gold animate-pulse-dot" />
+                  <span
+                    className="w-2 h-2 rounded-full bg-gold animate-pulse-dot"
+                    style={{ animationDelay: "0.2s" }}
+                  />
+                  <span
+                    className="w-2 h-2 rounded-full bg-gold animate-pulse-dot"
+                    style={{ animationDelay: "0.4s" }}
+                  />
+                </div>
+              </div>
+            </div>
+          )}
+          {showPricing && (
+            <div className="flex justify-start">
+              <div className="max-w-[85%] bg-white/[0.03] border border-white/10 px-5 py-3 rounded-sm">
+                <p className="text-xs uppercase tracking-widest text-gold mb-1">
+                  {tChat("credit")}
+                </p>
+                <p className="whitespace-pre-wrap text-white/90">
+                  {tHome("pricingPitch")}
+                </p>
+              </div>
+            </div>
+          )}
         </div>
       </div>
 

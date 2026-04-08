@@ -7,13 +7,8 @@ export const runtime = "nodejs";
 const PACKS = {
   entry: {
     priceEnv: "STRIPE_PRICE_ENTRY",
-    credits: 10,
+    credits: 50,
     mode: "payment" as const,
-  },
-  pro: {
-    priceEnv: "STRIPE_PRICE_PRO",
-    credits: 100,
-    mode: "subscription" as const,
   },
 } as const;
 
@@ -75,15 +70,6 @@ export async function POST(req: Request) {
       params.customer = profile.stripe_customer_id;
     } else if (user.email) {
       params.customer_email = user.email;
-    }
-
-    if (cfg.mode === "subscription") {
-      params.subscription_data = {
-        metadata: {
-          user_id: user.id,
-          credits: String(cfg.credits),
-        },
-      };
     }
 
     const session = await stripe.checkout.sessions.create(params);
