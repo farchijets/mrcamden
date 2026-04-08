@@ -7,6 +7,7 @@
   },
   "home": {
     "chatHome": {
+      "greeting": "Can you handle the truth?",
       "sampleA": "You don't have a business. You have a feeling. Build it nights and weekends. If it survives, then we'll talk about quitting.",
       "pricingPitch": "Truth isn't free. 10 credits for $5, or $35/month for 100. Pick your poison.",
       "upsellText": "That was your free one. Want more truth? Buy credits or go Pro.",

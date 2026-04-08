@@ -7,6 +7,7 @@
   },
   "home": {
     "chatHome": {
+      "greeting": "Você aguenta a verdade?",
       "sampleA": "Você não tem um negócio. Tem um sentimento. Constrói à noite e nos fins de semana. Se sobreviver, aí a gente fala sobre pedir demissão.",
       "pricingPitch": "A verdade não é grátis. 10 créditos por $5, ou $35/mês por 100. Escolhe teu veneno.",
       "upsellText": "Essa foi a grátis. Quer mais verdade? Compre créditos ou vá de Pro.",

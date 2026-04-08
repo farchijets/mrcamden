@@ -10,12 +10,10 @@ type Msg = { role: "user" | "assistant"; content: string };
 export default function HomeChatClient({ locale }: { locale: string }) {
   const tNav = useTranslations("nav");
   const tChat = useTranslations("chat");
-  const tDemo = useTranslations("demo");
   const tHome = useTranslations("home.chatHome");
 
   const seeded: Msg[] = [
-    { role: "user", content: tDemo("question") },
-    { role: "assistant", content: tHome("sampleA") },
+    { role: "assistant", content: tHome("greeting") },
   ];
 
   const [input, setInput] = useState("");

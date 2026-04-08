@@ -7,6 +7,7 @@
   },
   "home": {
     "chatHome": {
+      "greeting": "Tu peux encaisser la vérité ?",
       "sampleA": "Tu n'as pas une entreprise, tu as un sentiment. Construis-la le soir et le week-end. Si ça survit, là on parlera de démissionner.",
       "pricingPitch": "La vérité n'est pas gratuite. 10 crédits pour 5 $, ou 35 $/mois pour 100. Choisis ton poison.",
       "upsellText": "C'était ton message gratuit. Tu veux plus de vérité ? Achète des crédits ou passe au Pro.",

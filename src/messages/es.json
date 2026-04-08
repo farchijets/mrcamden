@@ -7,6 +7,7 @@
   },
   "home": {
     "chatHome": {
+      "greeting": "¿Puedes con la verdad?",
       "sampleA": "No tienes un negocio. Tienes un sentimiento. Constrúyelo por las noches y los fines de semana. Si sobrevive, entonces hablamos de renunciar.",
       "pricingPitch": "La verdad no es gratis. 10 créditos por $5, o $35/mes por 100. Elige tu veneno.",
       "upsellText": "Esa fue la gratis. ¿Quieres más verdad? Compra créditos o pásate a Pro.",
