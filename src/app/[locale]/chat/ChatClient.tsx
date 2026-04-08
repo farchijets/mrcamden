@@ -340,22 +340,22 @@ export default function ChatClient({
             {t("send")}
           </button>
         </div>
-        <div className="max-w-3xl mx-auto mt-2 text-right text-xs tabular-nums">
+        <div className="max-w-3xl mx-auto mt-2 flex items-center justify-between gap-3">
+          <p className="text-[13px] text-white/40 italic">
+            {t("notSavedDisclaimer")}
+          </p>
           <span
-            className={
+            className={`text-xs tabular-nums ${
               input.length >= 950
                 ? "text-red-400"
                 : input.length >= 900
                   ? "text-gold"
                   : "text-white/40"
-            }
+            }`}
           >
             {input.length} / 1000
           </span>
         </div>
-        <p className="max-w-3xl mx-auto mt-1 text-center text-[11px] text-white/40 italic">
-          {t("notSavedDisclaimer")}
-        </p>
       </form>
     </main>
   );
