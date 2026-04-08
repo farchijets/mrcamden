@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Playfair_Display, DM_Sans } from "next/font/google";
+import { Playfair_Display, DM_Sans, Pinyon_Script } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -14,6 +14,12 @@ const playfair = Playfair_Display({
 const dmSans = DM_Sans({
   subsets: ["latin"],
   variable: "--font-dmsans",
+  display: "swap",
+});
+const pinyon = Pinyon_Script({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-pinyon",
   display: "swap",
 });
 
@@ -43,7 +49,7 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} dir={dir}>
       <body
-        className={`${playfair.variable} ${dmSans.variable} font-sans bg-bg text-white antialiased grain`}
+        className={`${playfair.variable} ${dmSans.variable} ${pinyon.variable} font-sans bg-bg text-white antialiased grain`}
       >
         <NextIntlClientProvider locale={locale} messages={messages}>
           {children}
