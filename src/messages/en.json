@@ -46,7 +46,7 @@
     },
     "useless": "Useless",
     "soft": "Soft",
-    "real": "Real"
+    "real": "Brutal"
   },
   "chat": {
     "credits": "Credits",
@@ -63,7 +63,7 @@
     "tooLong": "Messages are capped at 1000 characters.",
     "useless": "Useless",
     "soft": "Soft",
-    "real": "Real"
+    "real": "Brutal"
   },
   "auth": {
     "signupTitle": "Get 1 free message",

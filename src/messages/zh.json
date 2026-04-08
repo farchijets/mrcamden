@@ -46,7 +46,7 @@
     },
     "useless": "没用",
     "soft": "温和",
-    "real": "真话"
+    "real": "残酷"
   },
   "chat": {
     "credits": "点数",
@@ -63,7 +63,7 @@
     "tooLong": "每条消息最多 1000 个字符。",
     "useless": "没用",
     "soft": "温和",
-    "real": "真话"
+    "real": "残酷"
   },
   "auth": {
     "signupTitle": "获取 1 条免费消息",

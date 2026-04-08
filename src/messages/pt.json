@@ -46,7 +46,7 @@
     },
     "useless": "Inútil",
     "soft": "Suave",
-    "real": "Real"
+    "real": "Brutal"
   },
   "chat": {
     "credits": "Créditos",
@@ -63,7 +63,7 @@
     "tooLong": "As mensagens são limitadas a 1000 caracteres.",
     "useless": "Inútil",
     "soft": "Suave",
-    "real": "Real"
+    "real": "Brutal"
   },
   "auth": {
     "signupTitle": "Ganhe 1 mensagem grátis",
